@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= content_for?(:title) ? yield(:title) + " - " : "" %>Dayr</title>
+	
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- CSS -->
+	<%= stylesheet_link_tag 'application' %>
+	
+	<%= csrf_meta_tag %>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<%= yield(:head) %>
+	
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-34996827-1']);
+	  _gaq.push(['_setDomainName', 'dayr.me']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+</head>
+<body>
+	
+	<!-- Navbar -->
+  <%= render :partial => 'layouts/navbar' %>
+
+  <div class="container">
+    <div class="content-wrap">
+    	<div class="row">
+    	
+    	  <!-- Content -->
+    		<div class="span8">
+    			<%= yield %>
+    		</div>
+		
+    		<!-- Sidebar -->
+    		<div class="offset1 span3">
+    		  <%= yield :sb %>
+    		</div>
+    		
+    	</div>
+  	</div>
+  </div>
+
+  <!-- Javascripts -->
+  <%= javascript_include_tag 'application' %>
+  <%= yield(:js) %>
+
+</body>
+</html>
+
+
+<% if false %>
+
+<div id="hd" class="container">
+	<div id="hd_logo_rays"></div>
+	<div class="span-12">
+		<a href="/"><img id="hd_logo" src="/images/dayr/hd_logo.png" title="Dayr" /></a>
+	</div>
+	<div class="span-12 last">
+		<ul id="hd_nav">
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "About", about_path %></li>
+			
+			<% if user_signed_in? && current_user.admin? %>
+			<li><%= link_to "Challenges", challenges_path %></li>
+			<li><%= link_to "Assignments", assignments_path %></li>
+			<% end %>
+			
+			<% if user_signed_in? %>
+				<li><%= link_to "Logout", destroy_user_session_path %></li>
+			<% else %>
+				<li><%= link_to "Join", new_user_registration_path %></li>
+				<li class="last"><%= link_to "Login", new_user_session_path %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<div id="content" class="container container_wrap">
+	<div class="span-18">
+		<div class="span-18 last">
+			<%= yield %>
+		</div>
+		<div class="span-18 last">
+			<%= yield(:comments) %>
+		</div>
+	</div>
+	<div class="span-6 last">
+		<div style="margin-left:15px">
+			<%= yield(:sb) %>
+		</div>
+	</div>
+</div>
+
+<% end %>

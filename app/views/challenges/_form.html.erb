@@ -1,0 +1,88 @@
+<% if false %>
+  
+  <%= form_for(@challenge) do |f| %>
+    <% if @challenge.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+        <ul>
+        <% @challenge.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= form_for @challenge, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+
+	<% if @challenge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+      <ul>
+        <% @challenge.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="control-group">
+  	<%= f.label :name, :class => 'control-label' %>
+  	<div class="controls">
+    	<%= f.text_field :name, :class => 'span6' %>
+    </div>
+  </div>
+  
+	<div class="control-group">
+	    <%= f.label :description, :class => 'control-label' %>	
+      <div class="controls">
+  	    <%= f.text_area :description, :class => 'span6', :rows => 15 %>
+	    </div>
+	</div>
+	
+	<div class="control-group">
+	    <%= f.label :image_url, :class => 'control-label' %>	
+	    <div class="controls">
+  	    <%= f.text_field :image_url, :class => 'span6' %>
+  	  </div>
+	</div>
+	
+	<div class="control-group">
+	    <%= f.label :image_attribution_url, :class => 'control-label' %>	
+	    <div class="controls">
+  	    <%= f.text_field :image_attribution_url, :class => 'span6' %>
+  	  </div>
+	</div>
+	
+	<div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+	    <%= f.select :category, options_for_select(Challenge::CATEGORIES), {}, :class => 'span4' %>
+	  </div>
+	</div>
+	<div class="control-group">
+	  <div class="controls">
+	    <% if @challenge.new_record? %>
+	      <%= f.submit('Create', :class => 'btn btn-primary') %>
+	      <%= link_to 'Cancel', challenges_path, :class => 'btn' %>
+	    <% else %>
+        <%= f.submit('Update', :class => "btn btn-primary") %>
+        <%= link_to 'Cancel', challenge_path(@challenge), :class => 'btn' %>
+      <% end %>
+  	</div>
+  </div>
+  
+<% end %>
+
+<% content_for :sb do %>
+	<h2>Formatting the description</h2>
+	<%= render :partial => "layouts/textile_examples" %>
+<% end %>

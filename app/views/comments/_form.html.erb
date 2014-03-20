@@ -1,0 +1,9 @@
+<%= form_for([ @assignment, Comment.new ], :html => { :multipart => true, :class => 'form-vertical' }) do |f| %>
+  <%= f.hidden_field :parent_id, :value => parent_id  %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :commentable_id, :value => @assignment.id %>
+	<%= f.hidden_field :commentable_type, :value => @assignment.class.name  %>
+	
+  <%= f.text_area :body, :rows => 3, :id=>"comment", :class => "span7" %>
+  <%= f.submit "Reply", :class => 'btn' %>
+<% end %>

@@ -1,0 +1,45 @@
+<% content_for :title do %>Assignments<% end %>
+
+<% content_for :head do %>
+  <style>
+    .assignment-actions {
+      display:none;
+      margin-left:20px;
+    }
+    .assignment-date {
+      float:left;
+      width:100px;
+      color:#999;
+    }
+    ul.assignments > li {
+      clear:both;
+      padding:5px;
+    }
+      ul.assignments > li:hover > .assignment-actions {
+        display:inline;
+      }
+    
+  </style>
+<% end %>
+
+<% if can? :manage, Assignment %>
+  <div class="page-actions">
+    <%= link_to 'New assignment', new_assignment_path, :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+<h1>Challenges</h1>
+
+<ul class="bulletless assignments">
+  <% @assignments.each do |assignment| %>
+    <li>
+      <span class="assignment-date"><%=h assignment.date.strftime("%b %d, %Y") %></span>
+      <%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %>
+      <% if can? :manage, Assignment %>
+        <span class="assignment-actions">
+          <%= link_to 'Edit', edit_assignment_path(assignment) %> &nbsp;
+          <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %>
+        </span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

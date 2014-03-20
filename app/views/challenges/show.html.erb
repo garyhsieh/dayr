@@ -1,0 +1,56 @@
+<h1>
+  <%=h @challenge.name %> (test view)
+</h1>
+
+<section class="row">
+	
+	<div class="span3">
+		<div class="row">
+		  
+		  <div class="span3">
+		    <div class="challenge-box">
+		      
+		      <!-- Challenge date -->
+		      <div class="challenge-date">
+    			  DATE
+  			  </div>
+		      
+		      <!-- Challenge button -->
+      		<a class="btn btn-large challenge-button disabled">I did this!</a>
+      		
+      	</div>
+    	</div>
+    
+      <!-- Challenge social buttons -->
+  		<div class="span1" style="padding-top:2px;text-align:center">
+    	FB
+    	</div>
+    	<div class="span1" style="padding-top:2px;text-align:center">
+    	TWEET
+    	</div>
+    	<div class="span1" style="padding-top:2px;text-align:center">
+ 		+1
+    	</div>
+    	
+		</div>
+	</div>
+	
+	<!-- Challenge image -->
+	<div class="span5">
+	  <div class="challenge-image">
+  	  <%= image_tag (@challenge.image_url || "http://placehold.it/380x285", :width => '380') %>
+  	  <% attribution = @challenge.image_attribution_url %>
+  	  <% if attribution %>
+  	    <%= link_to raw(attribution.split('/')[2] + ' &raquo;'), attribution, :class => 'challenge-image-attribution' %>
+  	  <% end %>
+	  </div>
+	</div>
+
+  <div class="span8" style="margin-top:20px;">
+    <h2>Description</h2>
+  
+    <div class="challenge-description">
+      <%= raw textilize @challenge.description %>
+    </div>
+  </div>
+</section>

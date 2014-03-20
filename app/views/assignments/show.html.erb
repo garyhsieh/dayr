@@ -1,0 +1,133 @@
+<% if can? :manage, Assignment %>
+  <div class="page-actions">
+    <%= link_to "Edit", edit_assignment_path(@assignment), :class => 'btn' %>
+  </div>
+<% end %>
+<h1>
+  <%=h @assignment.challenge.name %>
+</h1>
+
+<section class="row">
+	
+	<div class="span3">
+		<div class="row">
+		  
+		  <div class="span3">
+		    <div class="challenge-box">
+		      
+		      <!-- Challenge date -->
+		      <div class="challenge-date">
+    			  <%= raw @assignment.date.strftime("<b>%b %d</b><br/>%Y") %>
+  			  </div>
+		      
+		      <!-- Challenge button -->
+          <% if user_signed_in? %>
+      			<% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
+      			  <%= link_to "I did this!", complete_assignment_path(@assignment), 
+      					:method => :post,
+    				    :class => 'btn btn-primary btn-large challenge-button' %>
+      			<% else %>
+      				<a class="btn btn-large challenge-button disabled">I did this!</a>
+      			<% end %>
+      		<% else %>
+        	  <%= link_to "Log in to Dayr!", new_user_session_path, 
+        	    :class => "btn btn-large btn-primary challenge-button" %>
+      		<% end %>
+      		
+      	</div>
+    	</div>
+    
+      <!-- Challenge social buttons -->
+  		<div class="span1" style="padding-top:2px;">
+    		<iframe src="http://www.facebook.com/plugins/like.php?app_id=184042905000148&amp;href=<%= CGI.escape(assignment_url(@assignment)) %>&amp;send=false&amp;layout=box_count&amp;width=47&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:70px;" allowTransparency="true"></iframe>
+    	</div>
+    	<div class="span1">
+    		<!-- Tweet button -->
+    		<a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= assignment_url(@assignment) %>" data-text="<%= @assignment.challenge.name %> - Dayr" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    	</div>
+    	<div class="span1" style="padding-top:2px;">
+    		<!-- +1 button -->
+    		<div class="g-plusone" data-size="tall" data-href="<%= assignment_url(@assignment) %>"></div>
+    		<script type="text/javascript">
+    		  (function() {
+    		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    		    po.src = 'https://apis.google.com/js/plusone.js';
+    		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    		  })();
+    		</script>
+    	</div>
+    	
+		</div>
+	</div>
+	
+	<!-- Challenge image -->
+	<div class="span5">
+	  <div class="challenge-image">
+  	  <%= image_tag (@assignment.challenge.image_url || "http://placehold.it/380x285", :width => '380') %>
+  	  <% attribution = @assignment.challenge.image_attribution_url %>
+  	  <% if attribution %>
+  	    <%= link_to raw(attribution.split('/')[2] + ' &raquo;'), attribution, :class => 'challenge-image-attribution' %>
+  	  <% end %>
+	  </div>
+	</div>
+
+  <div class="span8" style="margin-top:20px;">
+    <h2>Description</h2>
+  
+    <div class="challenge-description">
+      <%= raw textilize @assignment.challenge.description %>
+    </div>
+  </div>
+</section>
+
+<hr/>
+
+<section>
+
+  <h2 id="comments_count">
+  	<% if @comments != nil && @comments.length != 0 %>
+  		<%= pluralize(@comments.count, "Comment") %>	
+  	<% else %>
+  		Leave a comment...
+  	<% end %>
+  </h2>
+
+	<% if @comments %>
+		<%= render :partial => "comments/threaded_view", :locals => { :comments => @comments } %>
+	<% end %>
+
+  <% if user_signed_in? %>
+  	<%= form_for([@assignment,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
+    	<%= f.hidden_field :user_id, :value=>current_user.id %>
+    	<%= f.hidden_field :commentable_id, :value=>@assignment.id %>
+    	<%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
+    	
+    	<%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5 %>
+    	<%= f.submit "Add comment", :class => 'btn' %>
+  	<% end %>
+  <% else %>
+  	  <%= link_to "Log in to comment", new_user_session_path %> 	
+  <% end %>
+
+</section>
+
+<% content_for :sb do %>
+	
+	<% if @completions_size == 0 %>
+		<h2>No one has completed this challenge.</h2>
+	<% else %>
+		<h2><%= pluralize(@completions_size, 'person') %> did this.</h2>
+	<% end %>
+	
+	<ul class="completions">
+	  <% @assignment.completions.each do |completion| %>
+	    <li style="clear:left">
+	      <%= link_to profile_path(completion.user.username) do %>
+  	      <%= gravatar_tag completion.user, :size => 40, :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
+  	      <%= completion.user.username %>
+  	    <% end %>
+	    </li>
+	  <% end %>
+	</ul>
+	
+<% end %>

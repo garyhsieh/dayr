@@ -1,0 +1,160 @@
+body {
+	font-size:14px;
+	background:#fc0;
+}
+
+a { color:#f60; }
+a:hover { color:#f30; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:bold;
+	line-height:1em;
+	letter-spacing:-0.05em;
+}
+h1 { font-size:32px; }
+h2 { font-size:20px; }
+
+/* === Special === */
+ul.bulletless {
+	margin-left:0;
+	margin-right:0;
+	padding-left:0;
+	padding-right:0;
+	list-style:none;
+}
+	ul.bulletless>li {
+		
+	}
+		ul.bulletless>li ul.bulletless {
+			padding-left:1.5em;
+		}
+
+/* === Container === */
+.container_wrap {
+	padding:20px;
+}
+
+/* === Header === */
+#hd {
+	position:relative;
+	padding:10px 20px 0 20px;
+	height:70px;
+}
+	#hd_logo {
+		margin:-5px 0 0 -30px;
+	}
+	#hd_logo_rays {
+		position:absolute;
+		top:-166px; /* -161px - 5px */
+		left:-143px; /* -123px - 20px */
+		width:400px;
+		height:400px;
+		background:#fc0 url("/images/dayr/hd_logo_rays.png") no-repeat top center;
+		z-index:-1000;
+	}
+	
+/* === Header Nav === */
+ul#hd_nav {
+	float:right;
+	margin:10px -20px 0 0;
+	padding:0;
+	list-style:none;
+	background-color:#fff;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow: 0px 3px 10px rgba(255,102,0,0.3);
+	-webkit-box-shadow: 0px 3px 10px rgba(255,102,0,0.3);
+	box-shadow: 0px 3px 10px rgba(255,102,0,0.3);
+}
+	ul#hd_nav>li {
+		float:left;
+		border-right:1px solid #fc0;
+	}
+		ul#hd_nav>li.last {
+			border-right:none;
+		}
+	ul#hd_nav>li>a {
+		display:block;
+		padding:5px 10px;
+		text-decoration:none;
+	}
+
+/* === Content === */
+#content {
+	margin-bottom:20px;
+	background:#fff url("/images/dayr/content_bg.png") repeat-y top left;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 0px 3px 10px rgba(255,102,0,0.5);
+	-webkit-box-shadow: 0px 3px 10px rgba(255,102,0,0.5);
+	box-shadow: 0px 3px 10px rgba(255,102,0,0.5);
+}
+
+/* === FORMS === */
+div.fieldWithErrors {
+	
+}
+
+div.fieldWithErrors label {
+	
+}
+
+div.fieldWithErrors input, div.fieldWithErrors select, 
+div.fieldWithErrors textarea {
+}
+
+form {
+}
+form label,
+form input,
+form input.text,
+form input.checkbox,
+form input.submit,
+form select {
+	font-size:16px;
+}
+form input.text,
+form select,
+form textarea {
+	margin:0;
+	width:98%;
+}
+form select {
+	margin-bottom:10px;
+}
+form .hint {
+	font-size:12px;
+	color:#999;
+}
+
+/* === Challenge === */
+.challenge ._date {
+	line-height:1em;
+	font-weight:bold;
+	color:#f60;
+}
+.challenge ._description {
+	padding-top:15px;
+	border-top:1px solid #ccc;
+}
+.challenge ._description h1 {
+	font-size:20px;
+}
+	
+/* === Comment TextArea ===*/
+textarea#comment{ 
+	width: 450px;
+	height: 80px;
+	resize:none; 
+}
+
+/* === Comments Display on Challenges Page ===*/
+div#root_comment{ 
+
+}
+
+div#child_comment{ 
+	padding-left:20px;
+}

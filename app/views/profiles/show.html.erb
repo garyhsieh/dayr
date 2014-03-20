@@ -1,0 +1,96 @@
+<% @page_title = "#{@user.username}'s Profile - Dayr" %>
+
+<div class="row">
+  <div class="span2">
+    <% if user_signed_in? and current_user == @user %>
+      <%= gravatar_tag @user, :size => 140, :html => { :style => "float:left;margin-right:10px;", :id => 'editable-profile-picture', :title => 'Edit profile picture' }  %>
+    <% else %>
+      <%= gravatar_tag @user, :size => 140, :html => { :style => "float:left;margin-right:10px;" }  %>
+    <% end %>
+  </div>
+  <div class="span6 profile-info">
+    <div class="pull-right">
+  	  <% if user_signed_in? %>
+
+  			<% if current_user == @user %>
+  				<%= link_to "Edit your profile", edit_user_registration_path(:anchor => 'profile'), :class => 'btn' %>				
+  			<%# elsif @user.followed_by?(current_user) %>
+          		<%= #link_to 'Following', unfollow_profile_path(@user, :redirect => request.fullpath), 
+                #:method => :delete,
+                #:class => 'btn info _unfollow',
+                #:rel => 'nofollow' 
+				%>
+        	<% else %>
+  				<%= #link_to "Follow", follow_profile_path(@user, :redirect => request.fullpath), 
+  				      #:method => :post,
+  				      #:class => 'btn _follow',
+  				      #:rel => 'nofollow' 
+				%>
+  			<% end %>
+
+  		<% end %>
+  	</div>
+
+  	<% profile_height = 85 # 45px (profile-username) + 40px (profile-counts) %>
+  	<% profile_info = capture do %>
+      <h1 class="_username">
+    		<%= @user.username %>
+    	</h1>
+
+    	<% unless @profile.nil? or @profile.description.blank? %>
+    	  <% description = @profile.description.gsub("\n", "") %>
+    	  <% lines = word_wrap(description, 80).split("\n") %>
+    		<div class="_description">
+    		  <%= lines.first %>
+    		  <% if lines.length == 2 %>
+    		    <br/><%= lines.last %>
+    		  <% end %>
+    		</div>
+
+    		<% profile_height += (20 * lines.length) %>
+    	<% end %>
+
+    	<% if not @profile.nil? and not @profile.location.blank? %>
+
+        <% unless @profile.location.blank? %>
+      		<span class="_location"><%= @profile.location %></span>
+      	<% end %>
+
+      	<% if not @profile.location.blank? and not @profile.location.blank? %>
+      	  <span class="separator">&middot;</span>
+      	<% end %>
+
+      	<% unless @profile.url.blank? %>
+      		<span class="_url"><%= link_to @profile.url, @profile.url %></span>
+      	<% end %>
+
+    	  <% profile_height += 20 %>
+
+    	<% end %>
+    <% end %>
+
+    <div style="height:<%= profile_height %>px;padding-top:<%= 140 - profile_height %>px;">
+      <%= profile_info %>
+    </div>
+  </div>
+</div>
+
+<hr class="space" />
+
+<div class="row">
+  <div class="span8">
+	<% if @user.assignments.empty? %>
+    <h2>Challenges Completed</h2>
+      <p>
+        <i>You haven't completed any challenges yet.</i>
+      </p>
+    <% else %>
+    <h2><%=pluralize(@user.assignments.length, 'Challenge')%> Completed</h2>
+      <ul>
+        <% @user.assignments.each do |assignment| %>
+          <li><%= assignment.date.strftime("%b %d %Y") %>: <%= link_to assignment.challenge.name,  assignment%></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

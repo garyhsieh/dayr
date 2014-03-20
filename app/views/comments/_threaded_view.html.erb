@@ -1,0 +1,74 @@
+<% content_for :head do %>
+  <style>
+    .comments {
+      clear:both;
+    }
+    .comment {
+      clear:both;
+      margin-left:40px;
+    }
+      .comment-img {
+        float:left;
+        margin-left:-40px;
+      }
+      .comment-timeago {
+        float:right;
+        color:#999;
+      }
+      .comment-username {
+        font-weight:bold;
+      }
+    .comment-root {
+      
+    }
+    .comment-child {
+      margin-left:80px;
+    }
+    .comment-reply {
+      display:none;
+      margin-top:10px;
+      margin-left:80px;
+    }
+    p.comment-username {
+      margin-bottom:0;
+    }
+    .comment-timeago {
+      font-size:11px;
+    }
+  </style>
+<% end %>
+<div class="comments">
+  <% comments.each do |comment| %>
+
+    <div class="comment <%= comment.root? ? 'comment-root' : 'comment-child' %>">
+  
+  	  <% if comment.root? %>
+  	    <% @tmp = comment %>
+  	  <% end %>
+	    
+	    <%= link_to(profile_path(comment.user.username), :class => 'comment-img') do %>
+  	    <%= gravatar_tag comment.user, :size => 30 %>
+  	  <% end %>
+	    
+	    <div class="comment-timeago"><%= time_ago_in_words(comment.created_at) %> ago</div>
+    	<p class="comment-username"><%= comment.user.username %></p>
+		
+  		<p class="comment-body">
+  		  <%= comment.body %>
+  		</p>
+  		
+		</div>
+		
+		<% if user_signed_in? and comment.leaf? and (comment.id == @tmp.id || (comment.rgt+1 == @tmp.rgt)) %>
+			<%= link_to_function 'Reply to comment', "$('#comment-reply-" + comment.id.to_s + "').toggle()" %>
+			<div id="comment-reply-<%=comment.id%>" class="comment-reply">
+			  <%= link_to(profile_path(current_user.username), :class => 'comment-img') do %>
+  			  <%= gravatar_tag current_user, :size => 30 %>
+  			<% end %>
+				<%= render :partial => "comments/form", :locals => { :comment => comment, :parent_id => @tmp.id } %>
+			</div>
+			<hr style="clear:both" />
+		<% end %>
+  	
+  <% end %>
+</div>
