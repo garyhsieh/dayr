@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -34,12 +35,12 @@ ActiveRecord::Schema.define(:version => 20121021231458) do
   add_index "challenges", ["category"], :name => "index_challenges_on_category"
 
   create_table "comments", :force => true do |t|
-    t.integer  "commentable_id",   :default => 0
-    t.string   "commentable_type", :default => ""
-    t.string   "title",            :default => ""
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "title"
     t.text     "body"
-    t.string   "subject",          :default => ""
-    t.integer  "user_id",          :default => 0,  :null => false
+    t.string   "subject"
+    t.integer  "user_id",          :null => false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"

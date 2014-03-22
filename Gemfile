@@ -5,10 +5,6 @@ gem 'rails', '3.1.10'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#group :development, :test do
-#	gem 'sqlite3'
-#end
-
 gem 'json'
 
 # Gems used only for assets and not required
@@ -69,7 +65,7 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'chronic', :git => 'git://github.com/mojombo/chronic.git'
 
 # Textile support
-gem 'RedCloth', '4.2.2'
+#gem 'RedCloth', ‘4.2.8’
 
 # gem "oa-oauth", :require => "omniauth/oauth"
 
@@ -98,7 +94,7 @@ gem 'flash_messages_helper'
 # TLS Mail
 # http://yekmer.posterous.com/devise-gmail-smtp-configuration
 # This is necessary because Gmail SMTP uses TLS
-gem 'tlsmail'
+#gem 'tlsmail'
 
 # Cancan
 # https://github.com/ryanb/cancan

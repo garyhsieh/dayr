@@ -25,7 +25,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.2)
     actionmailer (3.1.10)
       actionpack (= 3.1.10)
       mail (~> 2.3.3)
@@ -138,7 +137,6 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     thor (0.14.6)
     tilt (1.3.3)
-    tlsmail (0.0.1)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -153,7 +151,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth (= 4.2.2)
   acts_as_commentable_with_threading
   annotate!
   bootstrap-sass (~> 2.0.4.0)
@@ -170,5 +167,4 @@ DEPENDENCIES
   rails (= 3.1.10)
   recaptcha
   sass-rails (~> 3.1.4)
-  tlsmail
   uglifier (>= 1.0.3)
