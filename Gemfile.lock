@@ -25,6 +25,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     actionmailer (3.1.10)
       actionpack (= 3.1.10)
       mail (~> 2.3.3)
@@ -151,6 +152,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth (>= 4.2.7)
   acts_as_commentable_with_threading
   annotate!
   bootstrap-sass (~> 2.0.4.0)

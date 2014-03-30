@@ -33,8 +33,9 @@ Dayr::Application.configure do
    # For Devise
    config.action_mailer.default_url_options = { :host => 'localhost' }
    config.action_mailer.perform_deliveries = true
-   config.action_mailer.delivery_method = :smtp
-   config.action_mailer.default :charset => "utf-8"
+   config.action_mailer.delivery_method = :sendmail #:smtp
+
+
 
 end
 

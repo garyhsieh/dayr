@@ -65,7 +65,7 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'chronic', :git => 'git://github.com/mojombo/chronic.git'
 
 # Textile support
-#gem 'RedCloth', ‘4.2.8’
+gem 'RedCloth', ">= 4.2.7"
 
 # gem "oa-oauth", :require => "omniauth/oauth"
 

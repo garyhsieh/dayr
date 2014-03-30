@@ -63,7 +63,7 @@
 	<!-- Challenge image -->
 	<div class="span5">
 	  <div class="challenge-image">
-  	  <%= image_tag (@assignment.challenge.image_url || "http://placehold.it/380x285", :width => '380') %>
+  	  <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '380'} %>
   	  <% attribution = @assignment.challenge.image_attribution_url %>
   	  <% if attribution %>
   	    <%= link_to raw(attribution.split('/')[2] + ' &raquo;'), attribution, :class => 'challenge-image-attribution' %>
@@ -122,10 +122,17 @@
 	<ul class="completions">
 	  <% @assignment.completions.each do |completion| %>
 	    <li style="clear:left">
-	      <%= link_to profile_path(completion.user.username) do %>
-  	      <%= gravatar_tag completion.user, :size => 40, :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
-  	      <%= completion.user.username %>
-  	    <% end %>
+        <% if completion.user %>
+	        <%= link_to profile_path(completion.user.username) do %>
+  	        <%= gravatar_tag completion.user, :size => 40, :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
+  	        <%= completion.user.username %>
+  	      <% end %>
+        <% else %>
+          <%= link_to "#" do %>
+            <%= gravatar_tag completion.user, :size => 40, :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
+            <%= "[deleted]" %>
+          <% end %>            
+        <% end %>     
 	    </li>
 	  <% end %>
 	</ul>

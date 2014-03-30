@@ -60,8 +60,8 @@ Dayr::Application.configure do
   
   # For Devise
   
-  require 'tlsmail' #key but not always described
-  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+# #key but not always described
+#  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
 
   
   config.action_mailer.default_url_options = { :host => 'dayr.me' }
@@ -75,8 +75,8 @@ Dayr::Application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :authentication => "plain",
-    :user_name => "dayrme@gmail.com",
-    :password => "s0d4s1m0n",
+    :user_name => ENV["GMAIL_USERNAME"],
+    :password => ENV["GMAIL_PASSWORD"],
   }
 
   
