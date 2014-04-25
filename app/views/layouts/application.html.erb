@@ -15,7 +15,7 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<%= yield(:head) %>
+	<%= yield(:head) %> 
 	
 	<script type="text/javascript">
 
@@ -34,14 +34,14 @@
 </head>
 <body>
 	
-	<!-- Navbar -->
+	<!-- Navbar layouts/_navbar-->
   <%= render :partial => 'layouts/navbar' %>
 
   <div class="container">
     <div class="content-wrap">
     	<div class="row">
     	
-    	  <!-- Content -->
+    	  <!-- Content assignmetns/show.html-->
     		<div class="span8">
     			<%= yield %>
     		</div>

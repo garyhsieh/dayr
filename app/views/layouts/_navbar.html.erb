@@ -1,39 +1,54 @@
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="brand" href="/"><img src="/assets/dayr/hd-logo.png" /></a>
-			
-			<ul class="nav">
-			  <%= content_tag :li, :class => current_page?(root_path) ? 'active' : nil do %>
-  				<%= link_to "Home", root_path %>
-			  <% end %>
-			  <%= content_tag :li, :class => (controller.controller_name == 'assignments') ? 'active' : nil do %>
-				<%= link_to "Challenges", assignments_path %>
-			  <% end %>
-		      <%= content_tag :li,  :class => current_page?(about_path) ? 'active' : nil do %>
-				<%= link_to('About', about_path) %>
-			  <% end %>
-			</ul>
-			
-			<% if user_signed_in? %>
-				<div class="pull-right">
-					<ul class="nav ">
-						<li><%= link_to('Account', edit_user_registration_path) %></li>
-						<li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></li>
-					</ul>
-				</div>
-				<p class="navbar-text pull-right" style="margin-right:10px">
-					Logged in as
-					<%= link_to(current_user.username, profile_path(current_user.username)) %>
-				</p>
-			<% else %>
-				<div class="pull-right">
-					<ul class="nav">
-						<li><%= link_to('Log in', new_user_session_path) %></li>
-						<li><%= link_to('Sign up', new_user_registration_path) %></li>
-					</ul>
-				</div>
-			<% end %>
-		</div>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+	        </button>
+	        </div>
+	        <div class="navbar-collapse collapse">
+
+            <!-- SIGNED IN FORMAT -->
+
+            <% if user_signed_in? %>
+              <div class="pull-right">
+	            <ul class="nav navbar-nav navbar-right" style="margin-right: 80px;">
+					<li><img src="/assets/dayr/profile.png" alt="Avatar"/></li>
+	              	<li class="dropdown">
+	                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %> <b class="caret"></b></a>
+	                 	<ul class="dropdown-menu">
+		              	  	<li><%= link_to('Your Profile', profile_path(current_user.username)) %></li>
+							<li><%= link_to('Edit', edit_user_registration_path) %></li>
+	                    	<li class="divider"></li>
+	                    	<li class="dropdown-header">Sign out</li>
+							<li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></li>
+	                	</ul>
+	              	</li>
+	            </ul> 
+
+              </div>
+
+            <!-- NOT SIGNED IN FORMAT -->
+
+            <% else %>
+              <div class="pull-right">
+                <ul class="nav navbar-nav" style="padding-right: 80px;">
+                  <li><img src="/assets/dayr/profile.png" alt="Avatar"/></li>
+                  <li><%= link_to('Log in', new_user_session_path) %></li>
+                </ul>
+              </div>
+            <% end %>
+  
+	        <ul class="nav navbar-nav navbar-right">
+		        <%= content_tag :li, :class => (controller.controller_name == 'assignments') ? 'active' : nil do %>
+		        <%= link_to "Dayr", assignments_path %>
+		        <% end %>
+		        <%= content_tag :li,  :class => current_page?(about_path) ? 'active' : nil do %>
+		        <%= link_to('About', about_path) %>
+		        <% end %>
+	        </ul>
+	    </div><!--/.nav-collapse -->
 	</div>
 </div>
