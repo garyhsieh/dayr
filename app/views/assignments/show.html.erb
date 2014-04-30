@@ -55,7 +55,7 @@
                                   <hr/>
                                   <ul class="completions">
                                     <% @assignment.completions.each do |completion| %>
-                                      <li style="clear:left">
+                                      <li style="list-style-type:none; float: left;">
                                         <% if completion.user %>
                                           <%= link_to profile_path(completion.user.username) do %>
                                             <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
@@ -93,7 +93,7 @@
                               <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
                                 <%= link_to "I did this!", complete_assignment_path(@assignment), 
                                   :method => :post,
-                                  :class => 'btn btn-primary btn-large challenge-button' %>
+                                  :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn' %>
                               <% else %>
                                 <a class="btn btn-large challenge-button disabled">I did this!</a>
                               <% end %>
@@ -122,9 +122,11 @@
                                   <%= f.hidden_field :user_id, :value=>current_user.id %>
                                   <%= f.hidden_field :commentable_id, :value=>@assignment.id %>
                                   <%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
-                                  
+
+                                  <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
+
                                   <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5 %>
-                                  <%= f.submit "Add comment", :class => 'btn' %>
+                                  <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
                                 <% end %>
                               <% else %>
                                   <%= link_to "Log in to comment", new_user_session_path %>   

@@ -838,3 +838,34 @@ a:hover {
    background: none;
 }
 
+#comment {
+   height: 35px;
+   width:80%;
+}
+#comment_btn {
+   border-radius: 0;
+   background-color: #777;
+   color: #fff;
+   font-size: 1em;
+   height: 35px;
+   font-family:Avenir, 'Open Sans', sans-serif;
+}
+#comment-reply-btn {
+   margin-left: 78px;
+   color: #777;
+}
+#comment-reply-btn:hover {
+   color: #e5005b;
+   text-decoration: none;
+} 
+.btn {
+   height: 30px;
+   border-radius: 0;
+   color: #fff;
+   background-color:#777;
+}
+#complete-btn {
+   background-color: #e5005b;
+   border: none;
+   margin-bottom: 20px;
+}
