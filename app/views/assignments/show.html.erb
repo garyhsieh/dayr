@@ -34,7 +34,7 @@
                                   <p id="seconds">21</p><div class="tlabel">SECS</div>
                                 </div>
                                 <div class="col-md-10">
-                                  <div class="challenge-image hidden-lg hidden-sm">
+                                  <div class="challenge-image challenge-image-mobile hidden-lg hidden-md hidden-sm">
                                     <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                                     <% attribution = @assignment.challenge.image_attribution_url %>
                                     <br/>
@@ -76,7 +76,7 @@
                             <!-- Dayr Top-Left (includes picture)-->
 
                             <div class="col-md-6">
-                              <div class="challenge-image hidden-xs">
+                              <div class="challenge-image hidden-sm hidden-xs">
                                 <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                                 <% attribution = @assignment.challenge.image_attribution_url %>
                               </div>        

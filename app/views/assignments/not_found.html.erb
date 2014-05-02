@@ -1,35 +1,96 @@
-<% content_for :title do %>No Challenge<% end %>
 
-<h1>
-  No Challenge
-</h1>
 
-<section class="row">
-	
-	<div class="span8">
-		<div class="row">
-		  
-		  <div class="span3">
-		    <div class="challenge-box">
-		      
-		      <!-- Challenge date -->
-		      <div class="challenge-date">
-    			  <%= raw Date.today.strftime("<b>%b %d</b><br/>%Y") %>
-  			  </div>
-		      
-		      <!-- Challenge button -->
-      		<a class="btn btn-large challenge-button disabled">Relax!</a>
-      		
-      	</div>
-    	</div>
+      <!-- Page content -->
+      
+      <div class="page-content blocky">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-1">
+              </div>
+              <div class="col-md-10">
+
+                <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                  <div >
+                    <div >
+                      <div class="awidget">
+
+                        <div class="awidget-body">
+
+                          <!-- Dayr Top Half Details -->
+
+                          <div class="row">
+
+                            <!-- Dayr Top-Left (includes time, and dayrs)-->
+
+                            <div class="col-md-6">
+                                <h1>No Challenge</h1>
+
+                                <%= raw Date.today.strftime("<b>%b %d</b> %Y") %>
+
+                                <div class="col-md-10">
+                                  <div class="challenge-image challenge-image-mobile hidden-lg hidden-md hidden-sm">
+                                    <br/>
+                                  </div>                                         
+                                  <p>
+                                    <% content_for :title do %>No Challenge<% end %>
+                                    <br/><br/>
+                                    <span id="signature">By the <span id="dayr-doctor">Dayr Doctor</span></span>
+                                  </p>
+
+                                  <hr/>
+
+                                </div>
+                            </div>
+
+                            <!-- Dayr Top-Left (includes picture)-->
+
+                            <div class="col-md-6">
+                              <div class="challenge-image hidden-sm hidden-xs">
+
+                                  <a href="http://www.flickr.com/photos/dotpolka/8443772/" title="piece of  cake II by dotpolka, on Flickr"><img src="http://farm1.staticflickr.com/6/8443772_de6fc599d5.jpg" width="380" alt="piece of  cake II"></a>
+
+                              </div>        
+
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <p>
+                                <!-- challenge description -->
+                            </p>
+
+                            <hr/>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div> 
+
+                </div>
+                <div class="clearfix"></div>
+
+              </div>
+              <!-- End of main content area -->
+
+            </div>
+          </div>
+        </div>
+      </div>
     
-  
-    	
-    	<!-- Challenge image -->
-    	<div class="span5">
-    	  <a href="http://www.flickr.com/photos/dotpolka/8443772/" title="piece of  cake II by dotpolka, on Flickr"><img src="http://farm1.staticflickr.com/6/8443772_de6fc599d5.jpg" width="380" alt="piece of  cake II"></a>
-    	</div>
-    	
-    </div>
-  </div>
-</section>
+      <!-- Footer starts -->
+      <footer>
+        <div class="container">
+          <div class="copy text-center">
+            Copyright 2013 &copy; - <a href="http://annajkong.com/">Dayr Me</a>
+          </div>
+        </div>
+      </footer>
+      <!-- Footer ends -->
+      
+      <!-- Scroll to top -->
+      <span class="totop"><a href="#"><i class="glyphicon glyphicon-arrow-up"></i></a></span> 

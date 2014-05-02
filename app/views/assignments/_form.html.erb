@@ -1,3 +1,4 @@
+
 <% if false %>
 
 <%= form_for(@assignment) do |f| %>
@@ -50,7 +51,7 @@
   
 	<div class="control-group">
 	  <div class="controls">
-	    <%= f.submit(@assignment.new_record? ? 'Create' : 'Update', :class => "btn btn-primary") %>
+	    <%= f.submit(@assignment.new_record? ? 'Create' : 'Update', :class => "btn btn-primary create-btn") %>
 	  </div>
 	</div>
 <% end %>

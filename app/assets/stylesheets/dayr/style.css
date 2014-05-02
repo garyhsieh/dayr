@@ -55,7 +55,24 @@ a:hover,a:active,a:focus {
 strong{
    font-family: Avenir, "Open Sans", sans-serif;
    font-weight:600;
-}  
+}
+
+ul li {
+   list-style-type: none;
+} 
+
+.btn {
+   background-color: #e5005b;
+   color: #fff;
+   border: none;
+   height: 30px;
+   border-radius: 0;
+} 
+
+.btn:hover {
+   background-color: #777;
+   color: #fff;
+} 
 .glyphicon {
    position: static;
 }
@@ -598,6 +615,7 @@ footer .copy{
 .nav>li>a{
 
    background-color: #e5005b;
+   color: #fff;
 }
 
 /* modals */
@@ -844,11 +862,13 @@ a:hover {
 }
 #comment_btn {
    border-radius: 0;
-   background-color: #777;
+   background-color: #e5005b;
    color: #fff;
    font-size: 1em;
    height: 35px;
    font-family:Avenir, 'Open Sans', sans-serif;
+}#comment_btn:hover {
+   background-color: #777;
 }
 #comment-reply-btn {
    margin-left: 78px;
@@ -858,14 +878,18 @@ a:hover {
    color: #e5005b;
    text-decoration: none;
 } 
-.btn {
-   height: 30px;
-   border-radius: 0;
-   color: #fff;
-   background-color:#777;
-}
 #complete-btn {
-   background-color: #e5005b;
-   border: none;
    margin-bottom: 20px;
+} .challenge-button {
+   margin-bottom:25px;
+   margin-top:25px;
+} .challenge-image-mobile {
+   margin-top: -50px;
+   margin-bottom:30px;
+}.month {
+   font-size: 100px;
+} #new-assign {
+   float: right;
+} .create-btn {
+   margin-top: 20px;
 }
