@@ -1,49 +1,73 @@
-<% content_for :title do %>Sign in<% end %>
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
 
-<h1>Sign in</h1>
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
 
-<%= form_for(resource, 
-      :as => resource_name, 
-      :url => session_path(resource_name),
-      :html => {
-        :class => 'form-horizontal'
-      }) do |f| %>
-  
-	<div class="control-group">
-	  <%= f.label :login, :class => 'control-label' %>
-	  <div class="controls">
-    	<%= f.text_field :login %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-	  <%= f.label :password, :class => 'control-label' %>
-	  <div class="controls">
-    	<%= f.password_field :password %>
-    </div>
-  </div>
+                        <div class="awidget-body">
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="control-group">
-  	  <div class="controls">
-  	    <label class="checkbox">
-      	  <%= f.check_box :remember_me, {:checked=>true} %>
-      	  Remember me
-      	</label>
+                          <% content_for :title do %>Sign in<% end %>
+
+                          <h1>Sign in</h1>
+
+                          <%= form_for(resource, 
+                                :as => resource_name, 
+                                :url => session_path(resource_name),
+                                :html => {
+                                  :class => 'form-horizontal'
+                                }) do |f| %>
+                            
+                          	<div class="control-group">
+                          	  <%= f.label :login, :class => 'control-label' %>
+                          	  <div class="controls">
+                              	<%= f.text_field :login %>
+                              </div>
+                            </div>
+                            
+                            <div class="control-group">
+                          	  <%= f.label :password, :class => 'control-label' %>
+                          	  <div class="controls">
+                              	<%= f.password_field :password %>
+                              </div>
+                            </div>
+
+                            <% if devise_mapping.rememberable? -%>
+                              <div class="control-group">
+                            	  <div class="controls">
+                            	    <label class="checkbox">
+                                	  <%= f.check_box :remember_me, {:checked=>true} %>
+                                	  Remember me
+                                	</label>
+                                </div>
+                              </div>
+                            <% end -%>
+                            
+                            <div class="control-group">
+                          	  <div class="controls">
+                                <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+                              </div>
+                            </div>
+                            
+                            <div class="control-group">
+                              <div class="controls">
+                                <%= render :partial => "devise/shared/links" %>
+                              </div>
+                            </div>
+                          <% end %>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  <% end -%>
-  
-  <div class="control-group">
-	  <div class="controls">
-      <%= f.submit "Sign in", :class => 'btn btn-primary' %>
-    </div>
   </div>
-  
-  <div class="control-group">
-    <div class="controls">
-      <%= render :partial => "devise/shared/links" %>
-    </div>
-  </div>
-<% end %>
+</div>
 
