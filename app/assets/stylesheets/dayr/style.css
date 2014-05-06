@@ -382,7 +382,7 @@ margin-right: 30px;
 
 .col-md-6 .col-md-10
 {
-   margin-top: 80px;
+   margin-top: 10px;
    margin-bottom: 30px;
 }
 
@@ -397,16 +397,6 @@ font-weight: medium;
 text-align: center;
 color: #e5005b;
 margin-top: 50px;
-}
-
-#signature {
-   float: right;
-}
-
-#signature #dayr-doctor {
-   font-family: cursive, "cursive", sans-serif;
-   font-size: 1.1em;
-   font-weight: bold;
 }
 
 .col-md-10 h2 {
@@ -459,7 +449,7 @@ hr {
 .span1 {
    width: 80px;
    float: right;
-   margin-right: 20px;
+   margin-right: 40px;
    margin-top: 60px;
 }
 

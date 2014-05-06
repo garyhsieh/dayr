@@ -24,6 +24,12 @@
                             <!-- Dayr Top-Left (includes time, and dayrs)-->
 
                             <div class="col-md-6">
+                                <h1>Daily Challenge</h1>
+                                <p>
+                                  Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
+                                  <br/><br/>
+                                </p>
+
                                 <div class="col-md-3 hidden-xs">
                                   <p>02</p><div class="tlabel">HOURS</div>
                                 </div> 
@@ -33,17 +39,13 @@
                                 <div class="col-md-3 hidden-xs">
                                   <p id="seconds">21</p><div class="tlabel">SECS</div>
                                 </div>
+
                                 <div class="col-md-10">
                                   <div class="challenge-image challenge-image-mobile hidden-lg hidden-md hidden-sm">
                                     <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                                     <% attribution = @assignment.challenge.image_attribution_url %>
                                     <br/>
                                   </div>                                         
-                                  <p>
-                                    Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
-                                    <br/><br/>
-                                    <span id="signature">By the <span id="dayr-doctor">Dayr Doctor</span></span>
-                                  </p>
 
                                   <% if @completions_size == 0 %>
                                     <h2>Be the first mom to dayr!</h2>
@@ -73,13 +75,37 @@
                                 </div>
                             </div>
 
-                            <!-- Dayr Top-Left (includes picture)-->
+                            <!-- Dayr Top-Right (includes picture)-->
 
                             <div class="col-md-6">
                               <div class="challenge-image hidden-sm hidden-xs">
                                 <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                                 <% attribution = @assignment.challenge.image_attribution_url %>
-                              </div>        
+                              </div>  
+                               <!-- Challenge social buttons -->
+                              <div class="span1" style="padding-top:2px;">
+                                <iframe src="http://www.facebook.com/plugins/like.php?app_id=184042905000148&amp;href=<%= CGI.escape(assignment_url(@assignment)) %>&amp;send=false&amp;layout=box_count&amp;width=47&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:70px;" allowTransparency="true"></iframe>
+                              </div>
+
+                              <!-- Social share buttons start -->
+
+                              <div class="span1">
+                                <!-- Tweet button -->
+                                <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= assignment_url(@assignment) %>" data-text="<%= @assignment.challenge.name %> - Dayr" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                              </div>
+                              <div class="span1" style="padding-top:2px;">
+                                <!-- +1 button -->
+                                <div class="g-plusone" data-size="tall" data-href="<%= assignment_url(@assignment) %>"></div>
+                                <script type="text/javascript">
+                                  (function() {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                  })();
+                                </script>
+                              </div>      
+
+                              <!-- Social share buttons end -->
 
                             </div>
                           </div>
