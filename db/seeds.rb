@@ -42,7 +42,4 @@ Challenge.create({:name => "Make your baby the star of your attention", :descrip
 
 Assignment.create(:date => Date.today, :challenge_id => "1")
 Assignment.create(:date => Date.today-1, :challenge_id => "2")
-<<<<<<< HEAD
-=======
 
->>>>>>> FETCH_HEAD
