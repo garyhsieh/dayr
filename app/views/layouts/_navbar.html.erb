@@ -43,7 +43,7 @@
   
 	        <ul class="nav navbar-nav navbar-right">
 		        <%= content_tag :li, :class => (controller.controller_name == 'assignments') ? 'active' : nil do %>
-		        <%= link_to "All", assignments_path %>
+		        <%= link_to "Past Challenges", assignments_path %>
 		        <% end %>
 		        <%= content_tag :li,  :class => current_page?(about_path) ? 'active' : nil do %>
 		        <%= link_to('About', about_path) %>
