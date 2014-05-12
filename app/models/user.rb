@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :login, :email, :username, :password, :password_confirmation, :remember_me
+  attr_accessible :login, :email, :username, :password, :password_confirmation, :remember_me, :sign_up_code
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username
   validates_presence_of :username
+
+  validates :sign_up_code, :inclusion => { :in => "t4tt", :message => "The code you have entered is not a valid sign up code. Please contact dayr.me@gmail.com if you are participating in the study and cannot sign up. " }
   
   has_many :completions
   has_many :assignments, :through => :completions
