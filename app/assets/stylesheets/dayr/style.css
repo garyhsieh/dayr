@@ -14,7 +14,7 @@ body
 {
 font-family:Avenir, 'Open Sans', sans-serif;
 color:#444;
-font-size:13px;
+font-size:1.5em;
 line-height:25px;
 -webkit-font-smoothing: antialiased;
 background:#fafafa url('../img/main-back.png') repeat;
@@ -28,6 +28,11 @@ h1,h2 {
    font-family: Avenir, "Open Sans", sans-serif;
    font-weight:100px;
    color:#707070;
+} 
+h1 {
+   color: #e5005b;
+   margin-bottom: 25px;
+   margin-top: 0;
 }
 p {
    margin:0;
@@ -35,7 +40,7 @@ p {
 } 
 
 ul, ol {
-   padding-left:15px;
+padding-left: 25px;
 } 
 
 a {
@@ -58,7 +63,7 @@ strong{
 }
 
 ul li {
-   list-style-type: none;
+   list-style-color: #e5005b;
 } 
 
 .btn {
@@ -380,10 +385,14 @@ ul li {
 margin-right: 30px;
 }
 
+/* Box styling for quick information (left most side)*/
 .col-md-6 .col-md-10
 {
    margin-top: 10px;
    margin-bottom: 30px;
+}
+.col-md-10 {
+   padding: 0;
 }
 
 .col-md-3 #seconds {
@@ -400,7 +409,7 @@ margin-top: 50px;
 }
 
 .col-md-10 h2 {
-   margin-top: 80px;
+   margin-top: 30px;
    font-size: 1em;
    color: #000;
 }
@@ -412,6 +421,8 @@ margin-top: 50px;
 
 .col-md-12 {
    margin-top: 30px;
+   margin-left: 0;
+   padding-left: 0;
 }
 
 .tlabel {
@@ -424,6 +435,9 @@ ul.completions {
    height: 60px;
    padding-left: 0;
    margin-left:0;
+   overflow-x: hidden;
+   overflow-y: scroll;
+   width: 100%;
 }
 
 ul.completions li {
@@ -443,7 +457,6 @@ hr {
 
 .challenge-image img {
    margin-right: 0;
-   margin-top: 5%;
 }
 
 .span1 {
@@ -478,7 +491,7 @@ hr {
 
 .awidget .awidget-body{
    color:#000;
-   padding:30px;
+   padding:50px;
 }
 
 /* Login & Register */
@@ -681,9 +694,6 @@ footer .copy{
    .header .container .row .navbar-header .col-md-3 {
       height: 0;
    }
-   h1 {
-      margin-top: 30px;
-   }
    .page-content {
       margin-top: 0;
    }
@@ -873,6 +883,7 @@ a:hover {
 } .challenge-button {
    margin-bottom:25px;
    margin-top:25px;
+   border-radius: 5px;
 } .challenge-image-mobile {
    margin-top: -50px;
    margin-bottom:30px;

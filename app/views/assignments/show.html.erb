@@ -23,7 +23,7 @@
 
                             <!-- Dayr Top-Left (includes time, and dayrs)-->
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 left-col-md-6">
 
                                 <h1>Daily Challenge</h1>
                                 <p>
@@ -34,8 +34,24 @@
                                 <% if is_challenge_today? %>
                                   <%=distance_of_time_in_words_to_now(Date.today+1.day)%>
                                 <% else %>
-                                  #update code here to show EXPIRED
+                                  EXPIRED
                                 <% end %>
+
+                                <br/>
+                                <!-- Challenge button -->
+                                <% if user_signed_in? %>
+                                  <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
+                                    <%= link_to "I did this!", complete_assignment_path(@assignment), 
+                                      :method => :post,
+                                      :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn' %>
+                                  <% else %>
+                                    <a class="btn btn-large challenge-button disabled">I did this!</a>
+                                  <% end %>
+                                <% else %>
+                                  <%= link_to "Log in to Dayr!", new_user_session_path, 
+                                    :class => "btn btn-large btn-primary challenge-button" %>
+                                <% end %>
+
 
                                 <div class="col-md-10">
                                   <div class="challenge-image challenge-image-mobile hidden-lg hidden-md hidden-sm">
@@ -111,19 +127,6 @@
                               <%= raw textilize @assignment.challenge.description %>
                             </p>
 
-                            <!-- Challenge button -->
-                            <% if user_signed_in? %>
-                              <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
-                                <%= link_to "I did this!", complete_assignment_path(@assignment), 
-                                  :method => :post,
-                                  :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn' %>
-                              <% else %>
-                                <a class="btn btn-large challenge-button disabled">I did this!</a>
-                              <% end %>
-                            <% else %>
-                              <%= link_to "Log in to Dayr!", new_user_session_path, 
-                                :class => "btn btn-large btn-primary challenge-button" %>
-                            <% end %>
                             <hr/>
 
                             <section>
