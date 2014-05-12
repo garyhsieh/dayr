@@ -151,7 +151,7 @@
 
                                   <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
 
-                                  <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5 %>
+                                  <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
                                   <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
                                 <% end %>
                               <% else %>

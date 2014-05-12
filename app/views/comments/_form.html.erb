@@ -4,6 +4,6 @@
 	<%= f.hidden_field :commentable_id, :value => @assignment.id %>
 	<%= f.hidden_field :commentable_type, :value => @assignment.class.name  %>
 	
-  <%= f.text_area :body, :rows => 3, :id=>"comment", :class => "span7" %>
+  <%= f.text_area :body, :rows => 3, :id=>"comment", :class => "span7", :style => "resize:none" %>
   <%= f.submit "Reply", :class => 'btn' %>
 <% end %>
