@@ -1,13 +1,13 @@
       <!-- Page content -->
-      
       <div class="page-content blocky">
+
         <div class="container">
             <div class="row">
-              <div class="col-md-1">
-              </div>
-              <div class="col-md-10">
 
-                <!-- main content area -->
+              <!-- main content area -->
+
+              <div class="col-md-9">
+
                 <div class="mainy">
                   <!-- Page title -->
                   <!-- Page title -->
@@ -19,13 +19,15 @@
 
                           <!-- Dayr Top Half Details -->
 
-                          <div class="row">
-
-                            <!-- Dayr Top-Left (includes time, and dayrs)-->
-
+                          <!-- Dayr Top-Left (includes time, and dayrs)-->
+                          <div class="col-md-12">
+                            <h1>Tools for Teen Moms</h1>
                             <div class="col-md-6 left-col-md-6">
 
-                                <h1>Daily Challenge</h1>
+                                <!-- Dotted Section Start -->
+
+                                <div class="challenge-info">
+                                <h2>Today's Challenge</h2>
                                 <p>
                                   Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
                                   <br/><br/>
@@ -43,16 +45,45 @@
                                   <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
                                     <%= link_to "I did this!", complete_assignment_path(@assignment), 
                                       :method => :post,
-                                      :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn' %>
+                                      :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn', :tag => p %>
                                   <% else %>
                                     <a class="btn btn-large challenge-button disabled">I did this!</a>
                                   <% end %>
                                 <% else %>
-                                  <%= link_to "Log in to Dayr!", new_user_session_path, 
+                                  <%= link_to "Log in and Dayr!", new_user_session_path, 
                                     :class => "btn btn-large btn-primary challenge-button" %>
                                 <% end %>
 
+                                </div>
 
+                                <!-- Dotted Section End -->
+
+                                <!-- Social Share buttons start -->
+                                <!-- Social Share buttons start -->
+
+                                <div class="span1" style="padding-top:2px;">
+                                  <iframe src="http://www.facebook.com/plugins/like.php?app_id=184042905000148&amp;href=<%= CGI.escape(assignment_url(@assignment)) %>&amp;send=false&amp;layout=box_count&amp;width=47&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:70px;" allowTransparency="true"></iframe>
+                                </div>
+                                <div class="span1">
+                                  <!-- Tweet button -->
+                                  <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= assignment_url(@assignment) %>" data-text="<%= @assignment.challenge.name %> - Dayr" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                                </div>
+                                <div class="span1" style="padding-top:2px;">
+                                  <!-- +1 button -->
+                                  <div class="g-plusone" data-size="tall" data-href="<%= assignment_url(@assignment) %>"></div>
+                                  <script type="text/javascript">
+                                    (function() {
+                                      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                      po.src = 'https://apis.google.com/js/plusone.js';
+                                      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                    })();
+                                  </script>
+                                </div>  
+
+<!-- Social Share buttons end -->
+<!-- Social Share buttons end -->
+
+<!--
                                 <div class="col-md-10">
                                   <div class="challenge-image challenge-image-mobile hidden-lg hidden-md hidden-sm">
                                     <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
@@ -86,6 +117,7 @@
                                   </ul>
 
                                 </div>
+-->
                             </div>
 
                             <!-- Dayr Top-Right (includes picture)-->
@@ -94,29 +126,9 @@
                               <div class="challenge-image hidden-sm hidden-xs">
                                 <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                                 <% attribution = @assignment.challenge.image_attribution_url %>
-                              </div>  
-                               <!-- Challenge social buttons -->
-                              <div class="span1" style="padding-top:2px;">
-                                <iframe src="http://www.facebook.com/plugins/like.php?app_id=184042905000148&amp;href=<%= CGI.escape(assignment_url(@assignment)) %>&amp;send=false&amp;layout=box_count&amp;width=47&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:70px;" allowTransparency="true"></iframe>
-                              </div>
+                              </div> 
 
-                              <!-- Social share buttons start -->
-
-                              <div class="span1">
-                                <!-- Tweet button -->
-                                <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= assignment_url(@assignment) %>" data-text="<%= @assignment.challenge.name %> - Dayr" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                              </div>
-                              <div class="span1" style="padding-top:2px;">
-                                <!-- +1 button -->
-                                <div class="g-plusone" data-size="tall" data-href="<%= assignment_url(@assignment) %>"></div>
-                                <script type="text/javascript">
-                                  (function() {
-                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                    po.src = 'https://apis.google.com/js/plusone.js';
-                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                  })();
-                                </script>
-                              </div>      
+    
 
                               <!-- Social share buttons end -->
 
@@ -172,7 +184,58 @@
                 <div class="clearfix"></div>
 
               </div>
+
               <!-- End of main content area -->
+
+              <!-- Start of side bar (right) -->
+
+              <div class="col-md-3">
+                <div class="awidget">
+                  <div class="related-challenges">
+                    <h2>Related </h2>
+                    <h2 class="challenge">Challenges</h2>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </div>
+                  <div class="quizes">
+                    <h2>Quizes </h2>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </div>
+                  <div class="faq">
+                    <h2>FAQs</h2>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </div>
+                  <div class="social">
+                    <h2>Connect with us</h2>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End of side bar -->
 
             </div>
           </div>
@@ -188,6 +251,3 @@
         </div>
       </footer>
       <!-- Footer ends -->
-      
-      <!-- Scroll to top -->
-      <span class="totop"><a href="#"><i class="glyphicon glyphicon-arrow-up"></i></a></span> 
