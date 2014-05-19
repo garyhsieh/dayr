@@ -1,4 +1,6 @@
 Dayr::Application.routes.draw do
+  resources :additional_informations
+
   # resources :profiles, :only => [:show]
   match '/profiles/:username' => 'profiles#show', :as => :profile
 

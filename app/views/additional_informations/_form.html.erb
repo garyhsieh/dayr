@@ -1,0 +1,66 @@
+
+<% if false %>
+  
+  <%= form_for(@additional_information) do |f| %>
+    <% if @additional_information.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@additional_information.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+        <ul>
+        <% @additional_information.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= form_for @additional_information, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+
+  <% if @additional_information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@additional_information.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+        <% @additional_information.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'span6' %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+      <%= f.label :content, :class => 'control-label' %>  
+      <div class="controls">
+        <%= f.text_area :content, :class => 'span6', :rows => 15, :cols => 100 %>
+      </div>
+  </div>
+
+  <br>
+
+  <div class="control-group">
+    <div class="controls">
+      <% if @additional_information.new_record? %>
+        <%= f.submit('Create', :class => 'btn btn-primary') %>
+        <%= link_to 'Cancel', challenges_path, :class => 'btn' %>
+      <% else %>
+        <%= f.submit('Update', :class => "btn btn-primary") %>
+        <%= link_to 'Cancel', challenge_path(@additional_information), :class => 'btn' %>
+      <% end %>
+    </div>
+  </div>
+  
+<% end %>

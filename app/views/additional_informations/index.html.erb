@@ -1,0 +1,67 @@
+<% content_for :title do %>Additional Information<% end %>
+
+<% content_for :head do %>
+  <style>
+    .additional_information-actions {
+      display:none;
+      margin-left:20px;
+    }
+    ul.additional_information > li {
+      clear:both;
+      padding:5px;
+      list-style-type: none;
+    }
+      ul.additional_information > li:hover > .additional_information-actions {
+        display:inline;add
+      }
+    
+  </style>
+<% end %>
+
+
+
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
+
+                        <div class="awidget-body">
+
+                          <% if can? :manage, AdditionalInformation %>
+                            <div class="page-actions">
+                              <%= link_to '+ New Additiional Information Page', new_additional_information_path, :class => 'btn btn-primary', :id => 'new-assign' %>
+                            </div>
+                          <% end %>
+                          <h1>Additional Information</h1>
+
+                          <ul class="bulletless additional_information">
+                            <% @additional_informations.each do |additional_information| %>
+                              <li>
+                                <%= additional_information.id%>.
+                                <%= link_to additional_information.name, additional_information, :class => 'additional_information' %>
+                                <% if can? :manage, AdditionalInformation %>
+                                  <span class="additional_information-actions">
+                                    <%= link_to 'Edit', edit_additional_information_path(additional_information) %> &nbsp;
+                                    <%= link_to 'Destroy', additional_information, :confirm => 'Are you sure?', :method => :delete %>
+                                  </span>
+                                <% end %>
+                              </li>
+                            <% end %>
+                          </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

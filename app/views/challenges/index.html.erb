@@ -1,25 +1,67 @@
-
-
 <% content_for :title do %>Challenges<% end %>
 
-<div class="page-actions">
-  <%= link_to 'New challenge', new_challenge_path, :class => 'btn btn-primary' %>
-</div>
-<h1>Challenges</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-
-<% @challenges.each do |challenge| %>
-  <tr>
-    <td><%=h challenge.name %></td>
-    <td><%=h challenge.description %></td>
-    <td><%= link_to 'Show', challenge %></td>
-    <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-    <td><%= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :head do %>
+  <style>
+    .challenge-actions {
+      display:none;
+      margin-left:20px;
+    }
+    ul.challenges > li {
+      clear:both;
+      padding:5px;
+      list-style-type: none;
+    }
+      ul.challenges > li:hover > .challenge-actions {
+        display:inline;
+      }
+    
+  </style>
 <% end %>
-</table>
+
+
+
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
+
+                        <div class="awidget-body">
+
+                          <% if can? :manage, Challenge %>
+                            <div class="page-actions">
+                              <%= link_to '+ New Challenge', new_challenge_path, :class => 'btn btn-primary', :id => 'new-assign' %>
+                            </div>
+                          <% end %>
+                          <h1>Challenges</h1>
+
+                          <ul class="bulletless challenges">
+                            <% @challenges.each do |challenge| %>
+                              <li>
+                                <%= challenge.id%>.
+                                <%= link_to challenge.name, challenge, :class => 'challenge' %>
+                                <% if can? :manage, Challenge %>
+                                  <span class="challenge-actions">
+                                    <%= link_to 'Edit', edit_challenge_path(challenge) %> &nbsp;
+                                    <%= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete %>
+                                  </span>
+                                <% end %>
+                              </li>
+                            <% end %>
+                          </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

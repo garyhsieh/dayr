@@ -9,4 +9,6 @@ class Challenge < ActiveRecord::Base
   validates_presence_of :category
   
   has_many :assignments
+  has_many :additional_information
+
 end

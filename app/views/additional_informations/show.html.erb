@@ -1,0 +1,33 @@
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-1">
+        	</div>
+            <div class="col-md-9">
+
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
+
+                        <div class="awidget-body">
+
+                          <% if can? :manage, AdditionalInformation %>
+                            <div class="page-actions">
+                              <%= link_to 'Edit', edit_additional_information_path(@additional_information), :class => 'btn btn-primary', :id => 'new-assign' %>
+                            </div>
+                          <% end %>
+
+							<% content_for :title do %>Show Additional Information Page<% end %>
+
+							<h1><%=@additional_information.name%></h1>
+							<%= raw textilize @additional_information.content %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -68,6 +68,9 @@
 	    <%= f.select :category, options_for_select(Challenge::CATEGORIES), {}, :class => 'span4' %>
 	  </div>
 	</div>
+
+  <br><br>
+
 	<div class="control-group">
 	  <div class="controls">
 	    <% if @challenge.new_record? %>
@@ -80,9 +83,4 @@
   	</div>
   </div>
   
-<% end %>
-
-<% content_for :sb do %>
-	<h2>Formatting the description</h2>
-	<%= render :partial => "layouts/textile_examples" %>
 <% end %>

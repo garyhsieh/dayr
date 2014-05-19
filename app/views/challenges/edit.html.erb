@@ -1,5 +1,31 @@
-<% content_for :title do %>Edit Challenge<% end %>
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
 
-<h1>Edit Challenge</h1>
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
 
-<%= render 'form' %>
+                        <div class="awidget-body">
+
+							<% content_for :title do %>Edit Challenge<% end %>
+
+							<h1>Edit Challenge</h1>
+
+							<%= render 'form' %>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				  <h2>Formatting the description</h2>
+				  <%= render :partial => "layouts/textile_examples" %>
+            </div>
+		</div>
+	</div>
+</div>

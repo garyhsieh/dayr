@@ -4,12 +4,13 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    if user.admin or user.username == 'ianli' or user.username == 'garyh'
+    if user.admin or user.username == 'ianli' or user.username == 'garyhsieh'
       can :manage, :all
     else
       can :read, :all
       can :complete, Assignment
-      cannot :read, Challenge
+#      cannot :read, Challenge
+#      cannot :read, AdditionalInformation
     end
     
     # Define abilities for the passed in user here. For example:

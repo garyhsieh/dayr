@@ -394,7 +394,7 @@ hr {
 
 .navbar-default {
    border: none;
-   background-color: #e5005b;
+   background-color: #E94E77;
 }
 
 .navbar-default .navbar-nav>li>.org-identity {
@@ -442,7 +442,7 @@ nav ul li a:hover, nav ul li:hover {
 }
 
 .sub-navbar {
-   background-color: #4eb9c2;
+   background-color: #C6E5D9;
 }
 
 /* Sub-Navigation end */

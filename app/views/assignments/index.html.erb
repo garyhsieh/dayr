@@ -48,16 +48,20 @@
 
                           <ul class="bulletless assignments">
                             <% @assignments.each do |assignment| %>
+                              <% if can? :manage, Assignment or assignment.date <= Date.today%>
                               <li>
                                 <span class="assignment-date"><%=h assignment.date.strftime("%b %d, %Y") %></span>
                                 <%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %>
+
+                                <% end %>
                                 <% if can? :manage, Assignment %>
                                   <span class="assignment-actions">
                                     <%= link_to 'Edit', edit_assignment_path(assignment) %> &nbsp;
                                     <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %>
-                                  </span>
-                                <% end %>
+                                </span>
                               </li>
+                              <% end %>                              
+
                             <% end %>
                           </ul>
 
