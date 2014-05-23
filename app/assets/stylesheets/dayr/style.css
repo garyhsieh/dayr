@@ -72,7 +72,7 @@ h1,h2 {
    color:#707070;
 } 
 h1 {
-   color: #e5005b;
+   color: #E94E77;
    margin-bottom: 40px;
    margin-top: 35px;
 }
@@ -86,12 +86,12 @@ ul, ol {
 } 
 
 a {
-   color:#e5005b;
+   color:#E94E77;
    text-decoration:none;
 } 
 
 a:hover{ /* Default for hovering over a link*/
-   color:#e5005b;
+   color:#E94E77;
    text-decoration:underline;
 } 
 
@@ -105,11 +105,11 @@ strong{
 }
 
 ul li {
-   list-style-color: #e5005b;
+   list-style-color: #E94E77;
 } 
 
 .btn {
-   background-color: #e5005b;
+   background-color: #E94E77;
    color: #fff;
    border: none;
    height: 30px;
@@ -164,16 +164,21 @@ ul li {
 
 /* Main content */
 .timer {
-   background-image: url("../dayr/timer.png");
-   background-size: 220px 60px;
+   background-image: url("../dayr/timer.png");*/
+   background-size: 210px 60px;
    background-repeat: no-repeat;
    margin-top:-50px;
    margin-left:-30px;
-   width: 240px;
+   width: 230px;
    height: 40px;
    padding:10px;
    padding-left: 50px;
    color: #fff;
+/*
+   background-color: #fff;
+   color: #E94E77;
+   border: 2px solid #E94E77;
+   */
 }
 
 .mainy .label {
@@ -184,10 +189,10 @@ ul li {
 }  
 
 .mainy .edit-btn .label {
-   background-color: #e5005b;
+   background-color: #E94E77;
    cursor: pointer;
    color: #FFF;
-   border: 1px solid #e5005b;
+   border: 1px solid #E94E77;
    font-size: 10px;
    padding:3px 5px;
 }
@@ -202,8 +207,8 @@ ul li {
    border: none;
    background-color: #FFF;
    cursor: pointer;
-   color: #e5005b;
-   border: 1px solid #e5005b;
+   color: #E94E77;
+   border: 1px solid #E94E77;
 }
 
 
@@ -221,7 +226,7 @@ ul li {
 
 .col-md-10 h2 #dayrs
 {
-   color: #e5005b
+   color: #E94E77
 }
 
 .col-md-12 h1 {
@@ -368,7 +373,7 @@ hr {
 }
 
 .col-md-3 .awidget .related-challenges .challenge{
-   color: #e5005b;
+   color: #E94E77;
    font-size: 1.6em;
    display: inline-block;
    margin-top:-10px;
@@ -384,11 +389,18 @@ hr {
 .navbar { 
    border: none; 
    border-radius: 0px;
+   height: 50px;
+}
+
+.navbar .navbar-header img { 
+   width: 60px;
+   height: 60px;
+   margin-top:-15px;
 }
 
 .navbar-default {
    border: none;
-   background-color: #E5005B;
+   background-color: #E94E77;
 }
 
 .navbar-default .navbar-nav>li>.org-identity {
@@ -396,11 +408,11 @@ hr {
 }
 .navbar-default .navbar-nav .dropdown:hover {
    color: #000;
-   background-color: #E5005B;
+   background-color: #E94E77;
 }
 .navbar-default .navbar-nav>li> a.org-identity:hover {
    color: #000;
-   background-color: #e7e7e7;
+   background-color: #E94E77;
 }
 
 .navbar-default .navbar-toggle {
@@ -426,20 +438,6 @@ nav ul li a:hover, nav ul li:hover {
 }
 
 /* Top-Navigation end */
-
-/* Sub-Navigation start */
-
-.subnav li {
-   float: left;
-   display: inline;
-   color: #fff;
-}
-
-.sub-navbar {
-   background-color: #C6E5D9;
-}
-
-/* Sub-Navigation end */
 
 /* Footer */
 
@@ -492,7 +490,7 @@ footer .copy{
    }
    .header .navbar .nav > li > a:hover{
       border-radius:5px;
-      background-color: #e5005b;
+      background-color: #E94E77;
    }
    .navbar-toggle {
       margin-right:0px !important;
@@ -501,12 +499,12 @@ footer .copy{
 /* Some overrides from default bootstrap styles */
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
-   background-color: #e5005b;
+   background-color: #E94E77;
 }
 
 .nav>li>a{
 
-   background-color: #e5005b;
+   background-color: #E94E77;
    color: #fff;
 }
 
@@ -532,7 +530,7 @@ footer .copy{
 /* Override */
 @media (min-width: 768px) {
    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-      background-color: #e5005b;
+      background-color: #E94E77;
       color: #FFF;
    } .awidget {
       min-height: 520px;
@@ -545,7 +543,7 @@ footer .copy{
    } 
    .company-name a {
       font-weight: bold;
-      color: #e5005b;
+      color: #E94E77;
       margin-right: 40px;
       margin-left:10px;
    } .header .nav li a {
@@ -597,7 +595,7 @@ footer .copy{
       background-color:#e7e7e7;
    }
    .sidebar-dropdown a, .sidebar-dropdown a{
-      color:#e5005b;
+      color:#E94E77;
       display:block;
       padding:10px 15px;
    }  
@@ -632,7 +630,7 @@ a:hover {
 }
 #comment_btn {
    border-radius: 0;
-   background-color: #e5005b;
+   background-color: #E94E77;
    color: #fff;
    font-size: 1em;
    height: 35px;
@@ -647,7 +645,7 @@ a:hover {
    color: #777;
 }
 #comment-reply-btn:hover {
-   color: #e5005b;
+   color: #E94E77;
    text-decoration: none;
 } 
 #complete-btn {
@@ -663,7 +661,17 @@ a:hover {
    border-radius: 10px;
    font-size: 1.2em;
    font-weight: bold;
+
+   background-color: #fff;
+   color: #35A9B3;
+   border: 2px solid #35A9B3;
 } 
+
+.challenge-button:hover {
+   background-color: #35A9B3;
+   border:2px solid #35A9B3;
+   color: #fff;
+}
 
 .challenge-image-mobile {
    margin-top: -50px;
