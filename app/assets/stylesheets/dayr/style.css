@@ -67,7 +67,7 @@ h3,h4,h5,h6
    font-family: Arial, Avenir, 'Open Sans', sans-serif;
 } 
 h1,h2 {
-   font-family: Arial, Avenir, 'Open Sans', sans-serif;
+   font-family: "Crafty Girls", Avenir, 'Open Sans', sans-serif;
    font-weight:100px;
    color:#707070;
 } 
@@ -100,12 +100,17 @@ a:hover,a:active,a:focus {
 }
 
 strong{
-   font-family: Arial, Avenir, 'Open Sans', sans-serif;
+   font-family: "Crafty Girls", Avenir, 'Open Sans', sans-serif;
+   color: #E94E77;
    font-weight:600;
+   font-size: 1.5em;
+   line-height: 2em;
 }
 
 ul li {
    list-style-color: #E94E77;
+   list-style-type: circle;
+   margin-left: 15px;
 } 
 
 .btn {
@@ -232,10 +237,10 @@ ul li {
 .col-md-12 h1 {
    font-size: 2.2em;
    font-weight: bolder;
-   font-style: italic;
    margin-bottom: 30px;
    margin-left: 0;
    padding-left: 0;
+   line-height: 1em;
 }
 
 .col-md-12 .col-md-6 {
@@ -364,6 +369,13 @@ hr {
    padding: 6px;
    display: block;
    padding-left: 15px;
+   font-size: 1em;
+}
+
+.col-md-3 .awidget .faq ul li{
+   list-style-type: none;
+   margin-left: 0px;
+
 }
 
 .col-md-3 .awidget .quizes ul, .col-md-3 .awidget .faq ul, .col-md-3 .awidget .social ul {

@@ -21,8 +21,8 @@
 
                   <!-- Dayr Top-Left (includes time, and dayrs)-->
                   <div class="col-md-12">
-                    <!-- Date timer count -->
 
+                    <!-- Date timer count -->
                     <div class="timer hidden-xs">
                       <% if is_challenge_today? %>
                         <%=distance_of_time_in_words_to_now(Date.today+1.day)%>
@@ -31,16 +31,20 @@
                       <% end %>
                     </div>
 
+                    <!-- Challenge Title -->
                     <div class="row">
                       <h1>Make Your Baby the Star of Your Attention</h1> 
                     </div>
 
                     <div class="row">
+
+                      <!-- Challenge Information -->
                       <div class="col-md-6">
                         <p>
                           Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
                         </p>
 
+                        <!-- Challenge Button -->
                         <% if user_signed_in? %>
                           <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
                             <%= link_to "I did this!", complete_assignment_path(@assignment), 
@@ -50,16 +54,17 @@
                             <a class="btn btn-large challenge-button disabled">I did this!</a>
                           <% end %>
                         <% else %>
-                          <%= link_to "Log in and Dayr!", new_user_session_path, 
+                          <%= link_to "Log in and Complete!", new_user_session_path, 
                             :class => "btn btn-large btn-primary challenge-button" %>
                         <% end %>
 
+                        <!-- People who completed this challenge -->
                         <% if @completions_size == 0 %>
-                          <h2>Be the first mom to dayr!</h2>
+                          <h2>be the first to do this challenge!</h2>
                         <% elsif @completions_size == 1 %>
-                          <h2><span id="dayrs"><%= pluralize(@completions_size, 'mom') %></span> dayr'd</h2>
+                          <h2><span id="dayrs"><%= pluralize(@completions_size, 'mom') %></span> did this</h2>
                         <% else %>
-                          <h2><span id="dayrs"><%= pluralize(@completions_size, 'moms') %></span> dayr'd</h2>
+                          <h2><span id="dayrs"><%= pluralize(@completions_size, 'moms') %></span> did this</h2>
                         <% end %>
                         <hr/>
                         <ul class="completions">
@@ -78,7 +83,8 @@
                             </li>
                           <% end %>
                         </ul>
-
+                        <hr/>
+                        <!-- Like buttons2 -->
                         <div class="span1" style="padding-top:2px;">
                           <iframe src="http://www.facebook.com/plugins/like.php?app_id=184042905000148&amp;href=<%= CGI.escape(assignment_url(@assignment)) %>&amp;send=false&amp;layout=box_count&amp;width=47&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:70px;" allowTransparency="true"></iframe>
                         </div>
@@ -112,6 +118,8 @@
                     <p>
                       <%= raw textilize @assignment.challenge.description %>
                     </p>
+
+                    <br>
 
                     <hr/>
 
@@ -165,15 +173,12 @@
 
       <div class="col-md-3">
         <div class="awidget">
-          <div class="related-challenges">
-            <h2>Related </h2>
-            <h2 class="challenge">Challenges</h2>
+          <div class="faq">
+            <h2>Related Lessons</h2>
             <ul>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
+              <li>How do I know my baby is getting enough to eat?</li>
+              <li>How do I know my baby is ready for solid foods? </li>
+              <li>The Truth about Baby Blues</li>
             </ul>
           </div>
           <div class="faq">
