@@ -19,6 +19,7 @@ group :assets do
 	gem 'bootstrap-sass', '~> 2.0.4.0'
 end
 
+
 gem 'jquery-rails'
 
 #group :production do
