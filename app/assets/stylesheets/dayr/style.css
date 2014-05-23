@@ -73,8 +73,8 @@ h1,h2 {
 } 
 h1 {
    color: #e5005b;
-   margin-bottom: 25px;
-   margin-top: 0;
+   margin-bottom: 40px;
+   margin-top: 35px;
 }
 p {
    margin:0;
@@ -151,8 +151,8 @@ ul li {
    margin-top: 25px;
 }
 
-.container{
-   width:1200px;
+.content-wrap {
+   margin-top: 65px;
 }
 
 .modal h4{
@@ -163,6 +163,18 @@ ul li {
 }
 
 /* Main content */
+.timer {
+   background-image: url("../dayr/timer.png");
+   background-size: 220px 60px;
+   background-repeat: no-repeat;
+   margin-top:-50px;
+   margin-left:-30px;
+   width: 240px;
+   height: 40px;
+   padding:10px;
+   padding-left: 50px;
+   color: #fff;
+}
 
 .mainy .label {
    font-size: 20px;
@@ -197,26 +209,8 @@ ul li {
 
 /* Box styling for quick information (left most side)*/
 
-.col-md-6 .col-md-10
-{
-   margin-top: 10px;
-   margin-bottom: 30px;
-}
-.col-md-10 {
-   padding: 0;
-}
-
-.col-md-3 #seconds {
-   color: #000;
-}
-
-.col-md-3 p 
-{
-font-size: 6.1em;
-font-weight: medium;
-text-align: center;
-color: #e5005b;
-margin-top: 50px;
+.col-md-6 p {
+   padding-right: 25px;
 }
 
 .col-md-10 h2 {
@@ -235,6 +229,8 @@ margin-top: 50px;
    font-weight: bolder;
    font-style: italic;
    margin-bottom: 30px;
+   margin-left: 0;
+   padding-left: 0;
 }
 
 .col-md-12 .col-md-6 {
@@ -251,9 +247,7 @@ margin-top: 50px;
 }
 
 .challenge-info {
-   border: 2px dashed #4eb9c2;
-   padding: 25px;
-   padding-top: 20px;
+
    margin-right: 20px;
 }
 
@@ -394,7 +388,7 @@ hr {
 
 .navbar-default {
    border: none;
-   background-color: #E94E77;
+   background-color: #E5005B;
 }
 
 .navbar-default .navbar-nav>li>.org-identity {
@@ -402,7 +396,7 @@ hr {
 }
 .navbar-default .navbar-nav .dropdown:hover {
    color: #000;
-   background-color: #e7e7e7;
+   background-color: #E5005B;
 }
 .navbar-default .navbar-nav>li> a.org-identity:hover {
    color: #000;
@@ -662,6 +656,7 @@ a:hover {
 
 .challenge-button {
    margin-top:25px;
+   margin-bottom: 30px;
    border-radius: 5px;
    padding: 40px;
    padding-top: 20px;
