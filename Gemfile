@@ -7,16 +7,16 @@ gem 'rails', '3.1.10'
 
 gem 'json'
 
-# Bootstrap SASS
-# https://github.com/thomas-mcdonald/bootstrap-sass/
-gem 'bootstrap-sass', '~> 2.0.4.0'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
 	gem 'sass-rails',   '~> 3.1.4'
 	gem 'coffee-rails', '~> 3.1.1'
 	gem 'uglifier', '>= 1.0.3'
+
+	# Bootstrap SASS
+	# https://github.com/thomas-mcdonald/bootstrap-sass/
+	gem 'bootstrap-sass', '~> 2.0.4.0'
 end
 
 
