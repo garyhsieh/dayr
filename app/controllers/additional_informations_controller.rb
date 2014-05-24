@@ -9,7 +9,7 @@ class AdditionalInformationsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml { render xml: @additional_informations }
+      format.json { render json: @additional_informations }
     end
   end
 
@@ -20,7 +20,7 @@ class AdditionalInformationsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml { render xml: @additional_information }
+      format.json { render json: @additional_information }
     end
   end
 
@@ -31,7 +31,7 @@ class AdditionalInformationsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml { render xml: @additional_information }
+      format.json { render json: @additional_information }
     end
   end
 
@@ -48,10 +48,10 @@ class AdditionalInformationsController < ApplicationController
     respond_to do |format|
       if @additional_information.save
         format.html { redirect_to @additional_information, notice: 'Additional information was successfully created.' }
-        format.xml { render xml: @additional_information, status: :created, location: @additional_information }
+        format.json { render json: @additional_information, status: :created, location: @additional_information }
       else
         format.html { render action: "new" }
-        format.xml { render xml: @additional_information.errors, status: :unprocessable_entity }
+        format.json { render json: @additional_information.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,10 +64,10 @@ class AdditionalInformationsController < ApplicationController
     respond_to do |format|
       if @additional_information.update_attributes(params[:additional_information])
         format.html { redirect_to @additional_information, notice: 'Additional information was successfully updated.' }
-        format.xml { head :ok }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.xml { render xml: @additional_information.errors, status: :unprocessable_entity }
+        format.json { render json: @additional_information.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -80,7 +80,7 @@ class AdditionalInformationsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to additional_informations_url }
-      format.xml { head :ok }
+      format.json { head :ok }
     end
   end
 end
