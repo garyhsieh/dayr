@@ -32,31 +32,40 @@
                     </div>
 
                     <!-- Challenge Title -->
-                    <div class="row">
-                      <h1>Make Your Baby the Star of Your Attention</h1> 
+                    <div class="row hidden-xs hidden-sm visible-md visible-lg">
+                      <h1 Make Your Baby the Star of Your Attention</h1>
+                    </div>
+                    <div class="phone-h1 hidden-md hidden-lg visible-xs visible-sm">
+                      <h1>Make Your Baby the Star of Your Attention</h1>
                     </div>
 
                     <div class="row">
 
                       <!-- Challenge Information -->
                       <div class="col-md-6">
+
+                        <div class="phone-img hidden-md hidden-lg visible-xs visible-sm">
+                          <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
+                          <% attribution = @assignment.challenge.image_attribution_url %>
+                        </div>
+
                         <p>
                           Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
-                        </p>
 
-                        <!-- Challenge Button -->
-                        <% if user_signed_in? %>
-                          <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
-                            <%= link_to "I did this!", complete_assignment_path(@assignment), 
-                              :method => :post,
-                              :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn', :tag => p %>
+                          <!-- Challenge Button -->
+                          <% if user_signed_in? %>
+                            <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
+                              <%= link_to "I did this!", complete_assignment_path(@assignment), 
+                                :method => :post,
+                                :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn', :tag => p %>
+                            <% else %>
+                              <a class="btn btn-large challenge-button disabled">I did this!</a>
+                            <% end %>
                           <% else %>
-                            <a class="btn btn-large challenge-button disabled">I did this!</a>
+                            <%= link_to "Log in and Complete!", new_user_session_path, 
+                              :class => "btn btn-large btn-primary challenge-button" %>
                           <% end %>
-                        <% else %>
-                          <%= link_to "Log in and Complete!", new_user_session_path, 
-                            :class => "btn btn-large btn-primary challenge-button" %>
-                        <% end %>
+                        </p>
 
                         <!-- People who completed this challenge -->
                         <% if @completions_size == 0 %>
@@ -83,31 +92,15 @@
                             </li>
                           <% end %>
                         </ul>
+                        <br>
                         <hr/>
-                        <!-- Like buttons2 -->
-                        <div class="span1" style="padding-top:2px;">
-                          <iframe src="http://www.facebook.com/plugins/like.php?app_id=184042905000148&amp;href=<%= CGI.escape(assignment_url(@assignment)) %>&amp;send=false&amp;layout=box_count&amp;width=47&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:70px;" allowTransparency="true"></iframe>
-                        </div>
-                        <div class="span1">
-                          <!-- Tweet button -->
-                          <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= assignment_url(@assignment) %>" data-text="<%= @assignment.challenge.name %> - Dayr" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                        </div>
-                        <div class="span1" style="padding-top:2px;">
-                          <!-- +1 button -->
-                          <div class="g-plusone" data-size="tall" data-href="<%= assignment_url(@assignment) %>"></div>
-                          <script type="text/javascript">
-                            (function() {
-                              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                              po.src = 'https://apis.google.com/js/plusone.js';
-                              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                            })();
-                          </script>
-                        </div> 
-
                       </div>
+
                       <div class="col-md-6">
-                        <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
-                        <% attribution = @assignment.challenge.image_attribution_url %>
+                        <div class="hidden-xs hidden-sm hidden-m">
+                          <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
+                          <% attribution = @assignment.challenge.image_attribution_url %>
+                        </div>
                       </div>
                     </div>
 
@@ -143,8 +136,6 @@
                           <%= f.hidden_field :commentable_id, :value=>@assignment.id %>
                           <%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
 
-                          <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
-
                           <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
                           <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
                         <% end %>
@@ -173,7 +164,15 @@
 
       <div class="col-md-3">
         <div class="awidget">
-          <div class="faq">
+          <div class="related-challenges">
+            <h2>Additional Information</h2>
+            <ul>
+              <li>How do I know my baby is getting enough to eat?</li>
+              <li>How do I know my baby is ready for solid foods? </li>
+              <li>The Truth about Baby Blues</li>
+            </ul>
+          </div>
+          <div class="related-lessons">
             <h2>Related Lessons</h2>
             <ul>
               <li>How do I know my baby is getting enough to eat?</li>
@@ -187,6 +186,27 @@
               <li>item</li>
               <li>item</li>
               <li>item</li>
+              <li>item</li>
+              <li>item</li>
+            </ul>
+          </div>
+          <div class="share">
+            <h2>Share</h2>
+            <!-- Like Buttons BEGIN -->
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+              <a class="addthis_button_preferred_1"></a>
+              <a class="addthis_button_preferred_2"></a>
+              <a class="addthis_button_preferred_3"></a>
+              <a class="addthis_button_preferred_4"></a>
+              <a class="addthis_counter addthis_bubble_style"></a>
+            </div>
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+            <!-- Like Buttons END -->
+          </div>
+          <div class="share">
+            <h2>Contact</h2>
+            <ul>
               <li>item</li>
               <li>item</li>
             </ul>
