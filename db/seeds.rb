@@ -73,7 +73,7 @@ AdditionalInformation.create({:name => "The Truth about Baby Blues", :content =>
  ** Turning to drinking, smoking, or drugs can seem stress relieving, but can cause lots of harm to you and your baby in the long run 
  * *When in doubt, discuss any concerns with your doctor!!!*" })
 
-AdditionalInformation.create({:name => "The Truth about Baby Blues", :content => "*The current guidelines for introducing your little one to solid foods is to wait until about 4-6 months of age.  Before this, your baby's digestive system is not ready for solid foods.  Solid foods are any food other than breast milk or formula.* 
+AdditionalInformation.create({:name => "How do I know my baby is ready for solid foods?", :content => "*The current guidelines for introducing your little one to solid foods is to wait until about 4-6 months of age.  Before this, your baby's digestive system is not ready for solid foods.  Solid foods are any food other than breast milk or formula.* 
  <br>
  *You should also notice these signs that tell you your baby may be ready for solid foods:* 
  * Your baby can hold her head up on her own.
@@ -109,6 +109,22 @@ AdditionalInformation.create({:name => "The Truth about Baby Blues", :content =>
  * DO: Make extra, cover it, and freeze it for a later date
  * DON'T: Defrost in the microwave
  * DO: Leave it in the fridge for it to defrost, or run it under warm water" })
+
+AdditionalInformation.create({:name => "How do I know my baby is getting enough to eat?", :content => "*Your baby is getting enough if:*
+ * She has 6 or more wet diapers a day, plus 3 dirty diapers a day.
+ * She is gaining weight. 
+ * She is alert when awake.
+ <br>
+ 
+ *Remember:* 
+ * How much your baby eats will vary day by day!
+ * The amount she eats will increase as she gets older, and as she has growth spurts! 
+ * Only she knows if she’s hungry!
+ * Wait for Flag cues instead of sticking to a strict feeding schedule! 
+ * Don't feed your baby more than 32 oz. in a 24 hour period. 
+ <br>
+ 
+ __If your baby ""skips"" two or more meals in a row for any reason, consult your baby's doctor.__ " })
 
 
 Assignment.create(:date => Date.today, :challenge_id => "1")
