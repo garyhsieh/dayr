@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :completions
   has_many :assignments, :through => :completions
   has_many :comments
+  has_many :advice_messages
   
   has_many :page_views
   

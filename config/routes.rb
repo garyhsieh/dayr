@@ -1,4 +1,12 @@
 Dayr::Application.routes.draw do
+  resources :discussions do
+    resources :comments
+  end
+
+  resources :advice_messages do
+    resources :comments
+  end
+
   resources :additional_informations
 
   # resources :profiles, :only => [:show]

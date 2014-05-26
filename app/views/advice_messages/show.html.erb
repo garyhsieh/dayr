@@ -1,0 +1,59 @@
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-1">
+        	</div>
+            <div class="col-md-9">
+
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
+
+                        <div class="awidget-body">
+
+						<% content_for :title do %>Advice Message<% end %>
+
+						<h1>Question</h1>
+						<div><%= time_ago_in_words(@advice_message.created_at) %> ago</div>
+						<h2><%= @advice_message.subject %> </h2>
+						<%= simple_format(@advice_message.question) %>
+
+						<section>
+
+	                      <h2 id="comments_count">
+	                        <% if @comments != nil && @comments.length != 0 %>
+	                          <%= pluralize(@comments.count, "Comment") %>  
+	                        <% else %>
+	                          Leave a response...
+	                        <% end %>
+	                      </h2>
+
+	                      <% if @comments %>
+	                        <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @advice_message } %>
+	                      <% end %>
+
+	                      <% if user_signed_in? %>
+	                        <%= form_for([@advice_message,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
+	                          <%= f.hidden_field :user_id, :value=>current_user.id %>
+	                          <%= f.hidden_field :commentable_id, :value=>@advice_message.id %>
+	                          <%= f.hidden_field :commentable_type, :value=>@advice_message.class.name  %>
+
+	                          <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
+
+	                          <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
+	                          <%= f.submit "Add response", :class => 'btn', :id => "comment_btn" %>
+	                        <% end %>
+	                      <% else %>
+	                          <%= link_to "Log in to comment", new_user_session_path %>   
+	                      <% end %>
+
+                    	</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

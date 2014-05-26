@@ -3,15 +3,45 @@ class CommentsController < ApplicationController
      @comment = Comment.new(params[:comment])
      
 
+     if @comment.commentable_type == AdviceMessage
+
+
+       respond_to do |format|
+         if @comment.save
+           format.html { redirect_to(advice_message_path(@comment.commentable_id), :notice => 'Thanks for Commenting') }
+           format.xml  { head :ok }
+         else
+           format.html { redirect_to(advice_message_path(@comment.commentable_id)) }
+           format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+         end
+       end
+
+    elsif @comment.commentable_type == Discussion
+
      respond_to do |format|
+       if @comment.save
+         format.html { redirect_to(discussion_path(@comment.commentable_id), :notice => 'Thanks for Commenting') }
+         format.xml  { head :ok }
+       else
+         format.html { redirect_to(discussion_path(@comment.commentable_id)) }
+         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+       end
+     end
+
+    else
+
+      respond_to do |format|
        if @comment.save
          format.html { redirect_to(assignment_path(@comment.commentable_id), :notice => 'Thanks for Commenting') }
          format.xml  { head :ok }
        else
          format.html { redirect_to(assignment_path(@comment.commentable_id)) }
-         format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
+         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
        end
      end
+
+    end
+     
    end
    
    def new

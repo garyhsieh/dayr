@@ -1,0 +1,70 @@
+<% if false %>
+  
+  <%= form_for(@discussion) do |f| %>
+    <% if @discussion.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+        <ul>
+        <% @discussion.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= form_for @discussion, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+
+  <% if @discussion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+        <% @discussion.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, :class => 'span6', :rows => 5, :cols => 50  %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+  <br>
+
+  <div class="control-group">
+    <div class="controls">
+      <% if @discussion.new_record? %>
+        <%= f.submit('Post', :class => 'btn btn-primary') %>
+        <%= link_to 'Cancel', challenges_path, :class => 'btn' %>
+      <% else %>
+        <%= f.submit('Update', :class => "btn btn-primary") %>
+        <%= link_to 'Cancel', challenge_path(@discussion), :class => 'btn' %>
+      <% end %>
+    </div>
+  </div>
+  
+<% end %>
+
+

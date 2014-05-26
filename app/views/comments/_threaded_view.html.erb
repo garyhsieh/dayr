@@ -95,7 +95,7 @@ p.comment-username {
       <% end %>
 		
   		<p class="comment-body">
-  		  <%= comment.body %>
+  		  <%= simple_format(comment.body) %>
   		</p>
   		
 		</div>
@@ -106,7 +106,7 @@ p.comment-username {
 			  <%= link_to(profile_path(current_user.username), :class => 'comment-img') do %>
   			  <%= gravatar_tag current_user, :size => 30 %>
   			<% end %>
-				<%= render :partial => "comments/form", :locals => { :comment => comment, :parent_id => @tmp.id } %>
+				<%= render :partial => "comments/form", :locals => { :comment => comment, :parent_id => @tmp.id, :commentable_object => commentable_object } %>
 			</div>
 			<hr style="clear:both" />
 		<% end %>

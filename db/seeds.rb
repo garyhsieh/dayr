@@ -119,7 +119,7 @@ AdditionalInformation.create({:name => "How do I know my baby is getting enough 
  *Remember:* 
  * How much your baby eats will vary day by day!
  * The amount she eats will increase as she gets older, and as she has growth spurts! 
- * Only she knows if she’s hungry!
+ * Only she knows if she's hungry!
  * Wait for Flag cues instead of sticking to a strict feeding schedule! 
  * Don't feed your baby more than 32 oz. in a 24 hour period. 
  <br>

@@ -1,0 +1,59 @@
+<% content_for :title do %>Your Advice Messages<% end %>
+
+<% content_for :head do %>
+  <style>
+    .advice_message-actions {
+      display:none;
+      margin-left:20px;
+    }
+    ul.advice_message > li {
+      clear:both;
+      padding:5px;
+      list-style-type: none;
+    }
+
+  </style>
+<% end %>
+
+
+
+<!-- Page content -->
+<div class="page-content blocky">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+
+            <!-- main content area -->
+                <div class="mainy">
+                  <!-- Page title -->
+                  <!-- Page title -->
+                    <div class="awidget">
+
+                        <div class="awidget-body">
+
+                          <h1>Advice Messages</h1>
+
+                            <ul class="bulletless advice_message">
+                            <% if @advice_messages != nil && @advice_messages.length != 0%>
+                              <% @advice_messages.each do |advice_message| %>
+                                <li>
+                                  <span class="assignment-date"><%=h advice_message.created_at.strftime("%b %d, %Y") %></span>
+                                  <%= link_to advice_message.subject, advice_message, :class => 'assignment-challenge' %>
+                                </li>                          
+                              <% end %>
+                            <% else %>
+
+                            <% end %>                            
+                          </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

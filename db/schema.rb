@@ -11,11 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519171747) do
+ActiveRecord::Schema.define(:version => 20140526054244) do
 
   create_table "additional_informations", :force => true do |t|
     t.string   "name"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "advice_messages", :force => true do |t|
+    t.string   "subject"
+    t.text     "question"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,6 +77,14 @@ ActiveRecord::Schema.define(:version => 20140519171747) do
   add_index "completions", ["assignment_id", "user_id"], :name => "index_completions_on_assignment_id_and_user_id"
   add_index "completions", ["assignment_id"], :name => "index_completions_on_assignment_id"
   add_index "completions", ["user_id"], :name => "index_completions_on_user_id"
+
+  create_table "discussions", :force => true do |t|
+    t.string   "subject"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "page_views", :force => true do |t|
     t.integer  "user_id"
