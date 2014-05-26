@@ -1,7 +1,7 @@
 <!-- Page content -->
 <div class="page-content blocky">
 
-  <div class="container">
+  <div class="container ">
     <div class="row">
 
       <!-- main content area -->
@@ -23,7 +23,7 @@
                   <div class="col-md-12">
 
                     <!-- Date timer count -->
-                    <div class="timer hidden-xs">
+                    <div class="timer">
                       <% if is_challenge_today? %>
                         <%=distance_of_time_in_words_to_now(Date.today+1.day)%>
                       <% else %>
@@ -32,11 +32,8 @@
                     </div>
 
                     <!-- Challenge Title -->
-                    <div class="row hidden-xs hidden-sm visible-md visible-lg">
-                      <h1>Make Your Baby the Star of Your Attention</h1>
-                    </div>
-                    <div class="row hidden-md hidden-lg visible-xs visible-sm">
-                      <h1>Make Your Baby the Star of Your Attention</h1>
+                    <div class="row">
+                      <h1> Make Your Baby the Star of Your Attention</h1>
                     </div>
 
                     <div class="row">
@@ -176,9 +173,9 @@
 
             <h2>Related Lessons</h2>
             <ul>
-              <li> <%= link_to "How do I know my baby is getting enough to eat?", additional_information_path(:id=>3) %>  </li>
-              <li><%= link_to "How do I know my baby is ready for solid foods?", additional_information_path(:id=>2) %>  </li>
-              <li><%= link_to "The Truth about Baby Blues", additional_information_path(:id=>1) %> </li>
+              <li>How do I know my baby is getting enough to eat?</li>
+              <li>How do I know my baby is ready for solid foods? </li>
+              <li>The Truth about Baby Blues</li>
             </ul>
           </div>
           <div class="faq">
