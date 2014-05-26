@@ -169,7 +169,7 @@ ul li {
 
 /* Main content */
 .timer {
-   background-image: url("../dayr/timer.png");
+   background-image: url("/assets/dayr/timer.png");
    background-size: 210px 60px;
    background-repeat: no-repeat;
    margin-top:-80px;
