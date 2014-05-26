@@ -381,7 +381,7 @@ hr {
 }
 
 .col-md-3 .awidget .share h2, .col-md-3 .awidget .faq h2 {
-   background-image: url("../dayr/banner.png");
+   background-image: url("/assets/dayr/banner.png");
    background-size: 300px 135px;
    font-weight: bolder;
    color: #fff;
