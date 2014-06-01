@@ -29,10 +29,10 @@
 
                     <!-- Challenge Title -->
                     <div class="row hidden-xs hidden-sm visible-md visible-lg">
-                      <h1>Make Your Baby the Star of Your Attention</h1>
+                      <h1><%=@challenge.name %></h1>
                     </div>
                     <div class="row hidden-md hidden-lg visible-xs visible-sm">
-                      <h1>Make Your Baby the Star of Your Attention</h1>
+                      <h1><%=@challenge.name %></h1>
                     </div>
 
                     <div class="row">
@@ -46,7 +46,7 @@
                         </div>
 
                         <p>
-                          Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
+                          <%= @challenge.task %>
 
                           <!-- Challenge Button -->
                               <a class="btn btn-large challenge-button disabled">I did this!</a>

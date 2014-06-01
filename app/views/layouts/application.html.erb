@@ -40,17 +40,22 @@
   <div class="container">
     <div class="content-wrap">
     	<div class="row">
+			<div class="page-content blocky">
+			   <div class="container ">
+			     <div class="row">
     	
-    	  <!-- Content assignmetns/show.html-->
-    		<div class="span8">
-    			<%= yield %>
-    		</div>
-		
-    		<!-- Sidebar -->
-    		<div class="offset1 span3">
-    		  <%= yield :sb %>
-    		</div>
-    		
+		    	  <!-- Content assignmetns/show.html-->
+		    		<div class="col-md-9">
+		    			<%= yield %>
+		    		</div>
+				
+		    		<!-- Sidebar -->
+		      		<div class="col-md-3">
+		    		  <%= yield :sb %>
+		    		</div>
+		    	</div>
+		  	</div>
+		  </div>    		
     	</div>
   	</div>
   </div>

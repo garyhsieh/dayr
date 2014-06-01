@@ -15,7 +15,7 @@ class AdviceMessagesController < ApplicationController
   def show
     @advice_message = AdviceMessage.find(params[:id])
 
-    if @advice_message.user_id == current_user
+    if @advice_message.user_id == current_user.id
 
       @comments = Comment.find_comments_for_commentable_threaded(@advice_message.class.name, @advice_message.id)
 
