@@ -20,6 +20,7 @@ Challenge.create({:name => "Back to Basics!", :task=>"Watch a video to learn abo
  h2. STEPS
  * Click here to watch the introduction video.
  * Don't forget check us out on Facebook, and follow us on Twitter for extra tips! 
+ 
  ", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
 
 Challenge.create({:name => "A Cue is a Clue!", :task=>"Spot one cue next time you feed your baby", :description => "Learn what baby cues are and how to spot them! Read about ""flag,"" ""stop,"" and ""go"" cues.
@@ -32,6 +33,7 @@ Challenge.create({:name => "A Cue is a Clue!", :task=>"Spot one cue next time yo
  
  h2. STEPS
  * We've broken them down into categories. Click on each type for more information and examples:
+ 
  
  Click the type of cue on the side bar for examples! 
  ", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
@@ -122,6 +124,51 @@ AdditionalInformation.create({:name => "How do I know my baby is getting enough 
  <br>
  
  __If your baby ""skips"" two or more meals in a row for any reason, consult your baby's doctor.__ " })
+
+AdditionalInformation.create({:name => "A Cue is a Clue", :content => "!../../../images/dayr/flag.png(Flag)!
+ Flag Cues! 
+ These cues tell you +your baby is hungry+! 
+ <br>
+ Early Flag Cues: 
+ * Stirring
+ * Opening her mouth
+ * Turning her head
+ <br>
+ Middle Flag Cues:
+ * Stretching 
+ * Moving a lot!
+ * Putting her hand in her mouth
+ <br>
+ Late Flag Cues: 
+ * Fussing
+ * Crying!
+ * Face color turning red
+ <br>
+ !../../../images/dayr/go.png(Go)!
+ Go Cues!
+ Tell you +your baby wants to keep feeding+!
+ <br>
+ * Looking at your face
+ * Moving her arms toward you
+ * Turning her head toward you
+ * Bright eyes!
+ * Smiling
+ * Making feeding sounds (swallowing sounds, sucking sounds, smacking lips together)
+ * Crawling to you!
+ <br>
+ !../../../images/dayr/stop.png(Stop)!
+ Stop Cues! 
+ Tell you +your baby needs a break or is full+!
+ <br>
+ * Turning her head away from you
+ * Arching her back or pulling away
+ * Getting drowsy
+ * Falling asleep
+ * Fussiness 
+ * Crying
+ * Wrinkling her forehead
+ * Kicking or squirming" })
+
 
 
 Assignment.create(:date => Date.today, :challenge_id => "1")
