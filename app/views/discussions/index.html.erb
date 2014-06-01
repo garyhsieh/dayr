@@ -35,7 +35,13 @@
 
                           
                           <div class="page-actions">
-                            <%= link_to '+ New Discussion', new_discussion_path, :class => 'btn btn-primary', :id => 'new-assign' %>
+                            <% if user_signed_in? %>
+                            <%= link_to '+ New Discussion', new_discussion_path, :class => 'btn btn-primary', :id => 'new-assign' %> 
+                            <% else %>
+                            <%= link_to "Log in to Discuss!", new_user_session_path, 
+                              :class => "btn btn-large btn-primary",  :id => 'new-assign' %>
+                            <% end %>
+
                           </div>
 
                           <h1>Discussion Board</h1>

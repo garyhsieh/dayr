@@ -1,225 +1,187 @@
-<!-- Page content -->
-<div class="page-content blocky">
+<!-- main content area -->
 
-  <div class="container ">
-    <div class="row">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
 
-      <!-- main content area -->
+        <div class="awidget-body">
 
-      <div class="col-md-9">
+          <!-- Dayr Top Half Details -->
 
-        <div class="mainy">
-          <!-- Page title -->
-          <!-- Page title -->
-          <div >
-            <div >
-              <div class="awidget">
+          <!-- Dayr Top-Left (includes time, and dayrs)-->
+          <div class="col-md-12">
 
-                <div class="awidget-body">
+            <!-- Date timer count -->
+            <div class="timer">
+              <% if is_challenge_today? %>
+                <%=distance_of_time_in_words_to_now(Date.today+1.day)%>
+              <% else %>
+                <%= @assignment.date.strftime("%b %d, %Y")%>
+              <% end %>
+            </div>
 
-                  <!-- Dayr Top Half Details -->
+            <!-- Challenge Title -->
+            <div class="row">
+              <h1> Make Your Baby the Star of Your Attention</h1>
+            </div>
 
-                  <!-- Dayr Top-Left (includes time, and dayrs)-->
-                  <div class="col-md-12">
+            <div class="row">
 
-                    <!-- Date timer count -->
-                    <div class="timer">
-                      <% if is_challenge_today? %>
-                        <%=distance_of_time_in_words_to_now(Date.today+1.day)%>
-                      <% else %>
-                        <%= @assignment.date.strftime("%b %d, %Y")%>
-                      <% end %>
-                    </div>
+              <!-- Challenge Information -->
+              <div class="col-md-6">
 
-                    <!-- Challenge Title -->
-                    <div class="row">
-                      <h1> Make Your Baby the Star of Your Attention</h1>
-                    </div>
-
-                    <div class="row">
-
-                      <!-- Challenge Information -->
-                      <div class="col-md-6">
-
-                        <div class="phone-img hidden-md hidden-lg visible-xs visible-sm">
-                          <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
-                          <% attribution = @assignment.challenge.image_attribution_url %>
-                        </div>
-
-                        <p>
-                          Start communicating better with your baby with these unique tips and tricks most moms never knew about! 
-
-                          <!-- Challenge Button -->
-                          <% if user_signed_in? %>
-                            <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
-                              <%= link_to "I did this!", complete_assignment_path(@assignment), 
-                                :method => :post,
-                                :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn', :tag => p %>
-                            <% else %>
-                              <a class="btn btn-large challenge-button disabled">I did this!</a>
-                            <% end %>
-                          <% else %>
-                            <%= link_to "Log in and Complete!", new_user_session_path, 
-                              :class => "btn btn-large btn-primary challenge-button" %>
-                          <% end %>
-                        </p>
-
-                        <!-- People who completed this challenge -->
-                        <% if @completions_size == 0 %>
-                          <h2>be the first to do this challenge!</h2>
-                        <% elsif @completions_size == 1 %>
-                          <h2><span id="dayrs"><%= pluralize(@completions_size, 'mom') %></span> did this</h2>
-                        <% else %>
-                          <h2><span id="dayrs"><%= pluralize(@completions_size, 'moms') %></span> did this</h2>
-                        <% end %>
-                        <hr/>
-                        <ul class="completions">
-                          <% @assignment.completions.each do |completion| %>
-                            <li style="list-style-type:none; float: left;">
-                              <% if completion.user %>
-                                <%= link_to profile_path(completion.user.username) do %>
-                                  <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
-                                <% end %>
-                              <% else %>
-                                <%= link_to "#" do %>
-                                  <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
-                                  <%= "[deleted]" %>
-                                <% end %>            
-                              <% end %>     
-                            </li>
-                          <% end %>
-                        </ul>
-                        <br>
-                        <hr/>
-                      </div>
-
-                      <div class="col-md-6">
-                        <div class="hidden-xs hidden-sm hidden-m">
-                          <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
-                          <% attribution = @assignment.challenge.image_attribution_url %>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Dayr Top-Right (includes picture)-->
-
-                  </div>
-                  <div class="col-md-12">
-                    <p>
-                      <%= raw textilize @assignment.challenge.description %>
-                    </p>
-
-                    <br>
-
-                    <hr/>
-
-                    <section>
-
-                      <h2 id="comments_count">
-                        <% if @comments != nil && @comments.length != 0 %>
-                          <%= pluralize(@comments.count, "Comment") %>  
-                        <% else %>
-                          Leave a comment...
-                        <% end %>
-                      </h2>
-
-                      <% if @comments %>
-                        <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @assignment  } %>
-                      <% end %>
-
-                      <% if user_signed_in? %>
-                        <%= form_for([@assignment,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
-                          <%= f.hidden_field :user_id, :value=>current_user.id %>
-                          <%= f.hidden_field :commentable_id, :value=>@assignment.id %>
-                          <%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
-
-                          <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
-                          <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
-                        <% end %>
-                      <% else %>
-                          <%= link_to "Log in to comment", new_user_session_path %>   
-                      <% end %>
-
-                    </section>
-
-                  </div>
-
+                <div class="phone-img hidden-md hidden-lg visible-xs visible-sm">
+                  <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
+                  <% attribution = @assignment.challenge.image_attribution_url %>
                 </div>
 
+                <p>
+                  <%= @assignment.challenge.task %>
+
+                  <!-- Challenge Button -->
+                  <% if user_signed_in? %>
+                    <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
+                      <%= link_to "I did this!", complete_assignment_path(@assignment), 
+                        :method => :post,
+                        :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn', :tag => p %>
+                    <% else %>
+                      <a class="btn btn-large challenge-button disabled">I did this!</a>
+                    <% end %>
+                  <% else %>
+                    <%= link_to "Log in and Complete!", new_user_session_path, 
+                      :class => "btn btn-large btn-primary challenge-button" %>
+                  <% end %>
+                </p>
+
+                <!-- People who completed this challenge -->
+                <% if @completions_size == 0 %>
+                  <h2>be the first to do this challenge!</h2>
+                <% elsif @completions_size == 1 %>
+                  <h2><span id="dayrs"><%= pluralize(@completions_size, 'mom') %></span> did this</h2>
+                <% else %>
+                  <h2><span id="dayrs"><%= pluralize(@completions_size, 'moms') %></span> did this</h2>
+                <% end %>
+                <hr/>
+                <ul class="completions">
+                  <% @assignment.completions.each do |completion| %>
+                    <li style="list-style-type:none; float: left;">
+                      <% if completion.user %>
+                        <%= link_to profile_path(completion.user.username) do %>
+                          <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to "#" do %>
+                          <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;margin:0 10px 10px 0;" }  %>
+                          <%= "[deleted]" %>
+                        <% end %>            
+                      <% end %>     
+                    </li>
+                  <% end %>
+                </ul>
+                <br>
+                <hr/>
+              </div>
+
+              <div class="col-md-6">
+                <div class="hidden-xs hidden-sm hidden-m">
+                  <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
+                  <% attribution = @assignment.challenge.image_attribution_url %>
+                </div>
               </div>
             </div>
-          </div> 
 
-        </div>
-        <div class="clearfix"></div>
-
-      </div>
-
-      <!-- End of main content area -->
-
-      <!-- Start of side bar (right) -->
-
-      <div class="col-md-3">
-        <div class="awidget">
-          <div class="related-challenges">
-            <h2>Additional Information</h2>
-            <ul>
-              <li>How do I know my baby is getting enough to eat?</li>
-              <li>How do I know my baby is ready for solid foods? </li>
-              <li>The Truth about Baby Blues</li>
-            </ul>
+            <!-- Dayr Top-Right (includes picture)-->
           </div>
-          <div class="related-lessons">
+          <div class="col-md-12">
+            <p>
+              <%= raw textilize @assignment.challenge.description %>
+            </p>
 
-            <h2>Related Lessons</h2>
-            <ul>
-              <li>How do I know my baby is getting enough to eat?</li>
-              <li>How do I know my baby is ready for solid foods? </li>
-              <li>The Truth about Baby Blues</li>
-            </ul>
-          </div>
-          <div class="faq">
-            <h2>Quizzes for Moms</h2>
-            <ul>
-              <li>Quiz 1</li>
-              <li>Quiz 2</li>
-            </ul>
-          </div>
-          <div class="faq">
-            <h2>Contact</h2>
-            <ul>
-              <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
-              <li><%= link_to "Advice Nurse", new_advice_message_path%></li>
-            </ul>
-          </div>
-          <div class="share">
-            <h2>Share</h2>
-            <!-- Like Buttons BEGIN -->
-            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-              <a class="addthis_button_preferred_1"></a>
-              <a class="addthis_button_preferred_2"></a>
-              <a class="addthis_button_preferred_3"></a>
-              <a class="addthis_button_preferred_4"></a>
-              <a class="addthis_counter addthis_bubble_style"></a>
-            </div>
-            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
-            <!-- Like Buttons END -->
-          </div>
-          <div class="share">
-            <h2>Contact</h2>
-            <ul>
-              <li>item</li>
-              <li>item</li>
-            </ul>
+            <br>
+
+            <hr/>
+
+            <section>
+
+              <h2 id="comments_count">
+                <% if @comments != nil && @comments.length != 0 %>
+                  <%= pluralize(@comments.count, "Comment") %>  
+                <% else %>
+                  Leave a comment...
+                <% end %>
+              </h2>
+
+              <% if @comments %>
+                <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @assignment  } %>
+              <% end %>
+
+              <% if user_signed_in? %>
+                <%= form_for([@assignment,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
+                  <%= f.hidden_field :user_id, :value=>current_user.id %>
+                  <%= f.hidden_field :commentable_id, :value=>@assignment.id %>
+                  <%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
+
+                  <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
+                  <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
+                <% end %>
+              <% else %>
+                  <%= link_to "Log in to comment", new_user_session_path %>   
+              <% end %>
+
+            </section>
           </div>
         </div>
-
       </div>
+    </div>
+  </div> 
+</div>
+<div class="clearfix"></div>
 
-      <!-- End of side bar -->
+<!-- End of main content area -->
 
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="related-challenges">
+      <h2>Additional Information</h2>
+      <ul>
+        <li> <%= link_to "How do I know my baby is getting enough to eat?", additional_information_path(:id=>3) %>  </li>
+        <li><%= link_to "How do I know my baby is ready for solid foods?", additional_information_path(:id=>2) %>  </li>
+        <li><%= link_to "The Truth about Baby Blues", additional_information_path(:id=>1) %> </li>
+      </ul>
+    </div>
+    <div class="faq">
+      <h2>Quizzes for Moms</h2>
+      <ul>
+        <li>Quiz 1</li>
+        <li>Quiz 2</li>
+      </ul>
+    </div>
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
     </div>
   </div>
-</div>
 
+<% end %>

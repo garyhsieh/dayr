@@ -32,6 +32,16 @@
                     <div class="awidget">
 
                         <div class="awidget-body">
+                          
+                          <div class="page-actions">
+                            <% if user_signed_in? %>
+                            <%= link_to '+ New Advice Message', new_advice_message_path, :class => 'btn btn-primary', :id => 'new-assign' %> 
+                            <% else %>
+                            <%= link_to "Log in to Ask A Question!", new_user_session_path, 
+                              :class => "btn btn-large btn-primary",  :id => 'new-assign' %>
+                            <% end %>
+
+                          </div>
 
                           <h1>Advice Messages</h1>
 
