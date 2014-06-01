@@ -1,57 +1,49 @@
 <!-- Page content -->
 <div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10">
-
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
-
-                        <div class="awidget-body">
-
-                          <% content_for :title do %>Sign in<% end %>
+  <div class="container">
+    <div class="login-container">
+      <div id="output"></div>
+      <div class="avatar"></div>
+      <div class="form-box">
+        <form>
+                        <% content_for :title do %>Sign in<% end %>
 
                           <h1>Sign in</h1>
 
-                          <%= form_for(resource, 
-                                :as => resource_name, 
+                          <%= form_for(resource,
+                                :as => resource_name,
                                 :url => session_path(resource_name),
                                 :html => {
                                   :class => 'form-horizontal'
                                 }) do |f| %>
                             
-                          	<div class="control-group">
-                          	  <%= f.label :login, :class => 'control-label' %>
-                          	  <div class="controls">
-                              	<%= f.text_field :login %>
+                           <div class="control-group">
+                           <%= f.label :login, :class => 'control-label' %>
+                           <div class="controls">
+                               <%= f.text_field :login %>
                               </div>
                             </div>
                             
                             <div class="control-group">
-                          	  <%= f.label :password, :class => 'control-label' %>
-                          	  <div class="controls">
-                              	<%= f.password_field :password %>
+                           <%= f.label :password, :class => 'control-label' %>
+                           <div class="controls">
+                               <%= f.password_field :password %>
                               </div>
                             </div>
 
                             <% if devise_mapping.rememberable? -%>
                               <div class="control-group">
-                            	  <div class="controls">
-                            	    <label class="checkbox">
-                                	  <%= f.check_box :remember_me, {:checked=>true} %>
-                                	  Remember me
-                                	</label>
+                             <div class="controls">
+                             <label class="checkbox">
+                                 <%= f.check_box :remember_me, {:checked=>true} %>
+                                 Remember me
+                                 </label>
                                 </div>
                               </div>
                             <% end -%>
                             
                             <div class="control-group">
-                          	  <div class="controls">
+                           <div class="controls">
                                 <%= f.submit "Sign in", :class => 'btn btn-primary' %>
                               </div>
                             </div>
@@ -62,12 +54,12 @@
                               </div>
                             </div>
                           <% end %>
-
-            </div>
-          </div>
-        </div>
-      </div>
+      </form>                   
     </div>
+
+
+
   </div>
+</div>
 </div>
 
