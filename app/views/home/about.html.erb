@@ -1,70 +1,96 @@
 <!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  	<div >
+    	<div >
+      		<div class="awidget">
+        		<div class="awidget-body">
+			        <!-- Dayr Top Half Details -->
+			        <!-- Dayr Top-Left (includes time, and dayrs)-->
+			        <div class="col-md-12">
+			        	<!-- main content start-->
+                        
+						<h1>About</h1>
 
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
+						<p>
+							<iframe width="560" height="315" showinfo="0" src="https://www.youtube.com/embed/djyUzMqUZhQ?rel=0" frameborder="0"></iframe>
+						</p>
 
-                        <div class="awidget-body">
-                        	
-							<h1>About</h1>
+						<br>
 
-							<p>
-								<iframe width="560" height="315" showinfo="0" src="https://www.youtube.com/embed/djyUzMqUZhQ?rel=0" frameborder="0"></iframe>
-							</p>
+						<p>Welcome to Tools For Teen Moms!</p>
 
-							<br>
+						<br>
 
-							<p>Welcome to Tools For Teen Moms!</p>
+						<p>
+						This program is aimed at helping moms feed their babies in a healthy, positive way, through daily activities that we are calling challenges. Over time, completing these challenges can enable moms to be more knowledgeable about baby's nutritional needs, helping them with raising a healthier and happier baby.
+						</p> 
 
-							<br>
+						<br>
 
-							<p>
-							This program is aimed at helping moms feed their babies in a healthy, positive way, through daily activities that we are calling challenges. Over time, completing these challenges can enable moms to be more knowledgeable about baby's nutritional needs, helping them with raising a healthier and happier baby.
-							</p> 
+						<p>Tools for Teen Mom is designed and built by experts in nursing, health communication, and social media from University of Washington's <a href="http://hcde.uw.edu/" target="_blank">Human Centered Design & Engineering</a>  and Michigan State University's <a href="http://nursing.msu.edu" target="_blank">College of Nursing</a> and <a href="http://cas.msu.edu/" target="_blank">College of Communication Arts and Sciences</a>. 
+						</p>
 
-							<br>
-
-							<p>Tools for Teen Mom is designed and built by experts in nursing, health communication, and social media from University of Washington's <a href="http://hcde.uw.edu/" target="_blank">Human Centered Design & Engineering</a>  and Michigan State University's <a href="http://nursing.msu.edu" target="_blank">College of Nursing</a> and <a href="http://cas.msu.edu/" target="_blank">College of Communication Arts and Sciences</a>. 
-							</p>
-
-							<br>
-							<p>&nbsp;</p> 
-							<br>
+						<br>
+						<p>&nbsp;</p> 
+						<br>
 
 
-							<hr class="space" />
+						<hr class="space" />
 
 
-							<div id="Contact"><h2>Contact</h2></div>
-							<br>
+						<div id="Contact"><h2>Contact</h2></div>
+						<br>
 
-							<p>We are here to help and will answer your questions the best we can!</p>
+						<p>We are here to help and will answer your questions the best we can!</p>
 
-							<br>
+						<br>
 
-							<p>If you have an urgent medical concern, please contact your family doctor or go to the emergency room.</p> 
+						<p>If you have an urgent medical concern, please contact your family doctor or go to the emergency room.</p> 
 
-							<br>
-							<p>If you have a non-urgent medical question, email our nurse Kristin at karnold@ingham.org</p>
-							<br>
-							<p>If you have a question about the program, the challenges, or the website, contact Site Coordinators: Alice Hoffman or Mackenzie Robson</p>
+						<br>
+						<p>If you have a non-urgent medical question, email our nurse Kristin at karnold@ingham.org</p>
+						<br>
+						<p>If you have a question about the program, the challenges, or the website, contact Site Coordinators: Alice Hoffman or Mackenzie Robson</p>
 
-							<br>
-							<p>Phone: 517-432-01098</p>
-							<p>Email: <a href="mailto:dayrme@gmail.com">dayreme@gmail.com</a></p>
+						<br>
+						<p>Phone: 517-432-01098</p>
+						<p>Email: <a href="mailto:dayrme@gmail.com">dayreme@gmail.com</a></p>
 
-						</div>
+            			<!-- main content end-->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>

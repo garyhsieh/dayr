@@ -1,59 +1,98 @@
 <!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-        	<div class="col-md-1">
-        	</div>
-            <div class="col-md-9">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
+        <div class="awidget-body">
+          <!-- Dayr Top Half Details -->
+          <!-- Dayr Top-Left (includes time, and dayrs)-->
+          <div class="col-md-12">
+            <!-- main content start-->
+                    
+    			<% content_for :title do %>Discussion Message<% end %>
 
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
+    			<h1>Question</h1>
+    			<div><%= time_ago_in_words(@discussion.created_at) %> ago</div>
+    			<h2><%= @discussion.subject %> </h2>
+    			<%= simple_format(@discussion.content) %>
 
-                        <div class="awidget-body">
+			    <section>
 
-						<% content_for :title do %>Discussion Message<% end %>
+	           <h2 id="comments_count">
+	             <% if @comments != nil && @comments.length != 0 %>
+	               <%= pluralize(@comments.count, "Comment") %>  
+	             <% else %>
+	               Leave a response...
+	             <% end %>
+	           </h2>
 
-						<h1>Question</h1>
-						<div><%= time_ago_in_words(@discussion.created_at) %> ago</div>
-						<h2><%= @discussion.subject %> </h2>
-						<%= simple_format(@discussion.content) %>
+	           <% if @comments %>
 
-						<section>
 
-	                      <h2 id="comments_count">
-	                        <% if @comments != nil && @comments.length != 0 %>
-	                          <%= pluralize(@comments.count, "Comment") %>  
-	                        <% else %>
-	                          Leave a response...
-	                        <% end %>
-	                      </h2>
+	             <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @discussion } %>
+	           <% end %>
 
-	                      <% if @comments %>
-	                        <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @discussion } %>
-	                      <% end %>
+	           <% if user_signed_in? %>
+	             <%= form_for([@discussion,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
+	               <%= f.hidden_field :user_id, :value=>current_user.id %>
+	               <%= f.hidden_field :commentable_id, :value=>@discussion.id %>
+	               <%= f.hidden_field :commentable_type, :value=>@discussion.class.name  %>
 
-	                      <% if user_signed_in? %>
-	                        <%= form_for([@discussion,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
-	                          <%= f.hidden_field :user_id, :value=>current_user.id %>
-	                          <%= f.hidden_field :commentable_id, :value=>@discussion.id %>
-	                          <%= f.hidden_field :commentable_type, :value=>@discussion.class.name  %>
+	               <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
 
-	                          <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
+	               <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
+	               <%= f.submit "Add response", :class => 'btn', :id => "comment_btn" %>
+	             <% end %>
+	           <% else %>
+	               <%= link_to "Log in to comment", new_user_session_path %>   
+	           <% end %>
 
-	                          <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
-	                          <%= f.submit "Add response", :class => 'btn', :id => "comment_btn" %>
-	                        <% end %>
-	                      <% else %>
-	                          <%= link_to "Log in to comment", new_user_session_path %>   
-	                      <% end %>
-
-                    	</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            </section>
+            <!-- main content end-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="related-challenges">
+      
+    </div>
+    <div class="faq">
+      <h2>Quizzes for Moms</h2>
+      <ul>
+        <li>Quiz 1</li>
+        <li>Quiz 2</li>
+      </ul>
+    </div>
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>

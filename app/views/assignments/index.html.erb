@@ -24,49 +24,99 @@
 <% end %>
 
 <!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
+        <div class="awidget-body">
+          <!-- Dayr Top Half Details -->
+          <!-- Dayr Top-Left (includes time, and dayrs)-->
+          <div class="col-md-12">
+            <!-- main content start-->
 
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
-
-                        <div class="awidget-body">
-
-                          <% if can? :manage, Assignment %>
-                            <div class="page-actions">
-                              <%= link_to '+ New Assignment', new_assignment_path, :class => 'btn btn-primary', :id => 'new-assign' %>
-                            </div>
-                          <% end %>
-                          <h1>Challenges</h1>
-
-                          <ul class="bulletless assignments">
-                            <% @assignments.each do |assignment| %>
-                              <% if can? :manage, Assignment or assignment.date <= Date.today%>
-                              <li>
-                                <span class="assignment-date"><%=h assignment.date.strftime("%b %d, %Y") %></span>
-                                <%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %>
-
-                                <% end %>
-                                <% if can? :manage, Assignment %>
-                                  <span class="assignment-actions">
-                                    <%= link_to 'Edit', edit_assignment_path(assignment) %> &nbsp;
-                                    <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %>
-                                </span>
-                              </li>
-                              <% end %>                              
-
-                            <% end %>
-                          </ul>
-
+            <% if can? :manage, Assignment %>
+            <div class="page-actions">
+              <%= link_to '+ New Assignment', new_assignment_path, :class => 'btn btn-primary', :id => 'new-assign' %>
             </div>
+            <% end %>
+            <h1>Challenges</h1>
+
+            <div class="row">
+              
+              <% @assignments.each do |assignment| %>
+                <% if can? :manage, Assignment or assignment.date <= Date.today%>
+
+              <article class="search-result row">
+                <div class="col-xs-12 col-sm-12 col-md-2">
+                  <a href="#" title="Lorem ipsum" class="thumbnail">
+                    <%= image_tag assignment.challenge.image_url  %>
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-9 excerpet">
+                  <i class="glyphicon glyphicon-calendar"></i> <span><%=h assignment.date.strftime("%b %d, %Y") %></span>
+                  <h3><%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %></h3>
+                  <p><%= assignment.challenge.task %></p> 
+                  <% if can? :manage, Assignment %>           
+                  <span class="plus">
+                    <%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-info btn-xs" %> &nbsp;
+                    <%= link_to 'Delete', assignment, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-default btn-xs"  %>
+                  </span>
+                <% end %>
+                </div>
+                <span class="clearfix borda"></span>
+              </article>
+
+
+                <% end %>                              
+              <% end %>
+              
+            </div><!-- End row -->
+              
+            <!-- main content end-->
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="related-challenges">
+      
+    </div>
+    <div class="faq">
+      <h2>Quizzes for Moms</h2>
+      <ul>
+        <li>Quiz 1</li>
+        <li>Quiz 2</li>
+      </ul>
+    </div>
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>

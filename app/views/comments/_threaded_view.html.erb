@@ -72,15 +72,42 @@ p.comment-username {
   	  <% if comment.root? %>
   	    <% @tmp = comment %>
   	  <% end %>
+      <div class="pull-left">
+        <% if comment.user %>      
+        <%= link_to(profile_path(comment.user.username), :class => 'comment-img') do %>
+          <%= gravatar_tag comment.user, :size => 30 %>
+        <% end %>
+      </div>
+      <div class="qa-message-list" >
+        <div class="message-item" >
+          <div class="message-inner">
+            <div class="message-head clearfix">
 
-      <% if comment.user %>	    
-  	    <%= link_to(profile_path(comment.user.username), :class => 'comment-img') do %>
-    	    <%= gravatar_tag comment.user, :size => 30 %>
-    	  <% end %>
-  	   
-        <p class="comment-username"><%= comment.user.username %></p>
-  	    <div class="comment-timeago"><%= time_ago_in_words(comment.created_at) %> ago</div>
+                <div class="user-detail">
+                  <h5 class="handle"><%= comment.user.username %></h5>
+                  <div class="post-meta">
+                    <div class="asker-meta">
+                      <span class="qa-message-what"></span>
+                      <span class="qa-message-when">
+                        <span class="qa-message-when-data"><%= time_ago_in_words(comment.created_at) %> ago</span>
+                      </span>
+                      <span class="qa-message-who">
+                        <span class="qa-message-who-pad">by </span>
+                        <span class="qa-message-who-data"><%= comment.user.username %></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="qa-message-content">
+                <%= simple_format(comment.body) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
       
+  	       
       <% else %>
         <%= link_to("#{}", :class => 'comment-img') do %>
           <%= gravatar_tag comment.user, :size => 30 %>
@@ -90,9 +117,7 @@ p.comment-username {
         <p class="comment-username">[deleted]</p>        
       <% end %>
 		
-  		<p class="comment-body">
-  		  <%= simple_format(comment.body) %>
-  		</p>
+
   		
 		</div>
 		

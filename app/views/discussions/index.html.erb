@@ -16,52 +16,53 @@
 <% end %>
 
 
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
 
-<!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10">
+        <div class="awidget-body">
 
+          <!-- Dayr Top Half Details -->
+
+          <!-- Dayr Top-Left (includes time, and dayrs)-->
+          <div class="col-md-12">
             <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
-
-                        <div class="awidget-body">
-
-                          
-                          <div class="page-actions">
-                            <% if user_signed_in? %>
-                            <%= link_to '+ New Discussion', new_discussion_path, :class => 'btn btn-primary', :id => 'new-assign' %> 
-                            <% else %>
-                            <%= link_to "Log in to Discuss!", new_user_session_path, 
-                              :class => "btn btn-large btn-primary",  :id => 'new-assign' %>
-                            <% end %>
-
-                          </div>
-
-                          <h1>Discussion Board</h1>
-
-
-                            <ul class="bulletless discussion_message">
-                            <% if @discussions != nil && @discussions.length != 0%>
-                              <% @discussions.each do |discussion| %>
-                                <li>
-                                  <span class="assignment-date"><%=h discussion.created_at.strftime("%b %d, %Y") %></span>
-                                  <%= gravatar_tag discussion.user, :size => '20' %>
-                                  <%= link_to discussion.subject, discussion, :class => 'assignment-challenge' %>
-                                </li>                          
-                              <% end %>
-                            <% else %>
-
-                            <% end %>                            
-                          </ul>
+            <div class="page-actions">
+              <% if user_signed_in? %>
+              <%= link_to '+ New Discussion', new_discussion_path, :class => 'btn btn-primary', :id => 'new-assign' %> 
+              <% else %>
+              <%= link_to "Log in to Discuss!", new_user_session_path, 
+                :class => "btn btn-large btn-primary",  :id => 'new-assign' %>
+              <% end %>
 
             </div>
+
+            <h1>Discussion Board</h1>
+
+            <% if @discussions != nil && @discussions.length != 0%>
+              <% @discussions.each do |discussion| %>
+              <article class="search-result row">
+                <div class="col-xs-12 col-sm-12 col-md-2">
+                  <a href="#" title="Lorem ipsum" class="thumbnail">
+                    <%= gravatar_tag discussion.user %>
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-9 excerpet">
+                  <i class="glyphicon glyphicon-calendar"></i> <span><%=h discussion.created_at.strftime("%b %d, %Y") %></span>
+                  <h3><%= link_to discussion.subject, discussion, :class => 'assignment-challenge' %></h3>
+                  <p><%= truncate( discussion.content, length:45 ) %></p> 
+                </div>
+                <span class="clearfix borda"></span>
+              </article>                         
+              <% end %>
+            <% else %>
+
+            <% end %>        
+
+            <!-- end of main content -->
           </div>
         </div>
       </div>
@@ -69,3 +70,31 @@
   </div>
 </div>
 
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>
