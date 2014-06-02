@@ -23,20 +23,91 @@ Challenge.create({:name => "Back to Basics!", :task=>"Watch a video to learn abo
  
  ", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
 
-Challenge.create({:name => "A Cue is a Clue!", :task=>"Spot one cue next time you feed your baby", :description => "Learn what baby cues are and how to spot them! Read about ""flag,"" ""stop,"" and ""go"" cues.
- <br>
+Challenge.create({:name => "A Cue is a Clue!", :task=>"Spot one cue next time you feed your baby", :description => "Learn what baby cues are and how to spot them! Read about flag, stop, and go cues.
  
+  <br>
+  
  h2. WHY
- * A cue is an action, sound or movement that is a ""clue"" to tell you what your baby wants! 
  
+ * A cue is an action, sound or movement that is a clue to tell you what your baby wants!
+  
  <br>
  
  h2. STEPS
- * We've broken them down into categories. Click on each type for more information and examples:
  
+ * We've broken them down into categories:
  
- Click the type of cue on the side bar for examples! 
- ", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
+ <br>
+ 
+ !{width:3%}../../../images/dayr/flag.png(Flag)!  ""Flag"" Cues! 
+ 
+ Tell you +your baby is hungry+! Respond by starting the feeding! 
+ 
+ <br>
+ Early Flag Cues: 
+ * Stirring
+ * Opening her mouth
+ * Turning her head
+ <br>
+ 
+ Middle Flag Cues:
+ * Stretching 
+ * Moving a lot!
+ * Putting her hand in her mouth
+ <br>
+ 
+ Late Flag Cues: 
+ * Fussing
+ * Crying!
+ * Face color turning red
+ <br>
+ 
+ <br>
+ 
+ !{width:3%}../../../images/dayr/go.png(Go)! ""Go"" Cues!
+ 
+ Tell you +your baby wants to keep eating+.
+ 
+ <br>
+ 
+ * Looking at your face
+ * Moving her arms toward you
+ * Turning her head toward you
+ * Bright eyes!
+ * Smiling
+ * Making feeding sounds (swallowing sounds, sucking sounds, smacking lips together)
+ * Crawling to you!
+ <br>
+ 	
+ <br>
+ 
+ !{width:3%}../../../images/dayr/stop.png(Stop)! ""Stop"" Cues!
+ 
+ Tell you +your baby needs a break or is full+!
+ <br>
+ * Turning her head away from you
+ * Arching her back or pulling away
+ * Getting drowsy
+ * Falling asleep
+ * Fussiness 
+ * Crying
+ * Wrinkling her forehead
+ * Kicking or squirming
+ 
+ <br>", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
+
+
+Challenge.create({:name => "Make your baby the star of your attention", :task=>"Keep the TV, cell phone, and loud music off while you feed your baby", :description => "*Why it's important:* 
+ * TV in the background or loud music will take your baby's attention away from feeding.
+ * The American Academy of Pediatrics suggests no TV time for kids less than two years of age. Why? Research shows babies need face-to-face interaction to have healthy brain growth and development. 
+ * Your baby needs YOU more than anything else!
+ 
+ *How to?*
+ * Turn the TV off before your start the feeding. 
+ * Put your phone on silent!  If you think you'll be tempted to use it, leave in it in another room!
+ * Try singing or humming to your baby.  Talk to your little one too!
+ * Don't put a TV in your baby's room.
+ * Don't forget to log on and officially complete the challenge by clicking on the ""challenge completed"" button!", :category => "Social", :image_url => "https://farm1.staticflickr.com/180/478806672_1e536424ca.jpg", :image_attribution_url => "https://flic.kr/p/Jj1xs" })
 
 
 AdditionalInformation.create({:name => "The Truth about Baby Blues", :content => "__Understanding postpartum depression__
@@ -125,7 +196,7 @@ AdditionalInformation.create({:name => "How do I know my baby is getting enough 
  
  __If your baby ""skips"" two or more meals in a row for any reason, consult your baby's doctor.__ " })
 
-AdditionalInformation.create({:name => "A Cue is a Clue", :content => "!../../../images/dayr/flag.png(Flag)!
+AdditionalInformation.create({:name => "A Cue is a Clue", :content => "!{width:3%}../../../images/dayr/flag.png(Flag)!
  Flag Cues! 
  These cues tell you +your baby is hungry+! 
  <br>
@@ -144,7 +215,7 @@ AdditionalInformation.create({:name => "A Cue is a Clue", :content => "!../../..
  * Crying!
  * Face color turning red
  <br>
- !../../../images/dayr/go.png(Go)!
+ !{width:3%}../../../images/dayr/go.png(Go)!
  Go Cues!
  Tell you +your baby wants to keep feeding+!
  <br>
@@ -156,7 +227,7 @@ AdditionalInformation.create({:name => "A Cue is a Clue", :content => "!../../..
  * Making feeding sounds (swallowing sounds, sucking sounds, smacking lips together)
  * Crawling to you!
  <br>
- !../../../images/dayr/stop.png(Stop)!
+ !{width:3%}../../../images/dayr/stop.png(Stop)!
  Stop Cues! 
  Tell you +your baby needs a break or is full+!
  <br>
@@ -170,7 +241,10 @@ AdditionalInformation.create({:name => "A Cue is a Clue", :content => "!../../..
  * Kicking or squirming" })
 
 
-
-Assignment.create(:date => Date.today, :challenge_id => "1")
+Assignment.create(:date => Date.today+3, :challenge_id => "3")
+Assignment.create(:date => Date.today+2, :challenge_id => "2")
+Assignment.create(:date => Date.today+1, :challenge_id => "1")
+Assignment.create(:date => Date.today, :challenge_id => "3")
 Assignment.create(:date => Date.today-1, :challenge_id => "2")
+Assignment.create(:date => Date.today-2, :challenge_id => "1")
 
