@@ -5,56 +5,54 @@
       <div id="output"></div>
       <div class="avatar"></div>
       <div class="form-box">
-        <form>
-                        <% content_for :title do %>Sign in<% end %>
+          <% content_for :title do %>Sign in<% end %>
 
-                          <h1>Sign in</h1>
+            <h1>Sign in</h1>
 
-                          <%= form_for(resource,
-                                :as => resource_name,
-                                :url => session_path(resource_name),
-                                :html => {
-                                  :class => 'form-horizontal'
-                                }) do |f| %>
-                            
-                           <div class="control-group">
-                           <%= f.label :login, :class => 'control-label' %>
-                           <div class="controls">
-                               <%= f.text_field :login %>
-                              </div>
-                            </div>
-                            
-                            <div class="control-group">
-                           <%= f.label :password, :class => 'control-label' %>
-                           <div class="controls">
-                               <%= f.password_field :password %>
-                              </div>
-                            </div>
+            <%= form_for(resource,
+                  :as => resource_name,
+                  :url => session_path(resource_name),
+                  :html => {
+                    :class => 'form-horizontal'
+                  }) do |f| %>
+              
+             <div class="control-group">
+             <%= f.label :login, :class => 'control-label' %>
+             <div class="controls">
+                 <%= f.text_field :login %>
+                </div>
+              </div>
+              
+              <div class="control-group">
+             <%= f.label :password, :class => 'control-label' %>
+             <div class="controls">
+                 <%= f.password_field :password %>
+                </div>
+              </div>
 
-                            <% if devise_mapping.rememberable? -%>
-                              <div class="control-group">
-                             <div class="controls">
-                             <label class="checkbox">
-                                 <%= f.check_box :remember_me, {:checked=>true} %>
-                                 Remember me
-                                 </label>
-                                </div>
-                              </div>
-                            <% end -%>
-                            
-                            <div class="control-group">
-                           <div class="controls">
-                                <%= f.submit "Sign in", :class => 'btn btn-primary' %>
-                              </div>
-                            </div>
-                            
-                            <div class="control-group">
-                              <div class="controls">
-                                <%= render :partial => "devise/shared/links" %>
-                              </div>
-                            </div>
-                          <% end %>
-      </form>                   
+              <% if devise_mapping.rememberable? -%>
+                <div class="control-group">
+               <div class="controls">
+               <label class="checkbox">
+                   <%= f.check_box :remember_me, {:checked=>true} %>
+                   Remember me
+                   </label>
+                  </div>
+                </div>
+              <% end -%>
+              
+              <div class="control-group">
+             <div class="controls">
+                  <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+                </div>
+              </div>
+              
+              <div class="control-group">
+                <div class="controls">
+                  <%= render :partial => "devise/shared/links" %>
+                </div>
+              </div>
+            <% end %>                 
     </div>
 
 

@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
      @comment = Comment.new(params[:comment])
      
 
-     if @comment.commentable_type == AdviceMessage
+     if @comment.commentable_type == AdviceMessage.name
 
 
        respond_to do |format|
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
          end
        end
 
-    elsif @comment.commentable_type == Discussion
+    elsif @comment.commentable_type == Discussion.name
 
      respond_to do |format|
        if @comment.save

@@ -97,7 +97,7 @@ p.comment-username {
 		</div>
 		
 		<% if user_signed_in? and comment.leaf? and (comment.id == @tmp.id || (comment.rgt+1 == @tmp.rgt)) %>
-			<%= link_to_function '[icon] Reply', "$('#comment-reply-" + comment.id.to_s + "').toggle()", :id => 'comment-reply-btn' %>
+			<%= link_to_function 'Reply', "$('#comment-reply-" + comment.id.to_s + "').toggle()", :id => 'comment-reply-btn' %>
 			<div id="comment-reply-<%=comment.id%>" class="comment-reply">
 			  <%= link_to(profile_path(current_user.username), :class => 'comment-img') do %>
   			  <%= gravatar_tag current_user, :size => 30 %>
