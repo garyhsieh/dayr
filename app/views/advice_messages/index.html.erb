@@ -47,13 +47,13 @@
               <article class="search-result row">
                 <div class="col-xs-12 col-sm-12 col-md-2">
                   <a href="#" title="Lorem ipsum" class="thumbnail">
-                    <!-- Where the gravatar should go -->
+                    <%= gravatar_tag advice_message.user %>
                   </a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-9 excerpet">
                   <i class="glyphicon glyphicon-calendar"></i><span><%=h advice_message.created_at.strftime("%b %d, %Y") %></span>
                   <h3><%= link_to advice_message.subject, advice_message, :class => 'assignment-challenge' %></h3>
-                  <p><!-- Where the message content should go --></p> 
+                  <p><%= truncate( advice_message.question, length:45 ) %></p> 
                 </div>
                 <span class="clearfix borda"></span>
               </article>                      
