@@ -9,6 +9,21 @@
 #User.create()
 
 #User.new({:email => "guy@gmail.com", :roles => ["admin"], :password => "111111", :password_confirmation => "111111" }).save(false)
+Challenge.create({:name => "Back to Basics!", :task=>"Watch a video to learn about Tools for Teen Moms", :description => "Welcome! We are excited you're part of our program!
+ <br>
+ 
+ h2. WHY
+ * We want you to learn about the Tools for Teen Moms project and how to use the program as a guide.
+ 
+ <br>
+ 
+ h2. STEPS
+ * Click here to watch the introduction video.
+ * Don't forget check us out on Facebook, and follow us on Twitter for extra tips! 
+ 
+ ", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
+
+
 Challenge.create({:name => "Count the Cues, not the Minutes", :description => "*Why it's important:*
  * Cues are signs that your baby uses to tell you something! 
  * Your baby's cues will tell you when they are full!
