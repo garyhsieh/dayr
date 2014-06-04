@@ -1,0 +1,225 @@
+<!-- Page content -->
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  	<div >
+    	<div >
+      		<div class="awidget">
+        		<div class="awidget-body">
+			        <!-- Dayr Top Half Details -->
+			        <!-- Dayr Top-Left (includes time, and dayrs)-->
+			        <div class="col-md-12">
+			        	<!-- main content start-->
+                        
+                        <form class="form-horizontal"  role="form">
+						<h1>Quiz: Red Light, Gree Light!</h1>
+
+						<p>
+							Practice identifying types of cues, and understanding what your baby is trying to tell you.  If you haven’t had a challenge yet that talks about this, look for it in upcoming challenges!
+						</p>
+
+						<br>
+
+						<table class="table table-hover">
+
+						<tr>
+							<td style="width: 60%">1. Your baby starts to look drowsy or falls asleep</td>
+							<td style="width: 10%"><div id="q01_div">&nbsp;</div></td>
+							<td style="width: 30%">
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-primary ">
+								    <input type="radio" name="q01" id="go">Go</input>
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q01" id="stop">Stop</input>
+								  </label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 60%">2. Your baby moves his or her arms toward you</td>
+							<td style="width: 10%"><div id="q02_div">&nbsp;</div>
+							<td style="width: 30%">
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q02" id="go">Go</input>
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q02" id="stop">Stop</input>
+								  </label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 60%">3. Your baby arches his or her back</td>
+							<td style="width: 10%"><div id="q03_div">&nbsp;</div>
+							<td style="width: 30%">
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q03" id="go">Go</input>
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q03" id="stop">Stop</input>
+								  </label>
+								</div>
+							</td>						
+						</tr>
+						<tr>
+							<td style="width: 60%">4. Your baby makes swallowing sounds, sucking sounds, or smacks lips together</td>
+							<td style="width: 10%"><div id="q04_div">&nbsp;</div>
+							<td style="width: 30%">
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q04" id="go">Go</input>
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q04" id="stop">Stop</input>
+								  </label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 60%">5. Your baby turns his or her head away</td>
+							<td style="width: 10%"><div id="q05_div">&nbsp;</div>
+							<td style="width: 30%">
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q05" id="go">Go</input>
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="radio" name="q05" id="stop">Stop</input>
+								  </label>
+								</div>
+							</td>
+						</tr>						
+						</table>
+
+
+						<br><br>
+						<hr>
+
+						<div id="additional_information">&nbsp;
+
+						</div>	
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<% content_for :js do %>
+<script>
+
+var q01_click = false;
+var q02_click = false;
+var q03_click = false;
+var q04_click = false;
+var q05_click = false;
+
+function myFunc() {
+	document.getElementById('additional_information').innerHTML = "<h1>Review</h1><strong>Go Cues!</strong><br>Tell you your baby wants to keep going.<ul><li>Looking at your face</li><li>Moving her arms toward you</li><li>Turning her head toward you</li><li>Bright eyes!</li><li>Smiling</li><li>Making feeding sounds (swallowing sounds, sucking sounds, smacking lips together)</li><li>Crawling to you!</li></ul><br><strong>Stop Cues!</strong><br>Tell you your baby needs a break or is full!<ul><li>Turning her head away from you</li><li>Arching her back or pulling away</li><li>Getting drowsy</li><li>Falling asleep</li><li>Fussiness</li><li>Crying</li></ul>";
+}
+
+$('input[name="q01"]').change( function() {
+  q01_click = true
+  if ($(this).attr('id') == "go") {
+  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  } else {
+  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  }
+
+  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
+    {
+  	myFunc();
+  }
+})
+$('input[name="q02"]').change( function() {
+  q02_click = true
+
+  if ($(this).attr('id') == "stop") {
+  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  } else {
+  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  }
+
+  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
+    {
+  	myFunc();
+  }
+})
+$('input[name="q03"]').change( function() {
+  q03_click = true
+
+  if ($(this).attr('id') == "go") {
+  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  } else {
+  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  }
+
+  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
+    {
+  	myFunc();
+  }
+})
+$('input[name="q04"]').change( function() {
+  q04_click = true
+
+  if ($(this).attr('id') == "stop") {
+  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  } else {
+  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  }
+
+  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
+    {
+  	myFunc();
+  }
+})
+$('input[name="q05"]').change( function() {
+  q05_click = true
+
+  if ($(this).attr('id') == "go") {
+  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  } else {
+  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  }
+  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
+  {
+  	myFunc();
+  }
+})
+
+</script>
+<% end %>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>

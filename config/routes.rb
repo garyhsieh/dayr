@@ -27,6 +27,7 @@ Dayr::Application.routes.draw do
 
   match "private" => "home#private"
   match "/about" => "home#about"
+  match "/quiz1" => "home#quiz1"
   root :to => "home#index"
 
   # The priority is based upon order of creation:
