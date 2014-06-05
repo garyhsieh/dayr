@@ -126,6 +126,12 @@ $('input[name="q01"]').change( function() {
   	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
   }
 
+  if ($(this).attr('id') == "stop") {
+  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
+  } else {
+  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
+  }
+
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
     {
   	myFunc();
@@ -134,10 +140,10 @@ $('input[name="q01"]').change( function() {
 $('input[name="q02"]').change( function() {
   q02_click = true
 
-  if ($(this).attr('id') == "stop") {
-  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
+  if ($(this).attr('id') == "go") {
+  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
   } else {
-  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
+  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
   }
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
@@ -148,11 +154,11 @@ $('input[name="q02"]').change( function() {
 $('input[name="q03"]').change( function() {
   q03_click = true
 
-  if ($(this).attr('id') == "go") {
-  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
+  if ($(this).attr('id') == "stop") {
+  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
   } else {
-  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
-  }
+  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
+  }  
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
     {
@@ -162,10 +168,10 @@ $('input[name="q03"]').change( function() {
 $('input[name="q04"]').change( function() {
   q04_click = true
 
-  if ($(this).attr('id') == "stop") {
-  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
+  if ($(this).attr('id') == "go") {
+  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
   } else {
-  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
+  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
   }
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
@@ -176,11 +182,12 @@ $('input[name="q04"]').change( function() {
 $('input[name="q05"]').change( function() {
   q05_click = true
 
-  if ($(this).attr('id') == "go") {
-  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
+  if ($(this).attr('id') == "stop") {
+  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
   } else {
-  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
+  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
   }
+
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
   {
   	myFunc();
