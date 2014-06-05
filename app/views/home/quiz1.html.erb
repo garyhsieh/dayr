@@ -23,9 +23,8 @@
 						<table class="table table-hover">
 
 						<tr>
-							<td style="width: 60%">1. Your baby starts to look drowsy or falls asleep</td>
-							<td style="width: 10%"><div id="q01_div">&nbsp;</div></td>
-							<td style="width: 30%">
+							<td style="width: 80%">1. Your baby starts to look drowsy or falls asleep<br><div id="q01_div">&nbsp;</div></td>
+							<td style="width: 20%">
 								<div class="btn-group" data-toggle="buttons">
 								  <label class="btn btn-primary ">
 								    <input type="radio" name="q01" id="go">Go</input>
@@ -37,9 +36,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td style="width: 60%">2. Your baby moves his or her arms toward you</td>
-							<td style="width: 10%"><div id="q02_div">&nbsp;</div>
-							<td style="width: 30%">
+							<td style="width: 80%">2. Your baby moves his or her arms toward you<br><div id="q02_div">&nbsp;</div></td>
+							<td style="width: 20%">
 								<div class="btn-group" data-toggle="buttons">
 								  <label class="btn btn-primary">
 								    <input type="radio" name="q02" id="go">Go</input>
@@ -51,9 +49,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td style="width: 60%">3. Your baby arches his or her back</td>
-							<td style="width: 10%"><div id="q03_div">&nbsp;</div>
-							<td style="width: 30%">
+							<td style="width: 80%">3. Your baby arches his or her back<br><div id="q03_div">&nbsp;</div></td>
+							<td style="width: 20%">
 								<div class="btn-group" data-toggle="buttons">
 								  <label class="btn btn-primary">
 								    <input type="radio" name="q03" id="go">Go</input>
@@ -65,9 +62,8 @@
 							</td>						
 						</tr>
 						<tr>
-							<td style="width: 60%">4. Your baby makes swallowing sounds, sucking sounds, or smacks lips together</td>
-							<td style="width: 10%"><div id="q04_div">&nbsp;</div>
-							<td style="width: 30%">
+							<td style="width: 80%">4. Your baby makes swallowing sounds, sucking sounds, or smacks lips together<br><div id="q04_div">&nbsp;</div></td>
+							<td style="width: 20%">
 								<div class="btn-group" data-toggle="buttons">
 								  <label class="btn btn-primary">
 								    <input type="radio" name="q04" id="go">Go</input>
@@ -79,9 +75,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td style="width: 60%">5. Your baby turns his or her head away</td>
-							<td style="width: 10%"><div id="q05_div">&nbsp;</div>
-							<td style="width: 30%">
+							<td style="width: 80%">5. Your baby turns his or her head away<br><div id="q05_div">&nbsp;</div></td>
+							<td style="width: 20%">
 								<div class="btn-group" data-toggle="buttons">
 								  <label class="btn btn-primary">
 								    <input type="radio" name="q05" id="go">Go</input>
@@ -91,7 +86,7 @@
 								  </label>
 								</div>
 							</td>
-						</tr>						
+						</tr>								
 						</table>
 
 
@@ -126,9 +121,9 @@ function myFunc() {
 $('input[name="q01"]').change( function() {
   q01_click = true
   if ($(this).attr('id') == "go") {
-  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
   } else {
-  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
   }
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
@@ -140,9 +135,9 @@ $('input[name="q02"]').change( function() {
   q02_click = true
 
   if ($(this).attr('id') == "stop") {
-  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
   } else {
-  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
   }
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
@@ -154,9 +149,9 @@ $('input[name="q03"]').change( function() {
   q03_click = true
 
   if ($(this).attr('id') == "go") {
-  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
   } else {
-  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
   }
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
@@ -168,9 +163,9 @@ $('input[name="q04"]').change( function() {
   q04_click = true
 
   if ($(this).attr('id') == "stop") {
-  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
   } else {
-  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
   }
 
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
@@ -182,9 +177,9 @@ $('input[name="q05"]').change( function() {
   q05_click = true
 
   if ($(this).attr('id') == "go") {
-  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">'
+  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
   } else {
-  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">'
+  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
   }
   if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
   {

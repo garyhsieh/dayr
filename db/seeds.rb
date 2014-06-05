@@ -9,19 +9,6 @@
 #User.create()
 
 #User.new({:email => "guy@gmail.com", :roles => ["admin"], :password => "111111", :password_confirmation => "111111" }).save(false)
-Challenge.create({:name => "Back to Basics!", :task=>"Watch a video to learn about Tools for Teen Moms", :description => "Welcome! We are excited you're part of our program!
- <br>
- 
- h2. WHY
- * We want you to learn about the Tools for Teen Moms project and how to use the program as a guide.
- 
- <br>
- 
- h2. STEPS
- * Click here to watch the introduction video.
- * Don't forget check us out on Facebook, and follow us on Twitter for extra tips! 
- 
- ", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
 
 Challenge.create({:name => "A Cue is a Clue!", :task=>"Spot one cue next time you feed your baby", :description => "Learn what baby cues are and how to spot them! Read about flag, stop, and go cues.
  
@@ -94,7 +81,7 @@ Challenge.create({:name => "A Cue is a Clue!", :task=>"Spot one cue next time yo
  * Wrinkling her forehead
  * Kicking or squirming
  
- <br>", :category => "Nutrition", :image_url => "https://farm6.staticflickr.com/5020/5542169510_7fd0f76731.jpg", :image_attribution_url => "https://flic.kr/p/9rK4UJ" })
+ <br>", :category => "Nutrition", :image_url => "https://farm4.staticflickr.com/3696/14111299719_d2c6e93765_c.jpg", :image_attribution_url => "https://www.flickr.com/gp/124987162@N02/6X7FU8" })
 
 
 Challenge.create({:name => "Make your baby the star of your attention", :task=>"Keep the TV, cell phone, and loud music off while you feed your baby", :description => "*Why it's important:* 
@@ -107,7 +94,20 @@ Challenge.create({:name => "Make your baby the star of your attention", :task=>"
  * Put your phone on silent!  If you think you'll be tempted to use it, leave in it in another room!
  * Try singing or humming to your baby.  Talk to your little one too!
  * Don't put a TV in your baby's room.
- * Don't forget to log on and officially complete the challenge by clicking on the ""challenge completed"" button!", :category => "Social", :image_url => "https://farm1.staticflickr.com/180/478806672_1e536424ca.jpg", :image_attribution_url => "https://flic.kr/p/Jj1xs" })
+ * Don't forget to log on and officially complete the challenge by clicking on the ""challenge completed"" button!", :category => "Social", :image_url => "https://farm4.staticflickr.com/3770/14111435267_b12d26ec8e.jpg", :image_attribution_url => "https://www.flickr.com/gp/124987162@N02/WeG641" })
+
+Challenge.create({:name => "Use Your Smile!", :task=>"Smile to your baby as you feed her! ", :description => "h2. WHY
+ <br>
+ * Even though your baby can't understand the words you say just yet, the look on your face gives her a clue as to how you are feeling!
+ <br>
+ 
+ h2. STEPS
+ * Talk to your baby with a smile on your face!
+ * Hold your baby so she can see your face, and you can see hers.  Hold her so that her head is 8-10 inches away from yours. (This is where her vision focuses best).
+ * Keep that frown upside down! Try not to look grumpy when you look at your baby. 
+ <br>
+ ""Click here"":../../pdf/use_your_smile.pdf for ways to position your baby so you can easily see her eyes. ", :category => "Social", :image_url => "https://farm3.staticflickr.com/2921/14294631121_f4e11df0f6.jpg", :image_attribution_url => "https://www.flickr.com/gp/124987162@N02/57cE64" })
+
 
 
 AdditionalInformation.create({:name => "The Truth about Baby Blues", :content => "__Understanding postpartum depression__
