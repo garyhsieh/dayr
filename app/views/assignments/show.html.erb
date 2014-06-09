@@ -17,11 +17,7 @@
             <!-- Date timer count -->
             <div class="timer">
               <p>
-                <% if is_challenge_today? %>
-                  <%=distance_of_time_in_words_to_now(Date.today+1.day)+ " left"%>
-                <% else %>
-                  <%= @assignment.date.strftime("%b %d, %Y")%>
-                <% end %>
+                <%= @assignment.date.strftime("%b %d, %Y")%>
               </p>
             </div>
 
