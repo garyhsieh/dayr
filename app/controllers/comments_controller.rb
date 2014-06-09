@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
      @comment = Comment.new(params[:comment])
      
+     CommentMailer.comment_reply_email(@comment).deliver
 
      if @comment.commentable_type == AdviceMessage.name
 

@@ -1,4 +1,8 @@
 class DiscussionsController < ApplicationController
+  before_filter :authenticate_user!, :only => :complete
+  load_and_authorize_resource
+
+
   # GET /discussions
   # GET /discussions.json
   def index

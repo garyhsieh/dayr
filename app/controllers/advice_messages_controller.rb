@@ -1,4 +1,8 @@
 class AdviceMessagesController < ApplicationController
+  before_filter :authenticate_user!, :only => :complete
+  load_and_authorize_resource
+
+
   # GET /advice_messages
   # GET /advice_messages.json
   def index

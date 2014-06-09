@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    if user.admin or user.username == 'ianli' or user.username == 'garyhsieh'
+    if user.admin or user.username == 'admin' or user.username == 'garyhsieh'
       can :manage, :all
     else
       can :read, :all
