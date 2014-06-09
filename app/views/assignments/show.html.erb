@@ -66,7 +66,7 @@
                 <% else %>
                   <p class="dayrs"><span id="dayrs"><%= pluralize(@completions_size, 'moms') %></span> did this</p>
                 <% end %>
-                <hr/>
+                <hr style="border-top: 1px dotted;"/>
                 <ul class="completions">
                   <% @assignment.completions.each do |completion| %>
                     <li style="list-style-type:none; float: left;">
@@ -84,7 +84,8 @@
                   <% end %>
                 </ul>
                 <br>
-                <hr/>
+                <hr style="border-top: 1px dotted;"/>
+
               </div>
 
               <div class="col-md-6">

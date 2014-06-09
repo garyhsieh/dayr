@@ -16,12 +16,14 @@
 
             <!-- Date timer count -->
             <div class="timer">
-              <%= raw Date.today.strftime("<b>%b %d</b> %Y") %>
+              <p>
+                <%= raw Date.today.strftime("<b>%b %d</b> %Y") %>
+              </p>
             </div>
 
             <!-- Challenge Title -->
             <div class="row">
-              <h1> No Challenge Today</h1>
+              <h1 class="challenge-name"> No Challenge Today</h1>
             </div>
 
             <div class="row">
@@ -30,12 +32,20 @@
               <div class="col-md-6">
 
                 <div class="phone-img hidden-md hidden-lg visible-xs visible-sm">
-                    <a href="http://www.flickr.com/photos/dotpolka/8443772/" title="piece of  cake II by dotpolka, on Flickr"><img src="http://farm1.staticflickr.com/6/8443772_de6fc599d5.jpg" width="380" alt="piece of  cake II"></a>
+ <a href="http://www.flickr.com/photos/dotpolka/8443772/" title="piece of  cake II by dotpolka, on Flickr"><img src="http://farm1.staticflickr.com/6/8443772_de6fc599d5.jpg" width="380" alt="piece of  cake II"></a>
                 </div>
 
+                <p>
+                      <a class="btn btn-large challenge-button disabled">I did this!</a>
+
+                </p>
+
+                <!-- People who completed this challenge -->
+
+                <p class="dayrs">be the first to do this challenge!</p>
 
                 <hr/>
-                <br>
+                  <br><br>
                 <hr/>
               </div>
 
@@ -50,7 +60,6 @@
           </div>
           <div class="col-md-12">
             <p>
-              "Take a break~"
             </p>
 
             <br>
@@ -59,6 +68,10 @@
 
             <section>
 
+              <h2 id="comments_count">
+                  Leave a comment...
+
+              </h2>
 
             </section>
           </div>
@@ -86,4 +99,7 @@
   </div>
 
 <% end %>
+
+
+
 
