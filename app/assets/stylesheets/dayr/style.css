@@ -999,7 +999,6 @@ content: " ";
 display: table;
 }
 .message-item .message-head {
-border-bottom: 1px solid #eee;
 margin-bottom: 8px;
 padding-bottom: 8px;
 }
@@ -1045,4 +1044,8 @@ line-height: 22px;
 }
 .qa-message-list {
   margin-left: 10px;
+}
+
+.qa-message-content {
+  border-bottom: 1px solid #eee;
 }

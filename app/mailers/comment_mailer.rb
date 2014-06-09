@@ -34,8 +34,12 @@ class CommentMailer < ActionMailer::Base
 
   	end
 
-  	@body = comment.user.username.to_s + " wrote: \r\n\r\n " + comment.body.to_s
-    mail(to: @user.email, subject: "You Received a Reply to Your " + @comment_type, body: @body)
+  	if @user != nil
+
+	  	@body = comment.user.username.to_s + " wrote: \r\n\r\n " + comment.body.to_s
+	    mail(to: @user.email, subject: "You Received a Reply to Your " + @comment_type, body: @body)
+
+	end
 
 
   end

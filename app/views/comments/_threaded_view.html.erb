@@ -81,10 +81,12 @@ p.comment-username {
       <div class="qa-message-list" >
         <div class="message-item" >
           <div class="message-inner">
-            <div class="message-head clearfix">
+            <div class="qa-message-content">
+                <%= simple_format(comment.body) %>
+            </div>
 
+            <div class="message-head clearfix">
                 <div class="user-detail">
-                  <h5 class="handle"><%= comment.user.username %></h5>
                   <div class="post-meta">
                     <div class="asker-meta">
                       <span class="qa-message-what"></span>
@@ -99,9 +101,7 @@ p.comment-username {
                   </div>
                 </div>
               </div>
-            <div class="qa-message-content">
-                <%= simple_format(comment.body) %>
-            </div>
+
           </div>
         </div>
       </div>
