@@ -63,7 +63,7 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 # end
 
 # Natural language date and time
-gem 'chronic', :git => 'git://github.com/mojombo/chronic.git'
+gem 'chronic'
 
 # Textile support
 gem 'RedCloth', ">= 4.2.7"
@@ -100,3 +100,7 @@ gem 'flash_messages_helper'
 # Cancan
 # https://github.com/ryanb/cancan
 gem 'cancan'
+
+# whenever
+# added to allow for cron jobs
+gem 'whenever', :require => false

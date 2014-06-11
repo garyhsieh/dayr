@@ -30,4 +30,20 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
     where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
   end
+
+  def self.send_daily_sms
+    @users = self.all
+    @assignment = Assignment.find(:first, :conditions => ["DATE(date) = DATE(?)", Date.today])
+    challenge_name = @assignment.challenge.name
+    if @assignment != nil
+      @users.each do |user|
+        if user.receive_daily_sms_reminders
+          if user.sms_address != nil
+            DailySms.daily_message(user, challenge_name).deliver
+          end
+        end
+      end
+    end
+  end
+
 end
