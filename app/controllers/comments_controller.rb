@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 
     if @user != nil
       @body = @comment.user.username.to_s + " wrote: \r\n\r\n " + @comment.body.to_s
-      CommentMailer.comment_reply_email(@user,@comment_type,@body).deliver!
+#      CommentMailer.comment_reply_email(@user,@comment_type,@body).deliver!
     end
 
      #DailySms.daily_message().deliver
