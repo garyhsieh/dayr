@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.minute do
+every 1.day, :at => '2:20 pm' do
 	runner "User.send_daily_sms", :output => 'log/cron.log'
 end
