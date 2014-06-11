@@ -33,18 +33,17 @@ class User < ActiveRecord::Base
 
   def self.send_daily_sms
     @users = self.all
-    #@assignment = Assignment.find(:first, :conditions => ["DATE(date) = DATE(?)", Date.today])
-    #challenge_name = @assignment.challenge.name
-    #if @assignment != nil
-    #  @users.each do |user|
-    #    if user.receive_daily_sms_reminders
-    #      if user.sms_address != nil
-            DailySms.daily_message("a", "b").deliver
-    #      end
-    #    end
-    #  end
-    #end
-    #CommentMailer.comment_reply_email(user, comment_type, body).deliver
+    @assignment = Assignment.find(:first, :conditions => ["DATE(date) = DATE(?)", Date.today])
+    challenge_name = @assignment.challenge.name
+    if @assignment != nil
+      @users.each do |user|
+        if user.receive_daily_sms_reminders
+          if user.sms_address != nil
+            DailySms.daily_message(user, challenge_name).deliver!
+          end
+        end
+      end
+    end
   end
 
 end
