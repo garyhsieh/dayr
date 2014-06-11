@@ -57,10 +57,10 @@
     <div class="controls">
       <% if @discussion.new_record? %>
         <%= f.submit('Post', :class => 'btn btn-primary') %>
-        <%= link_to 'Cancel', challenges_path, :class => 'btn' %>
+        <%= link_to 'Cancel', discussions_path, :class => 'btn' %>
       <% else %>
         <%= f.submit('Update', :class => "btn btn-primary") %>
-        <%= link_to 'Cancel', challenge_path(@discussion), :class => 'btn' %>
+        <%= link_to 'Cancel', discussions_path(@discussion), :class => 'btn' %>
       <% end %>
     </div>
   </div>

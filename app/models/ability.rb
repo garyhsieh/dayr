@@ -9,6 +9,8 @@ class Ability
     else
       can :read, :all
       can :complete, Assignment
+      can :create, Discussion
+      can :create, AdviceMessage
 #      cannot :read, Challenge
 #      cannot :read, AdditionalInformation
     end

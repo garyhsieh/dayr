@@ -57,7 +57,27 @@
                                     </div>
                                   </div>
                             
-                                  <hr/>
+                                  <div class="control-group">
+                                    <%= f.label :sms_address, :class => 'control-label' %>
+                                    <div class="controls">
+                                      <%= f.email_field :sms_address %>
+                                    </div>
+                                  </div>
+
+                                  <div class="control-group">
+                                    <%= f.label :receive_daily_sms_reminders, :class => 'control-label' %>
+                                    <div class="controls">
+                                      <%= f.check_box :receive_daily_sms_reminders %>
+                                    </div>
+                                  </div>
+
+                                  <div class="control-group">
+                                    <%= f.label :receive_email_notifications, :class => 'control-label' %>
+                                    <div class="controls">
+                                      <%= f.check_box :receive_email_notifications %>
+                                    </div>
+                                  </div>
+
 
                                   <div class="control-group">
                                     <%= f.label :password, :class => 'control-label' %>
@@ -73,8 +93,8 @@
                                       <%= f.password_field :password_confirmation %>
                                     </div>
                                   </div>
-                            
-                                  <hr/>
+
+                                  <br><br>
 
                                   <div class="control-group">
                                     <%= f.label :current_password, :class => 'control-label' %>

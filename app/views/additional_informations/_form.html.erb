@@ -55,10 +55,10 @@
     <div class="controls">
       <% if @additional_information.new_record? %>
         <%= f.submit('Create', :class => 'btn btn-primary') %>
-        <%= link_to 'Cancel', challenges_path, :class => 'btn' %>
+        <%= link_to 'Cancel', additional_informations_path, :class => 'btn' %>
       <% else %>
         <%= f.submit('Update', :class => "btn btn-primary") %>
-        <%= link_to 'Cancel', challenge_path(@additional_information), :class => 'btn' %>
+        <%= link_to 'Cancel', additional_information_path(@additional_information), :class => 'btn' %>
       <% end %>
     </div>
   </div>
