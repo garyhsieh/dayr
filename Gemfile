@@ -40,7 +40,7 @@ gem 'jquery-rails'
 # ======================
 
 # Devise user authentication
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'devise'
 
 # Use Gravatar for profile pictures
 gem 'gravatarify', '~> 3.0.0'
