@@ -98,7 +98,6 @@ a:hover,a:active,a:focus {
 }
 
 strong{
-  font-family: 'Avenir', 'Open Sans', sans-serif;
    font-style: italic;
    color: #ed2663;
    font-weight:600;
@@ -109,11 +108,10 @@ strong{
 ul li {
    list-style-color: #ed2663;
    list-style-type: circle;
-   margin-left: 15px;
 } 
 
 .btn {
-   background-color: #ed2663;
+   background-color: #35A9B3;
    color: #fff;
    border: none;
    height: 30px;
@@ -429,8 +427,8 @@ hr {
 
 .navbar .navbar-header img { 
    width: 165px;
-   height: 70px;
-   margin-top:-18px;
+   height: auto;
+   margin-top:-14px;
 }
 
 .navbar-header {
@@ -543,6 +541,9 @@ footer .copy{
    } 
 }
 /* Some overrides from default bootstrap styles */
+.btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  background-color: #35A9B3; 
+}
 
 .thumbnail { 
   border: none;
@@ -563,7 +564,7 @@ footer .copy{
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-   background-color: #ed2663;
+   background-color: #35A9B3;
    color: #fff;
    }
 
