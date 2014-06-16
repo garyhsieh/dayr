@@ -2,9 +2,41 @@ class CommentsController < ApplicationController
   def create
      @comment = Comment.new(params[:comment])
      
-     CommentMailer.comment_reply_email(@comment).deliver
 
-     if @comment.commentable_type == AdviceMessage.name
+     #deliver notification
+
+    if @comment.parent_id == nil
+      if @comment.commentable_type == AdviceMessage.name
+        #reply to comment on AdviceMessage
+        comment_parent = AdviceMessage.find(@comment.commentable_id)
+        @user = comment_parent.user
+        @comment_type = "Advice Message"
+
+      elsif @comment.commentable_type == Discussion.name
+        #reply to comment on Discussion
+        comment_parent = Discussion.find(@comment.commentable_id)
+        @user = comment_parent.user
+        @comment_type = "Discussion Post"
+      else
+        #reply to comment on Assignment
+        @comment_type = nil
+        @user = nil
+      end
+    else
+      comment_parent = Comment.find(@comment.parent_id)
+      @user = comment_parent.user
+      @comment_type = "Comment"
+    end
+
+    if @user != nil
+      @body = @comment.user.username.to_s + " wrote: \r\n\r\n " + @comment.body.to_s
+      CommentMailer.comment_reply_email(@user,@comment_type,@body).deliver!
+    end
+
+     #DailySms.daily_message().deliver
+
+
+    if @comment.commentable_type == AdviceMessage.name
 
 
        respond_to do |format|

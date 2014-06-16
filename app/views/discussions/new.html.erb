@@ -1,29 +1,56 @@
+
 <!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
+        <div class="awidget-body">
+          <!-- Dayr Top Half Details -->
+          <!-- Dayr Top-Left (includes time, and dayrs)-->
+            <div class="col-md-12">
+            <!-- main content start-->
 
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
+            <% content_for :title do %>New Discussion<% end %>
 
-                        <div class="awidget-body">
+            <h1>New Discussion</h1>
 
-							<% content_for :title do %>New Discussion<% end %>
+            <%= render 'form' %>
 
-							<h1>New Discussion</h1>
-
-							<%= render 'form' %>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- main content end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>

@@ -36,7 +36,6 @@ Dayr::Application.configure do
    config.action_mailer.delivery_method = :sendmail #:smtp
 
 
-
 end
 
 

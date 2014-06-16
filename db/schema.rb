@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140601205721) do
+ActiveRecord::Schema.define(:version => 20140609231545) do
 
   create_table "additional_informations", :force => true do |t|
     t.string   "name"
@@ -111,12 +111,12 @@ ActiveRecord::Schema.define(:version => 20140601205721) do
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                       :default => "",    :null => false
+    t.string   "encrypted_password",          :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",               :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -124,8 +124,11 @@ ActiveRecord::Schema.define(:version => 20140601205721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.boolean  "admin",                  :default => false
+    t.boolean  "admin",                       :default => false
     t.string   "sign_up_code"
+    t.boolean  "receive_daily_sms_reminders", :default => true
+    t.boolean  "receive_email_notifications", :default => true
+    t.string   "sms_address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
