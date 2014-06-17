@@ -13,41 +13,47 @@
 
 				<% content_for :title do %>Advice Message<% end %>
 
-				<h1>Question</h1>
-				<div><%= time_ago_in_words(@advice_message.created_at) %> ago</div>
-				<h2><%= @advice_message.subject %> </h2>
-				<%= simple_format(@advice_message.question) %>
+        <h1>Subject: <%= @advice_message.subject %></h1>
+        <p>
+          Asked <%= time_ago_in_words(@advice_message.created_at) %> ago
+          <strong><%= simple_format(@advice_message.question) %></strong>
+        </p>
+
+        <br>
+        <hr>
 
 				<section>
 
-	              <h2 id="comments_count">
-	                <% if @comments != nil && @comments.length != 0 %>
-	                  <%= pluralize(@comments.count, "Comment") %>  
-	                <% else %>
-	                  Leave a response...
-	                <% end %>
-	              </h2>
+	        <h2 id="comments_count">
+	          <% if @comments != nil && @comments.length != 0 %>
+	            <%= pluralize(@comments.count, "Comment") %>  
+	          <% else %>
+	            Leave a response...
+	          <% end %>
+	        </h2>
 
-	              <% if @comments %>
-	                <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @advice_message } %>
-	              <% end %>
+	        <% if @comments %>
+	          <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @advice_message } %>
+	        <% end %>
 
-	              <% if user_signed_in? %>
-	                <%= form_for([@advice_message,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
-	                  <%= f.hidden_field :user_id, :value=>current_user.id %>
-	                  <%= f.hidden_field :commentable_id, :value=>@advice_message.id %>
-	                  <%= f.hidden_field :commentable_type, :value=>@advice_message.class.name  %>
+          <!-- Line to separate the comment box from the comments -->
+          <hr class="comment_separater">
 
-	                  <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
+	        <% if user_signed_in? %>
+	          <%= form_for([@advice_message,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
+	            <%= f.hidden_field :user_id, :value=>current_user.id %>
+	            <%= f.hidden_field :commentable_id, :value=>@advice_message.id %>
+	            <%= f.hidden_field :commentable_type, :value=>@advice_message.class.name  %>
 
-	                  <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
-	                  <%= f.submit "Add response", :class => 'btn', :id => "comment_btn" %>
-	                <% end %>
-	              <% else %>
-	                  <%= link_to "Log in to comment", new_user_session_path %>   
-	              <% end %>
 
-                </section>
+              <%= f.text_area :body, :id => "comment", :placeholder => " Add to this advice thread!",:class => "span8", :rows => 5, :style => "resize:none" %>
+	            <%= f.submit "Add response", :class => 'btn', :id => "comment_btn" %>
+	          <% end %>
+	        <% else %>
+	            <%= link_to "Log in to comment", new_user_session_path %>   
+	        <% end %>
+
+          </section>
             <!-- main content end -->
           </div>
         </div>

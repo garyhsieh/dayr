@@ -98,17 +98,20 @@ a:hover,a:active,a:focus {
 }
 
 strong{
-   font-style: italic;
    color: #ed2663;
    font-weight:600;
-   font-size: 1.5em;
-   line-height: 2em;
+
 }
 
 ul li {
    list-style-color: #ed2663;
    list-style-type: circle;
 } 
+
+.graybox {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
 
 .btn {
    background-color: #35A9B3;
@@ -117,6 +120,10 @@ ul li {
    height: 30px;
    border-radius: 5px;
 } 
+
+.float_right {
+  float: right;
+}
 
 .btn:hover {
    background-color: #777;
@@ -320,9 +327,14 @@ ul.completions img {
 hr {
    margin: 0;
    margin-bottom:10px;
-   border-color: #000;
+   border-color: #f0f0f0;
 }
 /* Dayr Details (pictures and likes) */
+
+.comment_separater {
+  margin-top:30px;
+  margin-bottom:35px;
+}
 
 .challenge-image {
    float: right;
@@ -379,9 +391,7 @@ hr {
 }
 
 /* Side Bar (Right) */
-.related-challenges h2 {
-  margin-top:-5px;
-}
+
 .col-md-3 .awidget .related-challenges, .col-md-3 .awidget .related-lessons{
    margin-bottom: 5px;
 }
@@ -570,6 +580,7 @@ footer .copy{
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
    color: #fff;
+   background-color: #ED2663;
 }
 
 .dropdown-menu > li {
@@ -705,11 +716,13 @@ a:hover {
 
 #comment {
    height: 35px;
-   width:80%;
+   width:70%;
+   border: 1px solid #DDD;
+   border-radius: 2px;
 }
+
 #comment_btn {
    border-radius: 5px;
-   background-color: #ed2663;
    padding:10px;
    padding-bottom: 30px;
    padding-left: 20px;
@@ -849,11 +862,16 @@ html,body{
 }
 
 .avatar{
-    width: 100px;height: 100px;
+    width: 100px;
+    height: 100px;
     margin: 10px auto 30px;
     border-radius: 100%;
-    border: 2px solid #aaa;
     background-size: cover;
+}
+
+.avatar img {
+  width: 100px;
+  height: auto;
 }
 
 .form-box input{

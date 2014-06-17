@@ -13,12 +13,15 @@
                     
     			<% content_for :title do %>Discussion Message<% end %>
 
-    			<h1>Question</h1>
-    			<div><%= time_ago_in_words(@discussion.created_at) %> ago</div>
-    			<h2><%= @discussion.subject %> </h2>
-    			<%= simple_format(@discussion.content) %>
+    			<h1>Subject: <%= @discussion.subject %></h1>
+          <p>
+            Asked <%= time_ago_in_words(@discussion.created_at) %> ago
+            <strong><%= simple_format(@discussion.content) %></strong>
+          </p>
+
           <br>
           <hr>
+
 			    <section>
 
 	           <h2 id="comments_count">
@@ -35,15 +38,16 @@
 	             <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @discussion } %>
 	           <% end %>
 
+              <!-- Line to separate the comment box from the comments -->
+             <hr class="comment_separater">
+
 	           <% if user_signed_in? %>
 	             <%= form_for([@discussion,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
 	               <%= f.hidden_field :user_id, :value=>current_user.id %>
 	               <%= f.hidden_field :commentable_id, :value=>@discussion.id %>
 	               <%= f.hidden_field :commentable_type, :value=>@discussion.class.name  %>
 
-	               <%= gravatar_tag current_user, :size => 35, :id => "comment-img" %>
-
-	               <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
+                  <%= f.text_area :body, :id => "comment", :placeholder => " Add to this discussion!",:class => "span8", :rows => 5, :style => "resize:none" %>
 	               <%= f.submit "Add response", :class => 'btn', :id => "comment_btn" %>
 	             <% end %>
 	           <% else %>

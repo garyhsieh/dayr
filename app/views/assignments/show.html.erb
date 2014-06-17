@@ -117,13 +117,16 @@
                 <%= render :partial => "comments/threaded_view", :locals => { :comments => @comments, :commentable_object => @assignment  } %>
               <% end %>
 
+              <!-- Line to separate the comment box from the comments -->
+              <hr class="comment_separater">
+
               <% if user_signed_in? %>
                 <%= form_for([@assignment,Comment.new], :html => { :class => 'form-vertical' }) do |f| =%>
                   <%= f.hidden_field :user_id, :value=>current_user.id %>
                   <%= f.hidden_field :commentable_id, :value=>@assignment.id %>
                   <%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
 
-                  <%= f.text_area :body, :id => "comment", :class => "span8", :rows => 5, :style => "resize:none" %>
+                  <%= f.text_area :body, :id => "comment", :placeholder => " What did you think about his challenge?",:class => "span8", :rows => 5, :style => "resize:none" %>
                   <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
                 <% end %>
               <% else %>
