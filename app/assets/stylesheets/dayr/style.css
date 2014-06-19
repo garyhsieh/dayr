@@ -86,6 +86,7 @@ ol li:before {
 }
 a {
    color:#35A9B3;
+   font-weight: 500;
 } 
 
 a:hover{ /* Default for hovering over a link*/

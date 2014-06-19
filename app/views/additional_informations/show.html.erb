@@ -1,35 +1,49 @@
-<!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-        	<div class="col-md-1">
-        	</div>
-            <div class="col-md-9">
+<!-- main content area -->
 
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
 
-                        <div class="awidget-body">
+        <div class="awidget-body">
 
-                          <div class="col-md-12">
-                          <% if can? :manage, AdditionalInformation %>
-                            <div class="page-actions">
-                              <%= link_to 'Edit', edit_additional_information_path(@additional_information), :class => 'btn btn-primary', :id => 'new-assign' %>
-                            </div>
-                          <% end %>
+          <div class="col-md-12">
+          <% if can? :manage, AdditionalInformation %>
+            <div class="page-actions">
+              <%= link_to 'Edit', edit_additional_information_path(@additional_information), :class => 'btn btn-primary', :id => 'new-assign' %>
+            </div>
+          <% end %>
 
-							<% content_for :title do %>Show Additional Information Page<% end %>
+					<% content_for :title do %>Show Additional Information Page<% end %>
 
-							<h1><%=@additional_information.name%></h1>
-							<%= raw textilize @additional_information.content %>
-                          </div>
-						</div>
-					</div>
+					<h1><%=@additional_information.name%></h1>
+					<%= raw textilize @additional_information.content %>
+        </div>
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li>                  
+          <% if user_signed_in? %>
+            <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+          <% else %>
+            <li><%= link_to "Log in to Ask the Nurse", new_user_session_path%></li>
+          <% end %>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+  </div>
+
+<% end %>
