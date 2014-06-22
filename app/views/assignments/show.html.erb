@@ -126,7 +126,7 @@
                   <%= f.hidden_field :commentable_id, :value=>@assignment.id %>
                   <%= f.hidden_field :commentable_type, :value=>@assignment.class.name  %>
 
-                  <%= f.text_area :body, :id => "comment", :placeholder => " What did you think about his challenge?",:class => "span8", :rows => 5, :style => "resize:none" %>
+                  <%= f.text_area :body, :id => "comment", :placeholder => " What did you think about this challenge?",:class => "span8", :rows => 5, :style => "resize:none" %>
                   <%= f.submit "Add comment", :class => 'btn', :id => "comment_btn" %>
                 <% end %>
               <% else %>

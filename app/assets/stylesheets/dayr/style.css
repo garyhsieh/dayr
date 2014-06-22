@@ -51,7 +51,7 @@ body
 
 font-family: 'Avenir', 'Open Sans', sans-serif;
 color:#444;
-font-size: 1em;
+font-size: 1.1em;
 line-height: 25px;
 -webkit-font-smoothing: antialiased;
 background:#f8f5f5;
@@ -152,11 +152,7 @@ ul li {
    border-color:#16cbe6 !important;
 }
 
-/* Basic CSS ends */
-
-.page-content {
-   margin-top: 40px;
-}
+/* Basic CSS */
 
 .phone { /* margin-top on phones */
    margin-top: 30px;
@@ -249,9 +245,18 @@ ul li {
    color: #ed2663
 }
 
+.page-content {
+   margin-top: 30px;
+}
+
 .col-md-12 {
    margin-top: 30px;
    }
+
+.col-sm-12, .col-xs-12 {
+  margin-top: 50px;
+
+}
 
 .col-md-12 h1 {
    font-size: 2em;
@@ -409,7 +414,7 @@ hr {
    padding: 6px;
    display: block;
    padding-left: 15px;
-   font-size: 1em;
+   font-size: 1.2em;
    padding-left: 15px;
    padding-right: 15px;
 }
@@ -434,10 +439,6 @@ hr {
    width: 165px;
    height: auto;
    margin-top:-14px;
-}
-
-.navbar-header {
-   padding-right: 30px;
 }
 
 .navbar-default {
