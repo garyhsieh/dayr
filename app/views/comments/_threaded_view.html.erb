@@ -1,68 +1,8 @@
 <!-- for the commenting section -->
 
 <% content_for :head do %>
-<style>
-
-section {
-  margin-top: 30px;
-}
-
-.comments {
-  clear:both;
-  margin-top: 20px;
-}
-
-.comment {
-  clear:both;
-  margin-left:40px;
-  margin: 20px;
-}
-
-.comment-img {
-  float:left;
-  margin-left:-40px;
-}
-
-.comment-timeago {
-  color:#999;
-}
-
-.comment-child .comment-timeago {
-  display: none;
-}
-
-.comment-username {
-  font-weight:bold;
-}
-
-.comment-root img{
-  width: 50px;
-  height: 50px;
-  margin-right: 12px;
-  margin-left: 25px;
-}
 
 
-.comment-reply {
-  display:none;
-  margin-top:10px;
-  margin-left:80px;
-}
-
-p.comment-username {
-  margin-bottom:0;
-}
-
-.comment-timeago {
-  font-size:11px;
-}
-
-.comment-child {
-  margin:0px;
-  margin-left:80px;
-}
-
-</style>
 <% end %>
 <div class="comments">
   <% comments.each do |comment| %>
