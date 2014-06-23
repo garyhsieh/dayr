@@ -322,7 +322,7 @@ ul.completions li {
 }
 
 ul.completions img {
-  margin-left:-12px;
+  margin-right:10px;
 }
 
 hr {
@@ -414,9 +414,8 @@ hr {
    padding: 6px;
    display: block;
    padding-left: 15px;
-   font-size: 1.2em;
+   font-size: 1.0em;
    padding-left: 15px;
-   padding-right: 15px;
 }
 
 .col-md-3 .awidget .share ul, .col-md-3 .awidget .faq ul, .col-md-3 .awidget .related-challenges ul, .col-md-3 .awidget .related-lessons ul{
@@ -546,6 +545,12 @@ footer .copy{
    } 
 }
 /* Some overrides from default bootstrap styles */
+
+.navbar-brand {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
   background-color: #35A9B3; 
 }
