@@ -56,6 +56,9 @@ class AdviceMessagesController < ApplicationController
   def create
     @advice_message = AdviceMessage.new(params[:advice_message])
 
+    @body = @advice_message.user.username.to_s + " asked: " + @advice_message.subject.to_s + " \r\n\r\n " + @advice_message.question.to_s
+    CommentMailer.advice_message_email(@body).deliver!
+
     respond_to do |format|
       if @advice_message.save
         format.html { redirect_to @advice_message, notice: 'Advice message was successfully created.' }
