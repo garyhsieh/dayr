@@ -38,7 +38,10 @@
 
                   <%= @assignment.challenge.subtitle %><br><br>
                 <p>
-                  <%= @assignment.challenge.task %>
+                <p>
+                  <strong>Challenge: </strong>
+                  <span class="boldFont"><%= @assignment.challenge.task %></span>
+                </p>
 
                   <!-- Challenge Button -->
                   <% if user_signed_in? %>
@@ -164,10 +167,10 @@
     <div class="faq">
       <h2>Quizzes for Moms</h2>
       <ul>
-        <li><a href="/quiz1">Quiz #1</a></li>
-        <li><a href="/quiz2">Quiz #2</a></li>
-        <li><a href="/quiz3">Quiz #3</a></li>
-        <li><a href="/quiz4">Quiz #4</a></li>
+        <li><a href="/quiz1">Red Light, Green Light</a></li>
+        <li><a href="/quiz2">Baby Personality</a></li>
+        <li><a href="/quiz3">Does the Apple fall...</a></li>
+        <li><a href="/quiz4">Make Solid Decisions</a></li>
       </ul>
     </div>
     <div class="faq">
@@ -190,7 +193,6 @@
         <a class="addthis_button_preferred_1"></a>
         <a class="addthis_button_preferred_2"></a>
         <a class="addthis_button_preferred_3"></a>
-        <a class="addthis_button_preferred_4"></a>
         <a class="addthis_counter addthis_bubble_style"></a>
       </div>
       <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
