@@ -1146,3 +1146,13 @@ p.comment-username {
 .comment-child .pull-left .comment-img {
   margin-left: 5px;
 }
+
+/*Quiz 2 styling*/
+
+#quiz2 {
+  margin-left: 26px;
+}
+
+#quiz2 ul{
+  margin-left: 26px;
+}

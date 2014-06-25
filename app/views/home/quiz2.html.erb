@@ -1,0 +1,181 @@
+<!-- Page content -->
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  	<div >
+    	<div >
+      		<div class="awidget">
+        		<div class="awidget-body">
+			        <!-- Dayr Top Half Details -->
+			        <!-- Dayr Top-Left (includes time, and dayrs)-->
+			        <div class="col-md-12">
+			        	<!-- main content start-->
+                        
+                        <form class="form-horizontal"  role="form">
+						<h1>Baby Personality quiz!</h1>
+
+						<p>
+							Is your baby Flexible, Shy or Feisty? Keep track of how many answers you have for each type (shy, feisty, flexible!) and read information at the end about your baby’s personality!
+						</p>
+
+						<br>
+
+						<ol id="quiz2">
+							<li>
+								How does your baby handle change?
+								<br>
+								<label>
+									<input type="radio" name="q1" value="shy" /> 	Needs time to warm up to it
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q1" value="feisty" /> 
+									Reacts strongly, often starts to cry
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q1" value="flexible" /> Handles change easily
+								</label>
+							</li>
+							<li>
+								How active is your baby?
+								<br>
+								<label>
+									<input type="radio" name="q2" value="flexible" /> 	Needs time to Active and happy to explore!
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q2" value="feisty" /> 
+									Somewhat active, but easily overwhelmed
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q2" value="shy" /> 
+									Less active, a little timid
+								</label>
+							</li>
+							<li>
+								How does your baby respond to noise, touch, or smell?
+								<br>
+								<label>
+									<input type="radio" name="q3" value="shy" /> 	
+									Gets overwhelmed easily
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q3" value="feisty" /> 
+									Gets upset and frustrated by the change
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q3" value="flexible" /> 
+									Handles change pretty easily
+								</label>
+							</li>	
+							<li>
+								How does your baby act when she needs something?
+								<br>
+								<label>
+									<input type="radio" name="q4" value="flexible" /> 	
+									Usually doesn’t make much of a fuss
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q4" value="feisty" /> 
+									Seems very upset
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q4" value="shy" /> 
+									Gets somewhat upset
+								</label>
+							</li>
+							<li>
+								How would you describe your baby’s mood most of the time?
+								<br>
+								<label>
+									<input type="radio" name="q5" value="shy" /> 	
+									Acts a little timid
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q5" value="flexible" /> 
+									Seems happy most of the time
+								</label>
+								<br>
+								<label>
+									<input type="radio" name="q5" value="feisty" /> 
+									Pretty active and adventurous
+								</label>
+							</li>
+						</ol>
+						<button id="results">
+							Results
+						</button>
+
+
+						<br><br>
+						<hr>
+						<div id="additional_information">&nbsp;
+
+						</div>	
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% content_for :js do %>
+<script>
+
+
+
+function myFunc() {
+	document.getElementById('additional_information').innerHTML = "some stuff";
+}
+
+for(var j=1; j<6;j++) {
+	var q = document.getElementsByName("q"+i);
+	for (var i = 0; i < q1.length; i++) {
+		q[i].onclick = setResults;
+	}
+}
+
+function setResults() {
+	alert("h1");
+}
+
+
+</script>
+<% end %>
+
+<% content_for :sb do %>
+
+  <div class="awidget">
+    <div class="faq">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+        <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+        <li><a href="/about/#Contact">Site Coordinators</a></li>
+      </ul>
+    </div>
+    <div class="share">
+      <h2>Share</h2>
+      <!-- Like Buttons BEGIN -->
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+      <!-- Like Buttons END -->
+    </div>
+  </div>
+
+<% end %>
