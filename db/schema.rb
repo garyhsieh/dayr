@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140609231545) do
+ActiveRecord::Schema.define(:version => 20140625034537) do
 
   create_table "additional_informations", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20140609231545) do
     t.string   "image_url"
     t.string   "image_attribution_url"
     t.string   "task"
+    t.string   "subtitle"
   end
 
   add_index "challenges", ["category"], :name => "index_challenges_on_category"

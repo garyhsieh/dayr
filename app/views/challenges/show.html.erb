@@ -35,6 +35,7 @@
                   <%= image_tag @challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                   <% attribution = @challenge.image_attribution_url %>
                 </div>
+                  <%= @challenge.subtitle %><br><br>
 
                 <p>
                   <%= @challenge.task %>
