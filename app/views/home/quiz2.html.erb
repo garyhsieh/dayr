@@ -20,7 +20,7 @@
 
 						<br>
 
-						<ol id="quiz2">
+						<ol class="quiz">
 							<li>
 								How does your baby handle change?
 								<br>
@@ -109,17 +109,65 @@
 								</label>
 							</li>
 						</ol>
-						<button id="results">
-							Results
-						</button>
-
-
 						<br><br>
 						<hr>
-						<div id="additional_information">&nbsp;
 
+						<!-- Fiesty baby results -->
+
+						<div id="feistyResults">
+							<h2>Your baby is Feisty!</h2>
+							<h3>Feisty Babies:</h3>
+							<ul class="quizResults">
+								<li>Let you know what they need.</li>
+								<li>Have strong reactions to hunger, pain, and being tired.</li>
+								<li>Can get upset easily.</li>
+								<li>Need time to get used to changes.</li>
+								<li>Need love and attention!</li>
+							</ul> 
+							<h3>Tips for feeding your Feisty Baby:</h3>
+							<ul class="quizResults">
+								<li>Keep your baby interested in the feeding by talking to him and making eye contact.</li>
+								<li>Offer feedings around the same time each day, as long as your baby is showing signs that he is hungry.</li>
+								<li>Try to be prepared for the feeding, so he doesn’t become so upset he can’t eat.</li>
+							</ul>
 						</div>	
-						</form>
+
+						<!-- Flexible baby results -->
+
+						<div id="flexResults">
+							<h2>Your baby is Flexible!</h2>
+							<h3>Flexible Babies:</h3>
+							<ul class="quizResults">
+								<li>Are usually in a good mood, and are easy going.</li>
+								<li>May not make much of a fuss when they need something.</li>
+								<li>Need love and attention!</li>
+							</ul> 
+							<h3>Tips for feeding your Flexible Baby:</h3>
+							<ul class="quizResults">
+								<li>Give your baby lots or time to breastfeed or take a bottle.</li>
+								<li>Play with her and enjoy bonding over feeding time.</li>
+								<li>Don’t wait until she’s crying to feed her. Watch for earlier signs of hunger.</li>
+							</ul>
+						</div>
+
+						<!-- Shy baby results -->
+
+						<div id="shyResults">
+							<h2>Your baby is Shy!</h2>
+							<h3>Shy Babies:</h3>
+							<ul class="quizResults">
+								<li>Need time to warm up to new foods, people and places.</li>
+								<li>Like to have a routine each day.</li>
+								<li>Need patience, love and affection from you!</li>
+							</ul> 
+							<h3>Tips for feeding your Shy Baby:</h3>
+							<ul class="quizResults">
+								<li>Turn off the television while feeding.</li>
+								<li>Try to keep feedings around the same time each day as long as she shows that she’s hungry.</li>
+								<li>Once your baby is ready for solid foods, introduce new foods very slowly. It may take her as many as 15 times before she may begin to like it.</li>
+							</ul>
+						</div>					
+					</form>
 					</div>
 				</div>
 			</div>
@@ -130,23 +178,67 @@
 <% content_for :js do %>
 <script>
 
+var FEISTY_COUNT = 0;
+var FLEX_COUNT = 0;
+var SHY_COUNT = 0;
+var CURR;
 
+/* Loops all of the questions and their respective answers
+   if an answer is clicked on, then the results function will be 
+   update to keep a count. */
 
-function myFunc() {
-	document.getElementById('additional_information').innerHTML = "some stuff";
-}
-
-for(var j=1; j<6;j++) {
-	var q = document.getElementsByName("q"+i);
-	for (var i = 0; i < q1.length; i++) {
-		q[i].onclick = setResults;
+for(var j = 1; j < 6; j++) {
+	var  num = "q" + j;
+	var q = document.getElementsByName(num);
+	for (var i = 0; i < q.length; i++) {
+		q[i].onclick = refreshResults;
 	}
 }
 
-function setResults() {
-	alert("h1");
+function refreshResults() {
+	FEISTY_COUNT = 0;
+	FLEX_COUNT = 0;
+	SHY_COUNT = 0;
+	for(var m = 1; m < 6; m++) {
+		var  num = "q" + m;
+		var q = document.getElementsByName(num);
+		for (var n = 0; n < q.length; n++) {
+			if(q[n].checked) {
+				addNumbers();
+				CURR=(q[n].value);
+			}
+		}
+	}
 }
 
+function addNumbers() {
+	if(CURR == "shy") {
+		SHY_COUNT += 1;
+	} else if(CURR == "flexible") {
+		FLEX_COUNT += 1;
+	} else {
+		FEISTY_COUNT += 1;
+	}
+	if((FEISTY_COUNT+FLEX_COUNT+SHY_COUNT) >= 5) {
+		myFunc();
+	}
+}
+
+function myFunc() {
+	if((FEISTY_COUNT > FLEX_COUNT) && (FEISTY_COUNT > SHY_COUNT)) {
+		document.getElementById('feistyResults').style.display = "block";
+		document.getElementById('flexResults').style.display = "none";
+		document.getElementById('shyResults').style.display = "none";
+	} else if((FLEX_COUNT > FEISTY_COUNT) && (FLEX_COUNT > SHY_COUNT)) {
+		document.getElementById('feistyResults').style.display = "none";
+		document.getElementById('flexResults').style.display = "block";
+		document.getElementById('shyResults').style.display = "none";
+	} else {
+		document.getElementById('feistyResults').style.display = "none";
+		document.getElementById('flexResults').style.display = "none";
+		document.getElementById('shyResults').style.display = "block";
+	}
+}
 
 </script>
 <% end %>
@@ -154,6 +246,14 @@ function setResults() {
 <% content_for :sb do %>
 
   <div class="awidget">
+    <div class="faq">
+      <h2>Quizzes for Moms</h2>
+      <ul>
+        <li><a href="/quiz1">Red Light, Green Light</a></li>
+        <li><a href="/quiz3">Does the Apple fall...</a></li>
+        <li><a href="/quiz4">Make Solid Decisions</a></li>
+      </ul>
+    </div>
     <div class="faq">
       <h2>Contact</h2>
       <ul>
