@@ -2,196 +2,150 @@
 <div class="mainy">
   <!-- Page title -->
   <!-- Page title -->
-  	<div >
-    	<div >
-      		<div class="awidget">
-        		<div class="awidget-body">
-			        <!-- Dayr Top Half Details -->
-			        <!-- Dayr Top-Left (includes time, and dayrs)-->
-			        <div class="col-md-12">
-			        	<!-- main content start-->
+    <div >
+      <div >
+          <div class="awidget">
+            <div class="awidget-body">
+              <!-- Dayr Top Half Details -->
+              <!-- Dayr Top-Left (includes time, and dayrs)-->
+              <div class="col-md-12">
+                <!-- main content start-->
                         
-                        <form class="form-horizontal"  role="form">
-						<h1>Quiz: Red Light, Green Light!</h1>
+          <form class="form-horizontal"  role="form">
+            <h1>Quiz: Red Light, Green Light!</h1>
 
-						<p>
-							Practice identifying types of cues, and understanding what your baby is trying to tell you.  If you haven’t had a challenge yet that talks about this, look for it in upcoming challenges!
-						</p>
+            <p>
+              Practice identifying types of cues, and understanding what your baby is trying to tell you.  If you haven’t had a challenge yet that talks about this, look for it in upcoming challenges!
+            </p>
 
-						<br>
+            <br>
 
-						<table class="table table-hover">
+            <ol class="quiz">
+              <li>
+                Your baby starts to look drowsy or falls asleep
+                <br>
+                <label>
+                  <input type="radio" name="q1" value="q1_1" /> Go
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q1" value="q1_2" /> Stop
+                </label>
+                <p id="q1_2"> 
+                  <strong>Correct! This is stop cue.</strong>
+                </p>
+                <p id="q1_1"> 
+                  <strong>Incorrect! This is a stop cue.</strong>
+                </p>
+              </li>
+              <li>
+                Your baby moves his or her arms toward you
+                <br>
+                <label>
+                  <input type="radio" name="q2" value="q2_1" /> Go
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q2" value="q2_2" /> Stop
+                </label>
+                <p id="q2_1"> 
+                  <strong>Correct! This is a go clue.</strong> 
+                </p>
+                <p id="q2_2"> 
+                  <strong>Incorrect! This is a go clue.</strong> 
+                </p>              
+              </li>
+              <li>
+                Your baby arches his or her back
+                <br>
+                <label>
+                  <input type="radio" name="q3" value="q3_1" /> Go
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q3" value="q3_2" /> Stop
+                </label>
+                <p id="q3_2"> 
+                  <strong>Correct! This is a stop clue.</strong> 
+                </p>
+                <p id="q3_1"> 
+                  <strong>Incorrect! This is a stop clue.</strong> 
+                </p>              
+              </li>
+              <li>
+                Your baby makes swallowing sounds, sucking sounds, or smacks lips together
+                <br>
+                <label>
+                  <input type="radio" name="q4" value="q4_1" /> Go
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q4" value="q4_2" /> Stop
+                </label>
+                <p id="q4_1"> 
+                  <strong>Correct! This is a go clue.</strong> 
+                </p>
+                <p id="q4_2"> 
+                  <strong>Incorrect! This is a go clue.</strong> 
+                </p>              
+              </li>
+              <li>
+                Your baby turns his or her head away
+                <br>
+                <label>
+                  <input type="radio" name="q5" value="q5_1" /> Go
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q5" value="q5_2" /> Stop
+                </label>
+                <p id="q5_2"> 
+                  <strong>Correct! This is a stop clue.</strong> 
+                </p>
+                <p id="q5_1"> 
+                  <strong>Incorrect! This is a stop clue.</strong> 
+                </p>              
+              </li>           
+            </ol>
+            <br><br>
+            <hr>
 
-						<tr>
-							<td style="width: 80%">1. Your baby starts to look drowsy or falls asleep<br><div id="q01_div">&nbsp;</div></td>
-							<td style="width: 20%">
-								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-primary ">
-								    <input type="radio" name="q01" id="go">Go</input>
-								  </label>
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q01" id="stop">Stop</input>
-								  </label>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 80%">2. Your baby moves his or her arms toward you<br><div id="q02_div">&nbsp;</div></td>
-							<td style="width: 20%">
-								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q02" id="go">Go</input>
-								  </label>
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q02" id="stop">Stop</input>
-								  </label>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 80%">3. Your baby arches his or her back<br><div id="q03_div">&nbsp;</div></td>
-							<td style="width: 20%">
-								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q03" id="go">Go</input>
-								  </label>
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q03" id="stop">Stop</input>
-								  </label>
-								</div>
-							</td>						
-						</tr>
-						<tr>
-							<td style="width: 80%">4. Your baby makes swallowing sounds, sucking sounds, or smacks lips together<br><div id="q04_div">&nbsp;</div></td>
-							<td style="width: 20%">
-								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q04" id="go">Go</input>
-								  </label>
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q04" id="stop">Stop</input>
-								  </label>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 80%">5. Your baby turns his or her head away<br><div id="q05_div">&nbsp;</div></td>
-							<td style="width: 20%">
-								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q05" id="go">Go</input>
-								  </label>
-								  <label class="btn btn-primary">
-								    <input type="radio" name="q05" id="stop">Stop</input>
-								  </label>
-								</div>
-							</td>
-						</tr>								
-						</table>
-
-
-						<br><br>
-						<hr>
-						<div id="additional_information">&nbsp;
-
-						</div>	
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 
 <% content_for :js do %>
 <script>
 
-var q01_click = false;
-var q02_click = false;
-var q03_click = false;
-var q04_click = false;
-var q05_click = false;
+/* Loops all of the questions and their respective answers
+   if an answer is clicked on, then the results function will be 
+   update to keep a count. */
 
-function myFunc() {
-	document.getElementById('additional_information').innerHTML = "<br><h1>Review</h1><strong>Go Cues!</strong><br>Tell you your baby wants to keep going.<ul><li>Looking at your face</li><li>Moving her arms toward you</li><li>Turning her head toward you</li><li>Bright eyes!</li><li>Smiling</li><li>Making feeding sounds (swallowing sounds, sucking sounds, smacking lips together)</li><li>Crawling to you!</li></ul><br><strong>Stop Cues!</strong><br>Tell you your baby needs a break or is full!<ul><li>Turning her head away from you</li><li>Arching her back or pulling away</li><li>Getting drowsy</li><li>Falling asleep</li><li>Fussiness</li><li>Crying</li></ul>";
+for(var j = 1; j < 7; j++) { // loops around each question
+  var  num = "q" + j;
+  var q = document.getElementsByName(num); // returns all of the questions
+  for (var i = 0; i < 2; i++) {
+    q[i].onclick = refreshResults; // if you clicked on a answer
+  }
 }
 
-$('input[name="q01"]').change( function() {
-  q01_click = true
-  if ($(this).attr('id') == "go") {
-  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
-  } else {
-  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
+function refreshResults() {
+  for(var j = 1; j < 6; j++) { // loops around each question
+    var  num = "q" + j;
+    var q = document.getElementsByName(num); // returns all of the questions
+    for (var i = 1; i < 3; i++) {
+      if(q[i-1].checked == false) {
+        document.getElementById("q"+j+"_"+i).style.display = "none";
+      } else {
+        document.getElementById("q"+j+"_"+i).style.display = "block";
+      }
+    }
   }
-
-  if ($(this).attr('id') == "stop") {
-  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
-  } else {
-  	document.getElementById('q01_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
-  }
-
-  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
-    {
-  	myFunc();
-  }
-})
-$('input[name="q02"]').change( function() {
-  q02_click = true
-
-  if ($(this).attr('id') == "go") {
-  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
-  } else {
-  	document.getElementById('q02_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
-  }
-
-  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
-    {
-  	myFunc();
-  }
-})
-$('input[name="q03"]').change( function() {
-  q03_click = true
-
-  if ($(this).attr('id') == "stop") {
-  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
-  } else {
-  	document.getElementById('q03_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
-  }  
-
-  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
-    {
-  	myFunc();
-  }
-})
-$('input[name="q04"]').change( function() {
-  q04_click = true
-
-  if ($(this).attr('id') == "go") {
-  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a go clue.'
-  } else {
-  	document.getElementById('q04_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a go clue.'
-  }
-
-  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
-    {
-  	myFunc();
-  }
-})
-$('input[name="q05"]').change( function() {
-  q05_click = true
-
-  if ($(this).attr('id') == "stop") {
-  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_206_ok_2.png" alt="correct">Correct! This is a stop clue.'
-  } else {
-  	document.getElementById('q05_div').innerHTML = '<img src="../images/glyphicons/png/glyphicons_207_remove_2.png" alt="incorrect">Incorrect! This is a stop clue.'
-  }
-
-  if (q01_click == true &&  q02_click == true && q03_click == true && q04_click == true && q05_click == true)
-  {
-  	myFunc();
-  }
-})
+}
 
 </script>
 <% end %>
@@ -202,6 +156,7 @@ $('input[name="q05"]').change( function() {
     <div class="faq">
       <h2>Quizzes for Moms</h2>
       <ul>
+        <li><a href="/quiz1">Red Light, Green Light</a></li>
         <li><a href="/quiz2">Baby Personality</a></li>
         <li><a href="/quiz3">Does the Apple fall...</a></li>
         <li><a href="/quiz4">Make Solid Decisions</a></li>
