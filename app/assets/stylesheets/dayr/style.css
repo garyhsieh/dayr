@@ -565,6 +565,9 @@ footer .copy{
 }
 /* Some overrides from default bootstrap styles */
 
+#username {
+  margin-top: 10px;
+}
 .modal-header, .modal-footer {
   border: none;
 }
@@ -1048,6 +1051,7 @@ text-align: right;
 }
 .qa-message-list {
   margin-left: 10px;
+  margin-top: 15px;
 }
 
 .qa-message-content {
