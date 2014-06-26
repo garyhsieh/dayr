@@ -1158,9 +1158,9 @@ p.comment-username {
 /*Quiz styling*/
 
 .quiz {
-  margin-left: 26px;
+  list-style-type: none;
 }
-#feistyResults h3, #shyResults h3, #flexResults h3{
+#feistyResults h3, #shyResults h3, #flexResults h3, #review h3{
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -1181,7 +1181,7 @@ p.comment-username {
   padding:5px;
 }
 .quizResults {
-  margin-left:26px;
+  margin-left:16px;
 }
 
 #feistyResults, #shyResults, #flexResults {
@@ -1190,5 +1190,9 @@ p.comment-username {
 
 #q5_1, #q5_2, #q5_3, #q4_1, #q4_2, #q4_3, #q3_1, 
 #q3_2, #q3_3, #q2_1, #q2_2, #q2_3, #q1_1, #q1_2, #q1_3, #q6_1, #q6_2 {
+  display: none;
+}
+
+#review {
   display: none;
 }

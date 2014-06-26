@@ -107,9 +107,31 @@
                 </p>              
               </li>           
             </ol>
-            <br><br>
-            <hr>
-
+            <hr><br>
+            <div id="review">
+              <h2>You finished! Here's your review:</h2>
+              <h3>Go Cues</h3>
+              <ul class="quizResults">
+                <li>Tell you your baby wants to keep going.</li>
+                <li>Looking at your face</li>
+                <li>Moving her arms toward you</li>
+                <li>Turning her head toward you</li>
+                <li>Bright eyes!</li>
+                <li>Smiling</li>
+                <li>Making feeding sounds (swallowing sounds, sucking sounds, smacking lips together)</li>
+                <li>Crawling to you!</li>
+              </ul> 
+              <h3>Stop Cues</h3>
+              <ul class="quizResults">
+                <li>Tell you your baby needs a break or is full!</li>
+                <li>Turning her head away from you</li>
+                <li>Arching her back or pulling away</li>
+                <li>iteGetting drowsym</li>
+                <li>Falling asleep</li>
+                <li>Fussiness</li>
+                <li>Crying</li>               
+              </ul>
+            </div>
           </form>
           </div>
         </div>
@@ -125,6 +147,8 @@
    if an answer is clicked on, then the results function will be 
    update to keep a count. */
 
+var CHECKED;
+
 for(var j = 1; j < 7; j++) { // loops around each question
   var  num = "q" + j;
   var q = document.getElementsByName(num); // returns all of the questions
@@ -134,6 +158,7 @@ for(var j = 1; j < 7; j++) { // loops around each question
 }
 
 function refreshResults() {
+  CHECKED=0;
   for(var j = 1; j < 6; j++) { // loops around each question
     var  num = "q" + j;
     var q = document.getElementsByName(num); // returns all of the questions
@@ -141,9 +166,15 @@ function refreshResults() {
       if(q[i-1].checked == false) {
         document.getElementById("q"+j+"_"+i).style.display = "none";
       } else {
+        CHECKED +=1;
         document.getElementById("q"+j+"_"+i).style.display = "block";
       }
     }
+  }
+  if(CHECKED == 5) {
+    document.getElementById("review").style.display = "block";
+  } else {
+    document.getElementById("review").style.display = "none";
   }
 }
 

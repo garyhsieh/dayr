@@ -32,7 +32,7 @@
 									<input type="radio" name="q1" value="q1_2" /> 4-6 months
 								</label>
 								<p id="q1_1"> 
-									<strong>Try again!</strong>
+									<strong>Try again</strong>
 								</p>
 								<p id="q1_2"> 
 									<strong>Right!</strong>
@@ -52,7 +52,7 @@
 									<strong>Right!</strong> 
 								</p>
 								<p id="q2_2"> 
-									<strong>Try again!</strong> 
+									<strong>Try again</strong> 
 								</p>							
 							</li>
 							<li>
@@ -69,7 +69,7 @@
 									<strong>Right!</strong> 
 								</p>
 								<p id="q3_2"> 
-									<strong>Try again!</strong>
+									<strong>Try again</strong>
 								</p>							
 							</li>
 							<li>
@@ -86,7 +86,7 @@
 									<strong>Right!</strong> 
 								</p>
 								<p id="q4_1"> 
-									<strong>Try again!</strong>
+									<strong>Try again</strong>
 								</p>
 							</li>
 							<li>
@@ -103,7 +103,7 @@
 									<strong>Right!</strong> 
 								</p>
 								<p id="q5_2"> 
-									<strong>Try again!</strong> 
+									<strong>Try again</strong> 
 								</p>
 							</li>
 							<li>
@@ -120,12 +120,15 @@
 									<strong>Right!</strong> 
 								</p>
 								<p id="q6_1"> 
-									<strong>Try again!</strong> 
+									<strong>Try again</strong> 
 								</p>
 							</li>						
 						</ol>
-						<br><br>
-						<hr>
+						<hr><br>
+
+						<div id="review">
+              				<h2>You finished!</h2>
+						</div>	
 
 					</form>
 					</div>
@@ -142,6 +145,8 @@
    if an answer is clicked on, then the results function will be 
    update to keep a count. */
 
+var CHECKED;
+
 for(var j = 1; j < 7; j++) { // loops around each question
 	var  num = "q" + j;
 	var q = document.getElementsByName(num); // returns all of the questions
@@ -151,6 +156,7 @@ for(var j = 1; j < 7; j++) { // loops around each question
 }
 
 function refreshResults() {
+	CHECKED = 0;
 	for(var j = 1; j < 7; j++) { // loops around each question
 		var  num = "q" + j;
 		var q = document.getElementsByName(num); // returns all of the questions
@@ -158,9 +164,15 @@ function refreshResults() {
 			if(q[i-1].checked == false) {
 				document.getElementById("q"+j+"_"+i).style.display = "none";
 			} else {
+				CHECKED += 1;
 				document.getElementById("q"+j+"_"+i).style.display = "block";
 			}
 		}
+	}
+	if(CHECKED == 6) {
+		document.getElementById("review").style.display = "block";
+	} else {
+		document.getElementById("review").style.display = "none";
 	}
 }
 
