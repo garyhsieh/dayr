@@ -267,7 +267,7 @@ ul li {
    }
 
 .col-sm-12, .col-xs-12 {
-  margin-top: 50px;
+  margin-top: 10px;
 
 }
 
@@ -451,6 +451,12 @@ hr {
    width: 165px;
    height: auto;
    margin-top:-14px;
+   position: absolute;
+   z-index: 1000;
+}
+
+.navbar-nav { 
+  margin: 0 -15px;
 }
 
 .navbar-default {
@@ -558,6 +564,10 @@ footer .copy{
    } 
 }
 /* Some overrides from default bootstrap styles */
+
+.modal-header, .modal-footer {
+  border: none;
+}
 
 .navbar-brand {
   padding-right: 0;
@@ -673,35 +683,6 @@ footer .copy{
    .header .form{
       margin:10px auto;
    }
-}
-
-/* Sub Nav*/
-@media (max-width: 760px){
-   .col-md-9 {
-      margin: 0;
-      padding: 0;
-   }
-   .header .container .row .navbar-header .col-md-3 {
-      height: 0;
-   }
-   .page-content {
-      margin-top: 0;
-   }  
-   .mainy{
-      margin-left: 0px;
-   }
-   .sidebar-dropdown{
-      display:block;
-      text-align: left;
-      margin:0 auto;
-      margin-bottom: 0;
-      background-color:#e7e7e7;
-   }
-   .sidebar-dropdown a, .sidebar-dropdown a{
-      color:#ed2663;
-      display:block;
-      padding:10px 15px;
-   }  
 }
 
 /* fix the header on responsive*/
@@ -1158,9 +1139,9 @@ p.comment-username {
 /*Quiz styling*/
 
 .quiz {
-  margin-left: 26px;
+  list-style-type: none;
 }
-#feistyResults h3, #shyResults h3, #flexResults h3{
+#feistyResults h3, #shyResults h3, #flexResults h3, #review h3{
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -1171,11 +1152,9 @@ p.comment-username {
   margin-bottom:25px;
 }
 .quiz li label{
-  padding: 5px;
   width:75%;
-  background-color: #f0f0f0;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .quiz p {
@@ -1183,7 +1162,7 @@ p.comment-username {
   padding:5px;
 }
 .quizResults {
-  margin-left:26px;
+  margin-left:16px;
 }
 
 #feistyResults, #shyResults, #flexResults {
@@ -1192,5 +1171,9 @@ p.comment-username {
 
 #q5_1, #q5_2, #q5_3, #q4_1, #q4_2, #q4_3, #q3_1, 
 #q3_2, #q3_3, #q2_1, #q2_2, #q2_3, #q1_1, #q1_2, #q1_3, #q6_1, #q6_2 {
+  display: none;
+}
+
+#review {
   display: none;
 }

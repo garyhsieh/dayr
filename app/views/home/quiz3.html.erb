@@ -142,27 +142,10 @@
 								</p>
 							</li>
 						</ol>
-						<br><br>
-						<hr>
+						<hr><br>
 
-						<!-- Fiesty baby results -->
-
-						<div id="feistyResults">
-							<h2>Your baby is Feisty!</h2>
-							<h3>Feisty Babies:</h3>
-							<ul class="quizResults">
-								<li>Let you know what they need.</li>
-								<li>Have strong reactions to hunger, pain, and being tired.</li>
-								<li>Can get upset easily.</li>
-								<li>Need time to get used to changes.</li>
-								<li>Need love and attention!</li>
-							</ul> 
-							<h3>Tips for feeding your Feisty Baby:</h3>
-							<ul class="quizResults">
-								<li>Keep your baby interested in the feeding by talking to him and making eye contact.</li>
-								<li>Offer feedings around the same time each day, as long as your baby is showing signs that he is hungry.</li>
-								<li>Try to be prepared for the feeding, so he doesn’t become so upset he can’t eat.</li>
-							</ul>
+						<div id="review">
+              				<h2>You finished!</h2>
 						</div>	
 
 					</form>
@@ -180,6 +163,8 @@
    if an answer is clicked on, then the results function will be 
    update to keep a count. */
 
+var CHECKED;
+
 for(var j = 1; j < 6; j++) { // loops around each question
 	var  num = "q" + j;
 	var q = document.getElementsByName(num); // returns all of the questions
@@ -189,6 +174,7 @@ for(var j = 1; j < 6; j++) { // loops around each question
 }
 
 function refreshResults() {
+	CHECKED = 0;
 	for(var j = 1; j < 6; j++) { // loops around each question
 		var  num = "q" + j;
 		var q = document.getElementsByName(num); // returns all of the questions
@@ -196,9 +182,15 @@ function refreshResults() {
 			if(q[i-1].checked == false) {
 				document.getElementById("q"+j+"_"+i).style.display = "none";
 			} else {
+				CHECKED += 1;
 				document.getElementById("q"+j+"_"+i).style.display = "block";
 			}
 		}
+	}
+	if(CHECKED == 5) {
+	  document.getElementById("review").style.display = "block";
+	} else {
+	  document.getElementById("review").style.display = "none";
 	}
 }
 

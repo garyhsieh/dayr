@@ -43,20 +43,52 @@
                   <span class="boldFont"><%= @assignment.challenge.task %></span>
                 </p>
 
-                  <!-- Challenge Button -->
-                  <% if user_signed_in? %>
-                    <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
-                      <%= link_to "I did this!", complete_assignment_path(@assignment), 
-                        :method => :post,
-                        :class => 'btn btn-primary btn-large challenge-button', :id => 'complete-btn', :tag => p %>
-                    <% else %>
-                      <a class="btn btn-large challenge-button disabled">I did this!</a>
-                    <% end %>
+                <!-- Challenge Button -->
+                <% if user_signed_in? %>
+                  <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
+                    <%= link_to "I did this!", complete_assignment_path(@assignment), 
+                      :method => :post,
+                      :class => 'btn btn-primary btn-large challenge-button', 
+                      :id => 'complete-btn', 
+                      :tag => p,
+                      "data-toggle" => 'modal',
+                      "data-target" => '#myModal' %>
+                      <!-- :data => {:toggle => "modal"} -->
                   <% else %>
-                    <%= link_to "Log in and Complete!", new_user_session_path, 
-                      :class => "btn btn-large btn-primary challenge-button" %>
+                    <a class="btn btn-large challenge-button disabled">I did this!</a>
                   <% end %>
-                </p>
+                <% else %>
+                  <%= link_to "Log in and Complete!", new_user_session_path, 
+                    :class => "btn btn-large btn-primary challenge-button" %>
+                <% end %>
+
+                <!-- Modal AKA Milly Tilly Fireworks -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title" id="myModalLabel">Challenge Completed!</h2>
+                      </div>
+                      <div class="modal-body">
+                        Congrats you completed the challenge! Don't forget to check back tomorrow for the next challenge.
+                      </div>
+                      <div class="modal-footer">
+                        Share this great news! 
+                        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                          <a class="addthis_button_preferred_1"></a>
+                          <a class="addthis_button_preferred_2"></a>
+                          <a class="addthis_button_preferred_3"></a>
+                          <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+                        <!--
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- People who completed this challenge -->
                 <% if @completions_size == 0 %>

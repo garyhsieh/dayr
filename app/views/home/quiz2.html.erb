@@ -36,6 +36,9 @@
 								<label>
 									<input type="radio" name="q1" value="flexible" /> Handles change easily
 								</label>
+								<p> 
+									<strong id="q1"></strong>
+								</p>
 							</li>
 							<li>
 								How active is your baby?
@@ -53,6 +56,9 @@
 									<input type="radio" name="q2" value="shy" /> 
 									Less active, a little timid
 								</label>
+								<p> 
+									<strong id="q2"></strong>
+								</p>							
 							</li>
 							<li>
 								How does your baby respond to noise, touch, or smell?
@@ -71,6 +77,9 @@
 									<input type="radio" name="q3" value="flexible" /> 
 									Handles change pretty easily
 								</label>
+								<p> 
+									<strong id="q3"></strong>
+								</p>
 							</li>	
 							<li>
 								How does your baby act when she needs something?
@@ -89,6 +98,9 @@
 									<input type="radio" name="q4" value="shy" /> 
 									Gets somewhat upset
 								</label>
+								<p> 
+									<strong id="q4"></strong>
+								</p>
 							</li>
 							<li>
 								How would you describe your baby’s mood most of the time?
@@ -107,15 +119,17 @@
 									<input type="radio" name="q5" value="feisty" /> 
 									Pretty active and adventurous
 								</label>
+								<p> 
+									<strong id="q5"></strong>
+								</p>
 							</li>
 						</ol>
-						<br><br>
-						<hr>
+						<hr><br>
 
 						<!-- Fiesty baby results -->
 
 						<div id="feistyResults">
-							<h2>Your baby is Feisty!</h2>
+							<h2>Results: Your baby is Feisty!</h2>
 							<h3>Feisty Babies:</h3>
 							<ul class="quizResults">
 								<li>Let you know what they need.</li>
@@ -135,7 +149,7 @@
 						<!-- Flexible baby results -->
 
 						<div id="flexResults">
-							<h2>Your baby is Flexible!</h2>
+							<h2>Results: Your baby is Flexible!</h2>
 							<h3>Flexible Babies:</h3>
 							<ul class="quizResults">
 								<li>Are usually in a good mood, and are easy going.</li>
@@ -153,7 +167,7 @@
 						<!-- Shy baby results -->
 
 						<div id="shyResults">
-							<h2>Your baby is Shy!</h2>
+							<h2>Results: Your baby is Shy!</h2>
 							<h3>Shy Babies:</h3>
 							<ul class="quizResults">
 								<li>Need time to warm up to new foods, people and places.</li>
@@ -206,6 +220,7 @@ function refreshResults() {
 			if(q[n].checked) {
 				addNumbers();
 				CURR=(q[n].value);
+				document.getElementById("q"+m).innerHTML = q[n].value;
 			}
 		}
 	}
