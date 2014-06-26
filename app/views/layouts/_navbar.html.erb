@@ -1,51 +1,17 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-
-        	<!-- RESPONSIVE NAV BAR - WHEN COLLAPSED -->
-
-	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-	        </button>
+	<div class="container">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
 	        <a class="navbar-brand" href="../"><img src="../assets/dayr/dayrlogo.png" alt="Baby Dayr"/></a>
-	        </div>
-	        <div class="navbar-collapse collapse">
-
-            <!-- SIGNED IN FORMAT -->
-
-            <% if user_signed_in? %>
-              <div class="pull-right">
-	            <ul class="nav navbar-nav navbar-right">
-					<li><%= gravatar_tag current_user, :size => 24 %></li>
-	              	<li class="dropdown">
-	                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %> <b class="caret"></b></a>
-	                 	<ul class="dropdown-menu">
-		              	  	<li><%= link_to('Your Profile', profile_path(current_user.username)) %></li>
-		              	  	<li><%= link_to('Advice Messages', advice_messages_path) %></li>
-							<li><%= link_to('Edit', edit_user_registration_path) %></li>
-	                    	<li class="divider"></li>
-							<li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></li>
-	                	</ul>
-	              	</li>
-	            </ul> 
-
-              </div>
-
-            <!-- NOT SIGNED IN FORMAT -->
-
-            <% else %>
-              <div class="pull-right">
-                <ul class="nav navbar-nav">
-                  <li><img src="/assets/dayr/profile.png" alt="Avatar"/></li>
-                  <li><%= link_to('Log in', new_user_session_path) %></li>
-                </ul>
-              </div>
-            <% end %>
-  
-	        <ul class="nav navbar-nav navbar-right">
+          </div>
+          <div style="height: 1px;" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
 		        <%= content_tag :li, :class => (controller.controller_name == 'discussions') ? 'active' : nil do %>
 	        	<%= link_to "Discussion Board", discussions_path %>
 		        <% end %>
@@ -55,8 +21,27 @@
 		        <%= content_tag :li,  :class => current_page?(about_path) ? 'active' : nil do %>
 		        <%= link_to('About', about_path) %>
 		        <% end %>
-	        </ul>
 
-	    </div><!--/.nav-collapse -->
-	</div>
-</div>
+		        <% if user_signed_in? %>
+	            	<li class="dropdown">
+	            	  	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %> <b class="caret"></b></a>
+	            	 	<ul class="dropdown-menu">
+		        	  	  	<li><%= link_to('Your Profile', profile_path(current_user.username)) %></li>
+		        	  	  	<li><%= link_to('Advice Messages', advice_messages_path) %></li>
+							<li><%= link_to('Edit', edit_user_registration_path) %></li>
+	            	    	<li class="divider"></li>
+							<li><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></li>
+	            		</ul>
+	            	</li>
+
+	            <!-- NOT SIGNED IN FORMAT -->
+
+	            <% else %>
+                 	<li><%= link_to('Log in', new_user_session_path) %></li>
+            	<% end %>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </div>
+      </div>

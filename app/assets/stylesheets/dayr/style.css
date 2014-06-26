@@ -451,6 +451,12 @@ hr {
    width: 165px;
    height: auto;
    margin-top:-14px;
+   position: absolute;
+   z-index: 1000;
+}
+
+.navbar-nav { 
+  margin: 0 -15px;
 }
 
 .navbar-default {
@@ -1172,8 +1178,8 @@ p.comment-username {
 }
 .quiz li label{
   width:75%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .quiz p {
