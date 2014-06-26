@@ -267,7 +267,7 @@ ul li {
    }
 
 .col-sm-12, .col-xs-12 {
-  margin-top: 50px;
+  margin-top: 10px;
 
 }
 
@@ -679,35 +679,6 @@ footer .copy{
    .header .form{
       margin:10px auto;
    }
-}
-
-/* Sub Nav*/
-@media (max-width: 760px){
-   .col-md-9 {
-      margin: 0;
-      padding: 0;
-   }
-   .header .container .row .navbar-header .col-md-3 {
-      height: 0;
-   }
-   .page-content {
-      margin-top: 0;
-   }  
-   .mainy{
-      margin-left: 0px;
-   }
-   .sidebar-dropdown{
-      display:block;
-      text-align: left;
-      margin:0 auto;
-      margin-bottom: 0;
-      background-color:#e7e7e7;
-   }
-   .sidebar-dropdown a, .sidebar-dropdown a{
-      color:#ed2663;
-      display:block;
-      padding:10px 15px;
-   }  
 }
 
 /* fix the header on responsive*/
