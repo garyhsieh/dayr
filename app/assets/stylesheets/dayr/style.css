@@ -565,6 +565,10 @@ footer .copy{
 }
 /* Some overrides from default bootstrap styles */
 
+.modal-header, .modal-footer {
+  border: none;
+}
+
 .navbar-brand {
   padding-right: 0;
   padding-left: 0;
