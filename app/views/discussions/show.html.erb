@@ -77,20 +77,6 @@
 
 <% content_for :sb do %>
 
-  <div class="awidget">
-    <div class="faq">
-      <h2>Contact</h2>
-      <ul>
-        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
-          <% else %>
-            <li><%= link_to "Log in to Ask the Nurse", new_user_session_path%></li>
-          <% end %>
-        <li><a href="/about/#Contact">Site Coordinators</a></li>
-      </ul>
-    </div>
 
-  </div>
 
 <% end %>
