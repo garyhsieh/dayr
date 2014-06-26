@@ -565,6 +565,10 @@ footer .copy{
 }
 /* Some overrides from default bootstrap styles */
 
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #fff;
+}
+
 #username {
   margin-top: 10px;
 }
@@ -1164,9 +1168,6 @@ p.comment-username {
 .quiz p {
   color: #ED2663;
   padding:5px;
-}
-.quizResults {
-  margin-left:16px;
 }
 
 #feistyResults, #shyResults, #flexResults {
