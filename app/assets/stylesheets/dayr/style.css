@@ -131,8 +131,9 @@ ul li {
    background-color: #35A9B3;
    color: #fff;
    border: none;
-   height: 30px;
+   height: 35px;
    border-radius: 5px;
+   font-size: 1em;
 } 
 
 .float_right {
@@ -728,7 +729,7 @@ a:hover {
 }
 
 #comment {
-   height: 35px;
+   height: 40px;
    width:70%;
    border: 1px solid #DDD;
    border-radius: 2px;
