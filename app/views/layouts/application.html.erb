@@ -43,66 +43,65 @@
   <div class="container">
     <div class="content-wrap">
 
-    	
-		    	  <!-- Content assignmetns/show.html-->
-		    		<div class="col-md-9">
-		    			<%= yield %>
-		    		</div>
-				
-		    		<!-- Sidebar -->
-		      		<div class="col-md-3">
-					  <div class="awidget">
-					  	<%= yield :sb %>
-					    <div class="related-challenges">
-					      <h2>Additional Information</h2>
-					      <ul>
-					        <li> <%= link_to "How do I know my baby is getting enough to eat?", additional_information_path(:id=>3) %>  </li>
-					        <li><%= link_to "How do I know my baby is ready for solid foods?", additional_information_path(:id=>2) %>  </li>
-					        <li><%= link_to "The Truth about Baby Blues", additional_information_path(:id=>1) %> </li>
-					        <li><%= link_to "A Cue is a Clue", additional_information_path(:id=>4) %> </li>
-					        <li><%= link_to "My Baby's First Foods", my_babys_first_foods_path %></li>
-					        <li><%= link_to "Feeding My Older Baby", feeding_my_older_baby_path %></li>
-					        <li><%= link_to "How does my baby grow?", "http://www.cdc.gov/parents/infants/" %> </li>
-					        <li><%= link_to "Infant Feeding 101", "http://www.aap.org/en-us/advocacy-and-policy/aap-health-initiatives/HALF-Implementation-Guide/Age-Specific-Content/Pages/Infant-Food-and-Feeding.aspx" %> </li>      
-					      </ul>
-					    </div>
-					    <div class="faq">
-					      <h2>Quizzes for Moms</h2>
-					      <ul>
-					        <li><a href="/quiz1">Red Light, Green Light</a></li>
-					        <li><a href="/quiz2">Baby Personality</a></li>
-					        <li><a href="/quiz3">Does the Apple fall...</a></li>
-					        <li><a href="/quiz4">Make Solid Decisions</a></li>
-					      </ul>
-					    </div>
-					    <div class="faq">
-					      <h2>Contact</h2>
-					      <ul>
-					        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
-					        <li>                  
-					          <% if user_signed_in? %>
-					            <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
-					          <% else %>
-					            <li><%= link_to "Log in to Ask the Nurse", new_user_session_path%></li>
-					          <% end %>
-					        <li><a href="/about/#Contact">Site Coordinators</a></li>
-					      </ul>
-					    </div>
-					    <div class="share">
-					      <h2>Share</h2>
-					      <!-- Like Buttons BEGIN -->
-					      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-					        <a class="addthis_button_preferred_1"></a>
-					        <a class="addthis_button_preferred_2"></a>
-					        <a class="addthis_button_preferred_3"></a>
-					        <a class="addthis_counter addthis_bubble_style"></a>
-					      </div>
-					      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-					      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
-					      <!-- Like Buttons END -->
-					    </div>
-					  </div>
-		    		</div>
+		<!-- Content assignmetns/show.html-->
+		<div class="col-md-9">
+			<%= yield %>
+		</div>
+		
+		<!-- Sidebar -->
+		<div class="col-md-3">
+		  <div class="awidget">
+		  	<%= yield :sb %>
+		    <div class="related-challenges">
+		      <h2>Additional Information</h2>
+		      <ul>
+		        <li> <%= link_to "How do I know my baby is getting enough to eat?", additional_information_path(:id=>3) %>  </li>
+		        <li><%= link_to "How do I know my baby is ready for solid foods?", additional_information_path(:id=>2) %>  </li>
+		        <li><%= link_to "The Truth about Baby Blues", additional_information_path(:id=>1) %> </li>
+		        <li><%= link_to "A Cue is a Clue", additional_information_path(:id=>4) %> </li>
+		        <li><%= link_to "My Baby's First Foods", my_babys_first_foods_path %></li>
+		        <li><%= link_to "Feeding My Older Baby", feeding_my_older_baby_path %></li>
+		        <li><%= link_to "How does my baby grow?", "http://www.cdc.gov/parents/infants/" %> </li>
+		        <li><%= link_to "Infant Feeding 101", "http://www.aap.org/en-us/advocacy-and-policy/aap-health-initiatives/HALF-Implementation-Guide/Age-Specific-Content/Pages/Infant-Food-and-Feeding.aspx" %> </li>      
+		      </ul>
+		    </div>
+		    <div class="faq">
+		      <h2>Quizzes for Moms</h2>
+		      <ul>
+		        <li><a href="/quiz1">Red Light, Green Light</a></li>
+		        <li><a href="/quiz2">Baby Personality</a></li>
+		        <li><a href="/quiz3">Does the Apple fall...</a></li>
+		        <li><a href="/quiz4">Make Solid Decisions</a></li>
+		      </ul>
+		    </div>
+		    <div class="faq">
+		      <h2>Contact</h2>
+		      <ul>
+		        <li><a href="https://www.facebook.com/groups/toolsforteenmoms/" target="_blank">T4TM Facebook Group</a></li>
+		        <li>                  
+		          <% if user_signed_in? %>
+		            <li><%= link_to "Ask the Advice Nurse", new_advice_message_path%></li>
+		          <% else %>
+		            <li><%= link_to "Log in to Ask the Nurse", new_user_session_path%></li>
+		          <% end %>
+		        <li><a href="/about/#Contact">Site Coordinators</a></li>
+		      </ul>
+		    </div>
+		    <div class="share">
+		      <h2>Share</h2>
+		      <!-- Like Buttons BEGIN -->
+		      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+		        <a class="addthis_button_preferred_1"></a>
+		        <a class="addthis_button_preferred_2"></a>
+		        <a class="addthis_button_preferred_3"></a>
+		        <a class="addthis_counter addthis_bubble_style"></a>
+		      </div>
+		      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+		      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5289d4263ec6634a"></script>
+		      <!-- Like Buttons END -->
+		    </div>
+		  </div>
+		</div>
 
   	</div>
   </div>

@@ -267,6 +267,11 @@ ul li {
    margin-top: 30px;
    }
 
+.col-md-9 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .col-sm-12, .col-xs-12 {
   margin-top: 10px;
 
