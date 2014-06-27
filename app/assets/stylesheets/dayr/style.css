@@ -568,10 +568,10 @@ footer .copy{
    } 
 }
 /* Some overrides from default bootstrap styles */
-
-.span8 {
-  margin-left: 20px;
+.challenges-completed {
+  margin-left: 40px;
 }
+
 .span8 h2 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -733,7 +733,7 @@ a:hover {
 
 #comment {
    height: 40px;
-   width:70%;
+   width:100%;
    border: 1px solid #DDD;
    border-radius: 2px;
 }
@@ -744,6 +744,7 @@ a:hover {
    padding-bottom: 30px;
    padding-left: 20px;
    padding-right: 20px;
+   margin-top:10px;
    color: #fff;
    font-size: 1em;
    height: 35px;
