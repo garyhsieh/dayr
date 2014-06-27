@@ -30,7 +30,6 @@
 
               <!-- Challenge Information -->
               <div class="col-md-6">
-
                 <div class="phone-img hidden-md hidden-lg visible-xs visible-sm">
                   <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                   <% attribution = @assignment.challenge.image_attribution_url %>
@@ -46,14 +45,14 @@
                 <!-- Challenge Button -->
                 <% if user_signed_in? %>
                   <% if Completion.where("assignment_id = ? AND user_id = ?", @assignment, current_user).empty? %>
-                    <%= link_to "I did this!", complete_assignment_path(@assignment), 
+                    <%= link_to "I did this!", 
+                      complete_assignment_path(@assignment), 
+                      :onclick => "callModal()",
                       :method => :post,
                       :class => 'btn btn-primary btn-large challenge-button', 
                       :id => 'complete-btn', 
-                      :tag => p,
-                      "data-toggle" => 'modal',
-                      "data-target" => '#myModal' %>
-                      
+                      :tag => p
+                      %>
                   <% else %>
                     <a class="btn btn-large challenge-button disabled">I did this!</a>
                   <% end %>
@@ -61,6 +60,7 @@
                   <%= link_to "Log in and Complete!", new_user_session_path, 
                     :class => "btn btn-large btn-primary challenge-button" %>
                 <% end %>
+
 
                 <!-- Modal Fireworks -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -176,4 +176,17 @@
 <% content_for :sb do %>
 
 
+<% end %>
+
+<% content_for :js do %>
+<script>
+
+var myModal = setTimeout(function(){callModal()},500);
+
+function callModal() {
+    $('#myModal').modal();
+    //var t3 = setTimeout(function(){x.value = "6 seconds"},6000);
+}
+
+</script>
 <% end %>
