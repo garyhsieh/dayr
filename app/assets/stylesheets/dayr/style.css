@@ -771,6 +771,7 @@ a:hover {
 .challenge-button {
    margin-top: 25px;
    margin-bottom: 30px;
+   margin-right: 10px;
    border-radius: 5px;
    padding: 40px;
    padding-top: 20px;
