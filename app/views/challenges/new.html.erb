@@ -1,16 +1,15 @@
-<!-- Page content -->
-<div class="page-content blocky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
+<!-- main content area -->
 
-            <!-- main content area -->
-                <div class="mainy">
-                  <!-- Page title -->
-                  <!-- Page title -->
-                    <div class="awidget">
+<div class="mainy">
+  <!-- Page title -->
+  <!-- Page title -->
+  <div >
+    <div >
+      <div class="awidget">
 
-                        <div class="awidget-body">
+        <div class="awidget-body">
+
+          <div class="col-md-12">
 
 							<% content_for :title do %>New Challenge<% end %>
 
@@ -18,14 +17,15 @@
 
 							<%= render 'form' %>
 
-						</div>
-					</div>
+		
+			        </div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				  <h2>Formatting the description</h2>
-				  <%= render :partial => "layouts/textile_examples" %>
-            </div>
 		</div>
 	</div>
 </div>
+
+<% content_for :sb do %>
+	<%= render :partial => "layouts/textile_examples" %>
+<% end %>
+
