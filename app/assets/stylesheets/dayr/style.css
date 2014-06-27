@@ -567,7 +567,36 @@ footer .copy{
       margin-right:0px !important;
    } 
 }
+/* Discussions and challenges */
+
+.column-left {
+  width:150px;
+  float: left;
+  margin-left:12px;
+}
+
+.column-left img {
+  width: 100%;
+}
+
+.column-right {
+  margin-top:2px;
+  margin-left:180px;
+  overflow-wrap: normal;
+}
+
+
 /* Some overrides from default bootstrap styles */
+
+#myModalLabel {
+  margin-top:10px; 
+  margin-bottom: 0;
+}
+
+.modal-footer {
+  margin-top: 0;
+}
+
 .challenges-completed {
   margin-left: 40px;
 }
@@ -660,6 +689,9 @@ footer .copy{
 @media (max-width: 1200px) {
    .navbar-default .navbar-nav>li>a {
       padding-right: 15px;
+   } .awidget .awidget-body {
+      padding-left: 10px;
+      padding-right: 10px;
    }
 }
 
@@ -980,8 +1012,8 @@ hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
 .search-result { margin-top: 20px; }
 .search-result .col-md-2 { min-height: 140px; }
 .search-result .col-md-7 { position: relative; }
-.search-result span.plus { position: absolute; right: 0; top: 0; }
-.search-result span.plus a { color: #ed2663; background-color: #fff; padding: 5px 5px 3px 5px; }
+.search-result span.plus { right: 0; top: 0; }
+.search-result span.plus a { color: #35A9B3; font-weight: 500; background-color: #fff; padding: 5px 5px 3px 5px; padding-left:0; }
 .search-result span.plus a:hover { color: #000; }
 
 .meta-search li {

@@ -44,38 +44,34 @@
             </div>
             <% end %>
             <h1>Challenges</h1>
+            
+            <% @assignments.each do |assignment| %>
+              <% if can? :manage, Assignment or assignment.date <= Date.today%>
 
-            <div class="row">
-              
-              <% @assignments.each do |assignment| %>
-                <% if can? :manage, Assignment or assignment.date <= Date.today%>
-
-              <article class="search-result row">
-                <div class="col-xs-12 col-sm-12 col-md-2">
-                  <span class="thumbnail">
-                    <%= image_tag assignment.challenge.image_url  %>
-                  </span>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-9 excerpet">
-                  <i class="glyphicon glyphicon-calendar"></i> <span><%=h assignment.date.strftime("%b %d, %Y") %></span>
-                  <h3><%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %></h3>
-                  <p><%= assignment.challenge.task %></p> 
-                  <% if can? :manage, Assignment %>           
-                  <span class="plus">
-                    <%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-info btn-xs" %> &nbsp;
-                    <%= link_to 'Delete', assignment, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-default btn-xs"  %>
-                  </span>
+            <article class="search-result row">
+              <div class="column-left">
+                <span class="thumbnail">
+                  <%= image_tag assignment.challenge.image_url  %>
+                </span>
+              </div>
+              <div class="column-right">
+                <i class="glyphicon glyphicon-calendar"></i> <span><%=h assignment.date.strftime("%b %d, %Y") %></span>
+                <h3><%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %></h3>
+                <p><%= assignment.challenge.task %></p> 
+                <% if can? :manage, Assignment %>           
+                <span class="plus">
+                  <%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-info btn-xs" %> &nbsp;
+                  <%= link_to 'Delete', assignment, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-default btn-xs"  %>
+                </span>
                 <% end %>
-                </div>
-                <span class="clearfix borda"></span>
-              </article>
+              </div>
+              <span class="clearfix borda"></span>
+            </article>
 
 
-                <% end %>                              
-              <% end %>
-              
-            </div><!-- End row -->
-              
+              <% end %>                              
+            <% end %>
+                            
             <!-- main content end-->
           </div>
         </div>

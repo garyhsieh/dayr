@@ -45,12 +45,12 @@
             <% if @discussions != nil && @discussions.length != 0%>
               <% @discussions.each do |discussion| %>
               <article class="search-result row">
-                <div class="col-xs-12 col-sm-12 col-md-2">
+                <div class="column-left">
                   <a href="#" title="Lorem ipsum" class="thumbnail">
                     <%= gravatar_tag discussion.user %>
                   </a>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-9 excerpet">
+                <div class="column-right">
                   <i class="glyphicon glyphicon-calendar"></i> <span><%=h discussion.created_at.strftime("%b %d, %Y") %></span>
                   <h3><%= link_to discussion.subject, discussion, :class => 'assignment-challenge' %></h3>
                   <p> <%= truncate( discussion.content, length:45 ) %></p> 
