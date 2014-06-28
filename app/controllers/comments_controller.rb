@@ -11,12 +11,15 @@ class CommentsController < ApplicationController
         comment_parent = AdviceMessage.find(@comment.commentable_id)
         @user = comment_parent.user
         @comment_type = "Advice Message"
+        @URL = "www.dayr.me/advice_messages/" + comment_parent.id.to_s
 
       elsif @comment.commentable_type == Discussion.name
         #reply to comment on Discussion
         comment_parent = Discussion.find(@comment.commentable_id)
         @user = comment_parent.user
         @comment_type = "Discussion Post"
+        @URL = "www.dayr.me/discussions/" + comment_parent.id.to_s
+
       else
         #reply to comment on Assignment
         @comment_type = nil
@@ -26,10 +29,19 @@ class CommentsController < ApplicationController
       comment_parent = Comment.find(@comment.parent_id)
       @user = comment_parent.user
       @comment_type = "Comment"
+
+      if @comment.commentable_type == AdviceMessage.name
+        @URL = "www.dayr.me/advice_messages/" + @comment.commentable_id.to_s
+      elsif @comment.commentable_type == Discussion.name
+        @URL = "www.dayr.me/discussions/" + @comment.commentable_id.to_s
+      else
+        @URL = "www.dayr.me/assignments/" + @comment.commentable_id.to_s
+      end
+
     end
 
     if @user != nil
-      @body = @comment.user.username.to_s + " wrote: \r\n\r\n " + @comment.body.to_s
+      @body = @comment.user.username.to_s + " wrote: \r\n\r\n " + @comment.body.to_s + " \r\n\r\n " + @URL
       CommentMailer.comment_reply_email(@user,@comment_type,@body).deliver!
     end
 
