@@ -44,8 +44,7 @@
                   <%= link_to challenge.name, challenge, :class => 'challenge' %>
                   <% if can? :manage, Challenge %>
                     <span class="challenge-actions">
-                      <%= link_to 'Edit', edit_challenge_path(challenge) %> &nbsp;
-                      <%= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete %>
+                      <%= link_to 'Edit', edit_challenge_path(challenge) %>                     
                     </span>
                   <% end %>
                 </li>

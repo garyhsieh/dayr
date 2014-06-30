@@ -28,9 +28,9 @@ class AssignmentsController < ApplicationController
   def index
     # Eager load the challenges
     if can? :manage, Assignment
-      @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC')    
+      @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC', :conditions => ["challenge.id != ?", nil])    
     else  
-      @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC', :conditions => ["date <= ?", Date.today])
+      @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC', :conditions => ["date <= ? && challenge.id != ?", Date.today, nil])
     end
   
     respond_to do |format|
