@@ -619,7 +619,7 @@ footer .copy{
 }
 
 .discussion-column-right {
-  margin-left: 115px;
+  margin-left: 130px;
 }
 
 /* Some overrides from default bootstrap styles */
@@ -874,7 +874,7 @@ a:hover {
 } 
 
 .create-btn {
-   margin-top: 20px;
+   margin-top: 30px;
 }
 
 .comments .comment-child .comment-img img{
