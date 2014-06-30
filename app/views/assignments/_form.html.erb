@@ -45,13 +45,13 @@
 	<div class="control-group">
 		<%= f.label :challenge, :class => 'control-label' %>	
 	  <div class="controls">
-    	<%= f.select :challenge_id, Challenge.all.collect { |c| [ c.name, c.id ] }, :class => :text %>
+    	<%= f.select :challenge_id, Challenge.all.collect { |c| [ c.name, c.id ] }, :prompt => "Pick a Challenge", :class => :text %>
   	</div>
   </div>
   
 	<div class="control-group">
 	  <div class="controls">
-	    <%= f.submit(@assignment.new_record? ? 'Create' : 'Update', :class => "btn btn-primary create-btn") %>
+	    <%= f.submit(@assignment.new_record? ? 'Create Challenge' : 'Update', :class => "btn btn-primary create-btn") %>
 	  </div>
 	</div>
 <% end %>

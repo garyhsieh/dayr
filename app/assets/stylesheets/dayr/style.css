@@ -569,22 +569,39 @@ footer .copy{
 }
 /* Discussions and challenges */
 
-.column-left {
-  width:150px;
+.column-left, .discussion-column-left {
   float: left;
   margin-left:12px;
+}
+
+.column-left {
+  width:150px;
+}
+
+.discussion-column-left {
+  width: 100px;
 }
 
 .column-left img {
   width: 100%;
 }
 
-.column-right {
+.discussion-column-left img{
+  width: 80px;
+}
+
+.column-right, .discussion-column-right{
   margin-top:2px;
-  margin-left:180px;
   overflow-wrap: normal;
 }
 
+.column-right {
+  margin-left:180px;
+}
+
+.discussion-column-right {
+  margin-left: 115px;
+}
 
 /* Some overrides from default bootstrap styles */
 
@@ -841,7 +858,10 @@ a:hover {
    margin-top: 20px;
 }
 
-
+.comments .comment-child .comment-img img{
+  width: 30px;
+  height: auto;
+}
 
 
 
@@ -1009,7 +1029,7 @@ hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
 
 .search-result .thumbnail { border-radius: 0 !important; }
 .search-result:first-child { margin-top: 0 !important; }
-.search-result { margin-top: 20px; }
+.search-result { margin-top: 20px; margin-bottom: 30px;}
 .search-result .col-md-2 { min-height: 140px; }
 .search-result .col-md-7 { position: relative; }
 .search-result span.plus { right: 0; top: 0; }

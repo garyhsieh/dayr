@@ -15,7 +15,7 @@
       <div class="pull-left">
         <% if comment.user %>      
         <%= link_to(profile_path(comment.user.username), :class => 'comment-img') do %>
-          <%= gravatar_tag comment.user, :size => 30 %>
+          <%= gravatar_tag comment.user %>
         <% end %>
       </div>
       <div class="qa-message-list" >
@@ -46,7 +46,7 @@
   	       
       <% else %>
         <%= link_to("#{}", :class => 'comment-img') do %>
-          <%= gravatar_tag comment.user, :size => 30 %>
+          <%= gravatar_tag comment.user %>
         <% end %>
         
         <div class="comment-timeago"><%= time_ago_in_words(comment.created_at) %> ago</div>
@@ -62,7 +62,7 @@
 			
       <div id="comment-reply-<%=comment.id%>" class="comment-reply">
 			  <%= link_to(profile_path(current_user.username), :class => 'comment-img') do %>
-  			  <%= gravatar_tag current_user, :size => 30 %>
+  			  <%= gravatar_tag current_user %>
   			<% end %>
 				<%= render :partial => "comments/form", :locals => { :comment => comment, :parent_id => @tmp.id, :commentable_object => commentable_object } %>
 			</div>

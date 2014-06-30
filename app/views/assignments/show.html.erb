@@ -93,11 +93,11 @@
                     <li style="list-style-type:none; float: left;">
                       <% if completion.user %>
                         <%= link_to profile_path(completion.user.username) do %>
-                          <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;" }  %>
+                          <%= gravatar_tag completion.user, :html => { :style => "float:left;" }  %>
                         <% end %>
                       <% else %>
                         <%= link_to "#" do %>
-                          <%= gravatar_tag completion.user, :size => '60', :html => { :style => "float:left;" }  %>
+                          <%= gravatar_tag completion.user, :html => { :style => "float:left;" }  %>
                           <%= "[deleted]" %>
                         <% end %>            
                       <% end %>     
