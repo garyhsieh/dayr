@@ -23,14 +23,16 @@
               </div>
 
             <% if devise_mapping.rememberable? -%>
-                 <%= f.check_box :remember_me, {:checked=>true} %>
+              <label id="remember-me">
+                <%= f.check_box :remember_me, {:checked=>true} %>
                  Remember me
+              </label>
             <% end -%>
             
                 <%= f.submit "Sign in", :class => 'btn btn-primary btn-info btn-block login' %>
             
             <div class="control-group">
-              <div class="controls">
+              <div class="controls login-controls">
                 <%= render :partial => "devise/shared/links" %>
               </div>
             </div>

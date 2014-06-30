@@ -407,6 +407,25 @@ hr {
    margin:70px auto;
 }
 
+#user_remember_me {
+  width: 30px;
+  float: left;
+  height: auto;
+}
+
+#remember-me {
+  float: left;
+}
+
+#remember-me {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.control-group .login-controls {
+  margin-top: 15px;
+}
+
 /* Side Bar (Right) */
 
 .col-md-3 .awidget .related-challenges, .col-md-3 .awidget .related-lessons{
