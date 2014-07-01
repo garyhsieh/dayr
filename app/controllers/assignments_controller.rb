@@ -5,22 +5,35 @@ class AssignmentsController < ApplicationController
   def complete
     @assignment = Assignment.find(params[:id])
     
-    if @assignment
-      @completion = Completion.new({
-        :assignment => @assignment,
-        :user => current_user
-      })
-      
-      respond_to do |format|
-        if @completion.save
-          format.html { redirect_to(@assignment, :notice => 'Daily challenge was successfully completed.') }
-          format.xml  { head :ok }
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
+
+    old_completions = Completion.where("assignment_id = ? AND user_id = ?", @assignment.id, current_user)
+
+    if old_completions.length == 0
+
+      if @assignment
+        @completion = Completion.new({
+          :assignment => @assignment,
+          :user => current_user
+        })
+        
+        respond_to do |format|
+          if @completion.save
+            format.html { redirect_to(@assignment, :notice => 'Daily challenge was successfully completed.') }
+            format.xml  { head :ok }
+          else
+            format.html { render :action => "new" }
+            format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
+          end
         end
       end
+
+    else
+      respond_to do |format|
+        format.html { redirect_to(@assignment, :notice => 'Daily challenge was successfully completed.') }
+        format.xml  { head :ok }
+      end
     end
+
   end
 
   # GET /assignments
