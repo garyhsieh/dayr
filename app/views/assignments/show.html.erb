@@ -24,6 +24,7 @@
             <!-- Challenge Title -->
             <div class="row">
               <h1 class="challenge-name"> <%=@assignment.challenge.name%></h1>
+              <h2 class="subheader"><%= @assignment.challenge.subtitle %></h2>
             </div>
 
             <div class="row">
@@ -34,9 +35,8 @@
                   <%= image_tag @assignment.challenge.image_url || "http://placehold.it/380x285", {:width => '100%'} %>
                   <% attribution = @assignment.challenge.image_attribution_url %>
                 </div>
-                <%= @assignment.challenge.subtitle %><br><br>
                 <p>
-                  <strong>Challenge: </strong>
+                  <strong>Today's Challenge</strong><br/>
                   <span class="boldFont"><%= @assignment.challenge.task %></span>
                 </p>
 

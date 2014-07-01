@@ -115,7 +115,13 @@ strong{
 ul li {
    list-style-color: #ed2663;
    list-style-type: circle;
+   margin-left: 20px;
 } 
+
+ul li ul li {
+  margin-left: 40px;
+}
+
 .graybox {
   background-color: #f0f0f0;
   padding: 10px;
@@ -288,6 +294,11 @@ ul li {
 
 .col-md-12 .challenge-name {
   margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.subheader {
+  margin-bottom: 45px;
 }
 
 .phone-h1 h1 {
@@ -336,6 +347,12 @@ ul.completions {
 ul.completions li {
    height: 100%;
    width: auto;
+   margin-left: 0;
+}
+
+ul.completions li img{
+  width: 60px;
+  height: auto;
 }
 
 ul.completions img {
@@ -619,7 +636,7 @@ footer .copy{
 }
 
 .discussion-column-right {
-  margin-left: 130px;
+  margin-left: 120px;
 }
 
 /* Some overrides from default bootstrap styles */

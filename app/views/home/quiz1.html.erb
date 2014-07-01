@@ -166,13 +166,12 @@ function refreshResults() {
       if(q[i-1].checked == false) {
         document.getElementById("q"+j+"_"+i).style.display = "none";
       } else {
-        CHECKED +=1;
+        CHECKED += 1;
         document.getElementById("q"+j+"_"+i).style.display = "block";
       }
     }
   }
-  if(CHECKED == 5) {
-    document.getElementById("myModal").modal(option);
+  if(CHECKED >= 5) {
     document.getElementById("review").style.display = "block";
   } else {
     document.getElementById("review").style.display = "none";
