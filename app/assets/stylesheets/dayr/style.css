@@ -701,6 +701,10 @@ footer .copy{
    color: #fff;
 }
 
+.nav li {
+  margin-left: 0;
+}
+
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
    background-color: #35A9B3;
    color: #fff;
