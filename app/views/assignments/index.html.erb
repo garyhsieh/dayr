@@ -46,7 +46,7 @@
             <h1>Challenges</h1>
             
             <% @assignments.each do |assignment| %>
-              <% if can? :manage, Assignment or assignment.date <= Date.today%>
+              <% if ((can? :manage, Assignment or assignment.date <= Date.today) and assignment.challenge != nil) %>
 
             <article class="search-result row">
               <div class="column-left">
@@ -54,7 +54,17 @@
                   <%= link_to(image_tag(assignment.challenge.image_url), assignment, :class => 'assignment-challenge' ) %>
                 </span>
               </div>
-
+              <div class="column-right">
+                <i class="glyphicon glyphicon-calendar"></i> <span><%=h assignment.date.strftime("%b %d, %Y") %></span>
+                <h3><%= link_to assignment.challenge.name, assignment, :class => 'assignment-challenge' %></h3>
+                <p><%= assignment.challenge.task %></p> 
+                <% if can? :manage, Assignment %>           
+                <span class="plus">
+                  <%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-info btn-xs" %> &nbsp;
+                  <%= link_to 'Delete', assignment, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-default btn-xs"  %>
+                </span>
+                <% end %>
+              </div>
               <span class="clearfix borda"></span>
             </article>
 
