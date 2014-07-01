@@ -104,7 +104,9 @@
                 <h2><%=pluralize(@user.assignments.length, 'Challenge')%> Completed</h2>
                   <ul>
                     <% @user.assignments.each do |assignment| %>
+                      <% unless assignment.challenge.nil? %>
                       <li><%= assignment.date.strftime("%b %d %Y") %>: <%= link_to assignment.challenge.name,  assignment%></li>
+                      <% end %>
                     <% end %>
                   </ul>
                 <% end %>
