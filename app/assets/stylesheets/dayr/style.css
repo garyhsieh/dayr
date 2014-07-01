@@ -481,6 +481,10 @@ hr {
 
 /* Top-Navigation Start */
 
+.navbar-default .navbar-nav>.dropdown>a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
 .navbar { 
    border: none; 
    border-radius: 0px;
