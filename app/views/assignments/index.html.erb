@@ -46,12 +46,11 @@
             <h1>Challenges</h1>
             
             <% @assignments.each do |assignment| %>
-              <% if ((can? :manage, Assignment or assignment.date <= Date.today) and assignment.challenge != nil) %>
+              <% if can? :manage, Assignment or assignment.date <= Date.today%>
 
             <article class="search-result row">
               <div class="column-left">
                 <span class="thumbnail">
-                  <%= link_to(image_tag(assignment.challenge.image_url), assignment, :class => 'assignment-challenge' ) %>
                 </span>
               </div>
               <div class="column-right">
