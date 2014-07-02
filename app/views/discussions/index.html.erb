@@ -47,13 +47,13 @@
               <article class="search-result row">
                 <div class="discussion-column-left">
                   <a href="#" title="Lorem ipsum" class="thumbnail">
-                    <%= gravatar_tag discussion.user , :html => { :style => "float:left;" }%>
+                    <%= link_to gravatar_tag discussion.user, discussion, :class => 'assignment-challenge' %>
                   </a>
                 </div>
                 <div class="discussion-column-right">
                   <i class="glyphicon glyphicon-calendar"></i> <span><%=h discussion.created_at.strftime("%b %d, %Y") %></span>
-                  <h3><%= link_to discussion.subject, discussion, :class => 'assignment-challenge' %></h3>
-                  <p> <%= truncate( discussion.content, length:45 ) %></p> 
+                  <h3>Subject: <%= link_to discussion.subject, discussion, :class => 'assignment-challenge' %></h3>
+                  <p> Question: <%= link_to truncate( discussion.content, length:45 ), discussion, :class => 'assignment-challenge' %></p> 
                 </div>
                 <span class="clearfix borda"></span>
               </article>                         
