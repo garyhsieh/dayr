@@ -127,22 +127,24 @@
                           					which is a <%= link_to "Gravatar", "http://gravatar.com/" %>
                           					or Globally-Recognized Avatar.
                           				</p>
+                                  <br>
+
+                                  <%= link_to "Instructions for setting up gravatar", "../../pdf/gravatar_instructions.pdf"%>.
+
+
                           				<p>
                           					<%= link_to("http://gravatar.com/", :class => "btn btn-primary", :target => '_new') do %>
                           						Sign up to get your own Gravatar. &raquo;
                           					<% end %>
                           				</p>
-                          			</div>
+                                  <br>
+                                </div>
                           		</div> <!-- #picture -->
                             </div> <!-- .tab-content -->
                           </div><!-- .tabbable -->
 
                           <% content_for :sb do %>
 
-                            <h3>Cancel my account</h3>
-
-                            <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-                            
                           <% end %>
 
             </div>

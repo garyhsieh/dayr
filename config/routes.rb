@@ -33,6 +33,11 @@ Dayr::Application.routes.draw do
   match "/quiz4" => "home#quiz4"
   match "/feeding_my_older_baby" => "home#feeding_my_older_baby"
   match "/my_babys_first_foods" => "home#my_babys_first_foods"
+  match "/what_is_my_baby_telling_me" => "home#what_is_my_baby_telling_me"
+  match "/is_your_baby_shy_flexible_or_fiesty" => "home#is_your_baby_shy_flexible_or_fiesty"
+  match "/parents_provide_baby_decides" => "home#parents_provide_baby_decides"
+  match "/my_plan_for_feeding_my_baby" => "home#my_plan_for_feeding_my_baby"    
+
   root :to => "home#index"
 
   # The priority is based upon order of creation:
