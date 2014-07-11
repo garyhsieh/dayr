@@ -43,7 +43,7 @@ class AssignmentsController < ApplicationController
     if can? :manage, Assignment
       @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC', :conditions => ["challenges.id != ?", ""])    
     else  
-      @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC', :conditions => ["date <= ? && challenges.id != ?", Date.today, ""])
+      @assignments = Assignment.includes(:challenge).find(:all, :order => 'date DESC', :conditions => ["date <= ? && date >? && challenges.id != ?", Date.today, Date.today-7, ""])
     end
   
     respond_to do |format|

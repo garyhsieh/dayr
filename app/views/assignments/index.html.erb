@@ -1,4 +1,4 @@
-<% content_for :title do %>Assignments<% end %>
+<% content_for :title do %>Past Week's Assignments<% end %>
 
 <% content_for :head do %>
   <style>
@@ -43,7 +43,7 @@
               <%= link_to '+ New Assignment', new_assignment_path, :class => 'btn btn-primary', :id => 'new-assign' %>
             </div>
             <% end %>
-            <h1>Challenges</h1>
+            <h1>Past Week's Challenges</h1>
             
             <% @assignments.each do |assignment| %>
               <% if can? :manage, Assignment or assignment.date <= Date.today%>

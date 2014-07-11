@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+    class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -37,9 +37,12 @@ class User < ActiveRecord::Base
     challenge_name = @assignment.challenge.name
     if @assignment != nil
       @users.each do |user|
-        if user.receive_daily_sms_reminders
-          if user.sms_address != nil
+        if user.receive_daily_sms_reminders && user.sms_address != nil
+          diff = ((Time.now - user.created_at) / 1.day).round 
+          if diff < 43
             DailySms.daily_message(user, challenge_name).deliver!
+          elsif diff == 43
+            DailySms.end_message(user).deliver!
           end
         end
       end
