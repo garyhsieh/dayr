@@ -31,26 +31,26 @@ Dayr::Application.configure do
   
   
    # For Devise
-   #config.action_mailer.default_url_options = { :host => 'localhost' }
-   #config.action_mailer.perform_deliveries = true
-   #config.action_mailer.delivery_method = :sendmail #:smtp
+   config.action_mailer.default_url_options = { :host => 'localhost' }
+   config.action_mailer.perform_deliveries = true
+   config.action_mailer.delivery_method = :sendmail #:smtp
 
 
   
-  config.action_mailer.default_url_options = { :host => 'dayr.me' }
-  config.action_mailer.raise_delivery_errors = true
-  ActionMailer::Base.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.default_url_options = { :host => 'dayr.me' }
+  #config.action_mailer.raise_delivery_errors = true
+  #ActionMailer::Base.perform_deliveries = true
+  #config.action_mailer.delivery_method = :smtp
 
   
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :authentication => "plain",
-    :user_name => ENV["GMAIL_USERNAME"],
-    :password => ENV["GMAIL_PASSWORD"],
-  }
+  #config.action_mailer.smtp_settings = {
+  #  :enable_starttls_auto => true,
+  #  :address => "smtp.gmail.com",
+  #  :port => 587,
+  #  :authentication => "plain",
+  #  :user_name => ENV["GMAIL_USERNAME"],
+  #  :password => ENV["GMAIL_PASSWORD"],
+  #}
 
 
 end
