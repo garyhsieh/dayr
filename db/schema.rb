@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140625034537) do
+ActiveRecord::Schema.define(:version => 20140724182111) do
 
   create_table "additional_informations", :force => true do |t|
     t.string   "name"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20140625034537) do
     t.boolean  "receive_daily_sms_reminders", :default => true
     t.boolean  "receive_email_notifications", :default => true
     t.string   "sms_address"
+    t.boolean  "is_nurse",                    :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

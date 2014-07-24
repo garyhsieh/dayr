@@ -25,7 +25,13 @@
                     </span>
                     <span class="qa-message-who">
                       <span class="qa-message-who-pad">by </span>
-                      <span class="qa-message-who-data"><%= @advice_message.user.username %></span>
+                      <span class="qa-message-who-data">
+                        <% if @advice_message.user %>
+                          <%= @advice_message.user.username %>
+                        <% else %>
+                          [deleted]
+                        <% end %>
+                      </span>
                     </span>
                   </div>
                 </div>

@@ -6,7 +6,11 @@ class AdviceMessagesController < ApplicationController
   # GET /advice_messages
   # GET /advice_messages.json
   def index
-    @advice_messages = AdviceMessage.where(user_id: current_user)
+    if current_user.is_nurse || current_user.admin
+      @advice_messages = AdviceMessage.all
+    else 
+      @advice_messages = AdviceMessage.where(user_id: current_user)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +23,7 @@ class AdviceMessagesController < ApplicationController
   def show
     @advice_message = AdviceMessage.find(params[:id])
 
-    if @advice_message.user_id == current_user.id
+    if @advice_message.user_id == current_user.id || current_user.is_nurse || current_user.admin
 
       @comments = Comment.find_comments_for_commentable_threaded(@advice_message.class.name, @advice_message.id)
 

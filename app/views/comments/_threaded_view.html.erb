@@ -13,6 +13,7 @@
   	    <% @tmp = comment %>
   	  <% end %>
       <div class="pull-left">
+
         <% if comment.user %>      
           <%= link_to(profile_path(comment.user.username), :class => 'comment-img') do %>
             <%= gravatar_tag comment.user %>
@@ -22,6 +23,8 @@
             [deleted]
           <% end %>  
         <% end %>
+
+
       </div>
       <div class="qa-message-list" >
         <div class="message-item" >
