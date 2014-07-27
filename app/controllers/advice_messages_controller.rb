@@ -6,7 +6,7 @@ class AdviceMessagesController < ApplicationController
   # GET /advice_messages
   # GET /advice_messages.json
   def index
-    if current_user.is_nurse || current_user.admin
+    if current_user.is_nurse or current_user.admin
       @advice_messages = AdviceMessage.all
     else 
       @advice_messages = AdviceMessage.where(user_id: current_user)

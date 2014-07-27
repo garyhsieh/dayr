@@ -61,7 +61,13 @@
 						<p>If you have an urgent medical concern, please contact your family doctor or go to the emergency room.</p> 
 
 						<br>
-						<p>If you have a non-urgent medical question, email our nurse Kristin at karnold@ingham.org</p>
+						<p>If you have a non-urgent medical question, please
+							<% if user_signed_in? %>
+				            <%= link_to "ask the advice nurse", new_advice_message_path%></li>
+				          <% else %>
+				            <%= link_to "log in to ask the nurse", new_user_session_path%></li>
+				          <% end %>. 
+				        </p>
 						<br>
 						<p>If you have a question about the program, the challenges, or the website, contact Site Coordinators: Alice Hoffman or Mackenzie Robson</p>
 
