@@ -45,7 +45,6 @@
             DailySms.end_message(user).deliver!
           end
         end
-      end
     end
   end
 
