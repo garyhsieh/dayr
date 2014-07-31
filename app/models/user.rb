@@ -14,6 +14,9 @@
   validates_uniqueness_of :username
   validates_presence_of :username
 
+  validates_format_of :sms_address,:with => Devise::email_regexp
+
+
   validates :sign_up_code, :inclusion => { :in => "t4tm", :message => "The code you have entered is not a valid sign up code. Please contact dayr.me@gmail.com if you are participating in the study and cannot sign up. " }
   
   has_many :completions
@@ -37,12 +40,20 @@
     challenge_name = @assignment.challenge.name
     if @assignment != nil
       @users.each do |user|
-        if user.receive_daily_sms_reminders && user.sms_address != nil
+        if user.receive_daily_sms_reminders && user.sms_address != nil && user.sms_address != ""
           diff = ((Time.now - user.created_at) / 1.day).round 
           if diff < 43
-            DailySms.daily_message(user, challenge_name).deliver!
+            begin
+              DailySms.daily_message(user, challenge_name).deliver!
+            rescue => e
+              puts "caught exception #{e}! ohnoes!"
+            end
           elsif diff == 43
-            DailySms.end_message(user).deliver!
+            begin
+              DailySms.end_message(user).deliver!
+            rescue => e
+              puts "caught exception #{e}! ohnoes!"
+            end            
           end
         end
       end

@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
   def create
      @comment = Comment.new(params[:comment])
-     
 
-     #deliver notification
+    #  #deliver notification
 
     if @comment.parent_id == nil
       if @comment.commentable_type == AdviceMessage.name
@@ -45,7 +44,6 @@ class CommentsController < ApplicationController
       CommentMailer.comment_reply_email(@user,@comment_type,@body).deliver!
     end
 
-     #DailySms.daily_message().deliver
 
 
     if @comment.commentable_type == AdviceMessage.name

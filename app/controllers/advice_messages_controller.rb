@@ -7,9 +7,9 @@ class AdviceMessagesController < ApplicationController
   # GET /advice_messages.json
   def index
     if current_user.is_nurse or current_user.admin
-      @advice_messages = AdviceMessage.all
+      @advice_messages = AdviceMessage.find(:all, :order => 'created_at DESC')
     else 
-      @advice_messages = AdviceMessage.where(user_id: current_user)
+      @advice_messages = AdviceMessage.find(:all, :order => 'created_at DESC', :conditions => ["user_id = ?", current_user])
     end
 
     respond_to do |format|

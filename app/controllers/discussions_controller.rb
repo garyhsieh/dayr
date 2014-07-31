@@ -6,7 +6,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.find(:all, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
