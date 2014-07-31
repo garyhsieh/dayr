@@ -1,5 +1,5 @@
 class DiscussionsController < ApplicationController
-  before_filter :authenticate_user!, :only => :complete
+  before_filter :authenticate_user!
   load_and_authorize_resource
 
 
