@@ -37,6 +37,7 @@ Dayr::Application.routes.draw do
   match "/is_your_baby_shy_flexible_or_fiesty" => "home#is_your_baby_shy_flexible_or_fiesty"
   match "/parents_provide_baby_decides" => "home#parents_provide_baby_decides"
   match "/my_plan_for_feeding_my_baby" => "home#my_plan_for_feeding_my_baby"    
+  match "/breastfeed_rap" => "home#breastfeed_rap"    
 
   root :to => "home#index"
 
