@@ -22,9 +22,9 @@
                <%= f.password_field :password, :placeholder => "password"  %>
               </div>
 
-            <% if devise_mapping.rememberable? %>
+            <% if devise_mapping.rememberable? -%>
               <label id="remember-me">
-                <%= f.check_box :remember_me, {:checked=>true} -%>
+                <%= f.check_box :remember_me, {:checked=>true} %>
                  Remember me
               </label>
             <% end -%>
