@@ -1,4 +1,4 @@
-    class User < ActiveRecord::Base
+class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,7 +17,8 @@
   validates_format_of :sms_address,:with => Devise::email_regexp
 
 
-  validates :sign_up_code, :inclusion => { :in => "t4tm", :message => "The code you have entered is not a valid sign up code. Please contact dayr.me@gmail.com if you are participating in the study and cannot sign up. " }
+  validates :sign_up_code, :presence => true
+  validates :sign_up_code, :inclusion => %w(t4tm)
   
   has_many :completions
   has_many :assignments, :through => :completions
