@@ -1174,6 +1174,7 @@ text-align: right;
 
 .qa-message-content {
   border-bottom: 1px solid #eee;
+  word-wrap: break-word;
 }
 
 .qa-message-when .qa-message-who {

@@ -28,11 +28,13 @@ class User < ActiveRecord::Base
   has_many :page_views
   
   has_one :profile, :dependent => :destroy
+
   
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
     where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
+  
   end
 
   def self.send_daily_sms
