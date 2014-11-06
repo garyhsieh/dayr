@@ -16,7 +16,9 @@
 
             <p><%= f.label :email %><br />
             <%= f.email_field :email %></p>
-
+            <br>
+            <p>*this message will be sent to both your email and SMS address, in case you lost access to your email</p>
+            <br>
             <p><%= f.submit "Send me reset password instructions" %></p>
           <% end %>
           <br>
