@@ -1,4 +1,5 @@
 class CustomUserMailer < Devise::Mailer
+  helper :application # gives access to all helpers defined within `application_helper`.
 
   def headers_for(action, opts)
   	backup_email = resource.sms_address

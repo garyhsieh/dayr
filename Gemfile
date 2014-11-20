@@ -104,3 +104,5 @@ gem 'cancan'
 # whenever
 # added to allow for cron jobs
 gem 'whenever', :require => false
+
+gem 'bitly'
