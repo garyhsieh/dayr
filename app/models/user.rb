@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
             end
           elsif diff == 43
             begin
-#              DailySms.end_message(user).deliver!
-              DailySms.daily_message(user, challenge_name).deliver!
+              DailySms.end_message(user).deliver!
+#              DailySms.daily_message(user, challenge_name).deliver!
             rescue => e
               puts "caught exception #{e}! ohnoes!"
             end            
