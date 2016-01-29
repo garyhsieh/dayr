@@ -6,6 +6,7 @@ class CommentMailer < ActionMailer::Base
   end
 
   def advice_message_email(body)
-    mail(to: "karnold@ingham.org,KMckinley@ingham.org,rtraylor@ingham.org,dayrme@gmail.com", subject: "A New Advice Question", body: body)
+#    mail(to: "karnold@ingham.org,KMckinley@ingham.org,rtraylor@ingham.org,dayrme@gmail.com", subject: "A New Advice Question", body: body)
+	mail(to: "LDoss@ingham.org,rtraylor@ingham.org,dayrme@gmail.com", subject: "A New Advice Question", body: body)
   end
 end
